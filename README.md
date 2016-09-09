@@ -1,7 +1,7 @@
 # cleverjobhunter
 
 ### Goals
-- Track the following (and make printer friendly, exportable): 
+- Track the following (and make printer friendly, exportable):
   - details about the job search (MVP)
     - companies I send applications to
     - roles at each company I have applied for
@@ -55,4 +55,10 @@
     - track treehouse / code wars / etc...
     - further gamification!?
 
-### MVPs
+### Questions / potential issues to resolve
+
+  - what's the workflow from the user perspective?
+  - can we add bits of information without adding a "whole" company or set of data?
+  - make sure it's set for mobile
+  - incremental form sections so as not to overwhelm
+  - 
