@@ -1,0 +1,45 @@
+{
+  "name": "cleverjobhunter",
+  "version": "1.0.0",
+  "description": "### Goals - Track the following (and make printer friendly, exportable):   - details about the job search (MVP)     - companies I send applications to     - roles at each company I have applied for     - the date I submitted an application     - the method of applying     - who you spoke with at each company     - follow up with best practice next steps     - motivations, goals to keep in mind, personal successes   - details about interviews (MVP)     - formal or informational     - who you met with     - when you met     - etc...   - details about each company (MVP)     - what product(s)/service(s) do they provide     - who is their market     - internal contacts within company     - operating location, other offices (?), remote work (?)     - current technology stack     - actionable steps (follow up in X weeks for Y role)     - pros / cons     - size of company     - outstanding questions     - media sources (article links, tips for saving locally)   - meet ups attended (MVP)     - location     - date     - contacts made   - catalog of contacts (MVP)     - name     - role     - company     - phone     - email     - twitter     - linkedin     - etc...   - motivations (BONUS)     - goal setting     - personal successes     - reminders     - mood tracking     - resources + exploration   - analytics / data visualizations (BONUS)     - applications sent per week     - contacts made per week     - networks checked into per day     - daily reflection / mood tracker     - maintain personal brand (twitter)     - maintain github projects?     - track treehouse / code wars / etc...     - further gamification!?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InsertCleverNameHere/cleverjobhunter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InsertCleverNameHere/cleverjobhunter/issues"
+  },
+  "homepage": "https://github.com/InsertCleverNameHere/cleverjobhunter#readme",
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "chai": "^3.5.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.5.0",
+    "eslint-loader": "^1.5.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.22.0",
+    "karma": "^1.3.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-webpack": "^1.8.0",
+    "mocha": "^3.0.2",
+    "node-sass": "^3.9.3",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
+  }
+}
