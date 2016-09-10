@@ -14,4 +14,4 @@ app.config(['$mdThemingProvider', function($mdThemingProvider){
     .warnPalette('red');
 }]);
 
-export default app.name;
+export default app;

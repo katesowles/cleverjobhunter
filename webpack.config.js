@@ -11,7 +11,7 @@ module.exports = {
   devtool: `source-map`,
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/app.html'
     }),
     new EnvironmentPlugin(['API_URL']),
     new ExtractTextPlugin('/styles/bundle.css')
