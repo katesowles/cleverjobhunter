@@ -1,0 +1,39 @@
+<section ng-class="$ctrl.styles.companyDetail">
+    <h1>{{$ctrl.company.name}}</h1>
+    <h2>Service: {{$ctrl.company.service}}</h2> 
+        <h3>Location: {{$ctrl.company.location}}</h3>
+        <h3>Info: {{$ctrl.company.info}}</h3>
+        <h3>Technology Stack: {{$ctrl.company.tech}}</h3>
+        <div ng-if="$ctrl.company.actionItems.length">Action Items: 
+            <ul>
+                <li ng-repeat="item in $ctrl.company.actionItems">{{item.date}} {{item.plan}}</li>
+            </ul>
+        </div>
+        <div ng-if="$ctrl.company.pros.length">Pros: 
+            <ul>
+                <li ng-repeat="item in $ctrl.company.pros">{{item}}</li>
+            </ul>
+        </div>
+        <div ng-if="$ctrl.company.cons.length">Cons: 
+            <ul>
+                <li ng-repeat="item in $ctrl.company.cons">{{item}}</li>
+            </ul>
+        </div>
+        <div ng-if="$ctrl.company.question.length">Questions: 
+            <ul>
+                <li ng-repeat="item in $ctrl.company.questions">{{item}}</li>
+            </ul>
+        </div>
+        <div ng-if="$ctrl.company.contacts.length">Contacts: 
+            <ul>
+            <!--ui-sref to the contact???-->
+                <li>Populate with the peron's name linking to their contact data</li>
+                <li ng-repeat="item in $ctrl.company.contacts">{{item._id}}</li>
+            </ul>
+        </div>
+        <div ng-if="$ctrl.company.links.length">Links: 
+            <ul>
+                <li ng-repeat="item in $ctrl.company.links"><a ng-href="{{item.url}}">{{item.desc}}</a></li>
+            </ul>
+        </div>
+</section>
