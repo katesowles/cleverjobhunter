@@ -18,6 +18,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('dashboard', {
       url: '/dashboard',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
@@ -32,6 +35,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('companies', {
       url: '/companies',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
@@ -47,6 +53,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     // Will be /company/:id or /company?id once the db is set up
     .state('company', {
       url: '/company',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
@@ -61,6 +70,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('positions', {
       url: '/positions',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
@@ -75,6 +87,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('position', {
       url: '/position',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
@@ -89,6 +104,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('contacts', {
       url: '/contacts',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
@@ -103,6 +121,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('user', {
       url: '/user',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
