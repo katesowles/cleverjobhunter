@@ -7,5 +7,5 @@ export default {
 
 controller.$inject = ['$state'];
 function controller($state) {
-  
+  this.username = 'Name-Goes-Here';
 };
