@@ -9,7 +9,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'header'
         },
         main: {
-          template: '<div>Bomb Ass Job Search</div>'
+          component: 'landing'
         },
         footer: {
           template: '<div>Bomb Ass Job Search Footer</div>'
@@ -26,7 +26,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
 
         },
         footer: {
-          
+
         }
       }
     })
@@ -59,8 +59,8 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('position', {
-      url: '/position',
+    .state('positions', {
+      url: '/positions',
       views: {
         header: {
 
@@ -69,7 +69,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
 
         },
         footer: {
-          
+
         }
       }
     })
@@ -77,13 +77,13 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/contacts',
       views: {
         header: {
-
+          component: 'header'
         },
         main: {
-
+          component: 'contacts'
         },
         footer: {
-          
+          template: '<h3>Footer</h3>'
         }
       }
     })
@@ -103,5 +103,5 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     });
 
   $urlRouterProvider.otherwise('/');
-    
+
 };
