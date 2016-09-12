@@ -5,7 +5,9 @@ export default {
   controller
 };
 
+
 controller.$inject = ['$state'];
 function controller($state) {
   this.username = 'Name-Goes-Here';
+
 };
