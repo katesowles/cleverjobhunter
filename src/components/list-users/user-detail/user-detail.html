@@ -1,0 +1,20 @@
+<section ng-class="$ctrl.styles.userDetail">
+  <h1>{{$ctrl.user.name}}</h1>
+  <div>Display: {{$ctrl.user.name}}</div>
+  <div>Login: {{$ctrl.user.username}}</div>
+  <div ng-if="$ctrl.user.positions.length">My Submissions:
+    <ul>
+        <li ng-repeat="position in $ctrl.user.positions">{{position.dateApplied}} | {{position.title}} | {{position.company}}</li>
+    </ul>
+  </div>
+  <div ng-if="$ctrl.user.companies.length">Company Research:
+    <ul>
+        <li ng-repeat="company in $ctrl.user.companies">{{company.name}}</li>
+    </ul>
+  </div>
+  <div ng-if="$ctrl.user.contacts.length">My Contacts:
+    <ul>
+        <li ng-repeat="contact in $ctrl.user.contacts">{{contact.name}} | {{contact.role}} | {{contact.company}}</li>
+    </ul>
+  </div>
+</section>
