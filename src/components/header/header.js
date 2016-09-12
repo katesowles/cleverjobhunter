@@ -5,7 +5,11 @@ export default {
   controller
 };
 
-controller.$inject = ['$state'];
-function controller($state) {
-  
+// controller.$inject = ['$state', '$rootScope'];
+function controller() {
+  // console.log('in header controller');
+
+  // $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    
+  // });
 };

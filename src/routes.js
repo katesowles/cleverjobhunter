@@ -44,17 +44,31 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('positions', {
+      url: '/positions',
+      views: {
+        header: {
+          component: 'header'
+        },
+        main: {
+          component: 'positions'
+        },
+        footer: {
+          template: '<div>Bomb Ass Job Search Footer</div>'
+        }
+      }
+    })
     .state('position', {
       url: '/position',
       views: {
         header: {
-
+          component: 'header'
         },
         main: {
-
+          component: 'position-info'
         },
         footer: {
-          
+          template: '<div>Bomb Ass Job Search Footer</div>'
         }
       }
     })
