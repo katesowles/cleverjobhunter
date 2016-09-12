@@ -11,12 +11,12 @@ function interceptor($window, tokenService, $state) {
       config.headers = config.headers || {};
 
       const token = tokenService.get();
-      
+
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
-      }	
-                        
-      return config;  
+      }
+
+      return config;
     },
     responseError(response) {
       if (response.status >= 400 && response.status < 500) {
@@ -26,5 +26,5 @@ function interceptor($window, tokenService, $state) {
       return Promise.reject(response);
     }
   };
-  
+
 };

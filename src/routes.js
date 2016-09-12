@@ -9,7 +9,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'header'
         },
         main: {
-          template: '<div>Bomb Ass Job Search</div>'
+          component: 'landing'
         },
         footer: {
           template: '<div>Bomb Ass Job Search Footer</div>'
@@ -26,21 +26,36 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
 
         },
         footer: {
-          
+
         }
       }
     })
+    .state('companies', {
+      url: '/companies',
+      views: {
+        header: {
+          component: 'header'
+        },
+        main: {
+          component: 'listCompanies'
+        },
+        footer: {
+          template: '<div>Footer component will go here</div>'
+        }
+      }
+    })
+    // Will be /company/:id or /company?id once the db is set up
     .state('company', {
       url: '/company',
       views: {
         header: {
-
+          component: 'header'
         },
         main: {
-
+          component: 'companyDetail'
         },
         footer: {
-          
+          template: '<div>Footer component will go here</div>'
         }
       }
     })
@@ -69,6 +84,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         },
         footer: {
           template: '<div>Bomb Ass Job Search Footer</div>'
+
         }
       }
     })
@@ -76,17 +92,31 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/contacts',
       views: {
         header: {
-
+          component: 'header'
         },
         main: {
-
+          component: 'contacts'
         },
         footer: {
-          
+          template: '<h3>Footer</h3>'
+        }
+      }
+    })
+    .state('user', {
+      url: '/user',
+      views: {
+        header: {
+          component: 'header'
+        },
+        main: {
+          component: 'userDetail'
+        },
+        footer: {
+          template: '<div>Bomb Ass Job Search Footer</div>'
         }
       }
     });
 
   $urlRouterProvider.otherwise('/');
-    
+
 };
