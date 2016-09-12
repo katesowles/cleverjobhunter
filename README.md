@@ -1,1 +1,64 @@
 # cleverjobhunter
+
+### Goals
+- Track the following (and make printer friendly, exportable):
+  - details about the job search (MVP)
+    - companies I send applications to
+    - roles at each company I have applied for
+    - the date I submitted an application
+    - the method of applying
+    - who you spoke with at each company
+    - follow up with best practice next steps
+    - motivations, goals to keep in mind, personal successes
+  - details about interviews (MVP)
+    - formal or informational
+    - who you met with
+    - when you met
+    - etc...
+  - details about each company (MVP)
+    - what product(s)/service(s) do they provide
+    - who is their market
+    - internal contacts within company
+    - operating location, other offices (?), remote work (?)
+    - current technology stack
+    - actionable steps (follow up in X weeks for Y role)
+    - pros / cons
+    - size of company
+    - outstanding questions
+    - media sources (article links, tips for saving locally)
+  - meet ups attended (MVP)
+    - location
+    - date
+    - contacts made
+  - catalog of contacts (MVP)
+    - name
+    - role
+    - company
+    - phone
+    - email
+    - twitter
+    - linkedin
+    - etc...
+  - motivations (BONUS)
+    - goal setting
+    - personal successes
+    - reminders
+    - mood tracking
+    - resources + exploration
+  - analytics / data visualizations (BONUS)
+    - applications sent per week
+    - contacts made per week
+    - networks checked into per day
+    - daily reflection / mood tracker
+    - maintain personal brand (twitter)
+    - maintain github projects?
+    - track treehouse / code wars / etc...
+    - further gamification!?
+
+### Questions / potential issues to resolve
+
+  - what's the workflow from the user perspective?
+  - can we add bits of information without adding a "whole" company or set of data?
+  - make sure it's set for mobile
+  - incremental form sections so as not to overwhelm
+  - 

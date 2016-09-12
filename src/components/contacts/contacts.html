@@ -1,0 +1,19 @@
+<div ng-cloak layout-gt-sm="row" layout="column">
+
+  <div flex-gt-sm="50" flex>
+
+    <md-toolbar layout="row" class="md-hue-3">
+      <div class="md-toolbar-tools">
+        <span>Contacts List</span>
+      </div>
+    </md-toolbar>
+    <md-button class="md-secondary md-icon-button"
+      ng-click="$ctrl.addButton = 'save'"
+      ng-show="$ctrl.addButton === 'add'">Add Contact
+    </md-button>
+    <new-contact add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-contact>
+    <div ng-repeat="contact in $ctrl.contacts">
+      <contact-list contact="contact"></contact-list>
+    </div>
+  </div>
+</div>
