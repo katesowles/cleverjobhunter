@@ -9,9 +9,17 @@ export default {
   controller
 };
 
-controller.$inject = ['$mdDialog', 'contactService'];
-function controller($mdDialog, contactService) {
+controller.$inject = ['$mdDialog', 'contactService', 'companyService', '$window'];
+function controller($mdDialog, contactService, companyService, $window) {
   this.contact = angular.copy(this.contactToEdit);
+  this.userId = $window.localStorage['id'];
+
+
+  companyService.getByUser(this.userId)
+    .then(companies => {
+      this.companies = companies;
+    })
+    .catch(err => console.log(err));
 
   this.cancel = () => {
     $mdDialog.hide();
@@ -25,3 +33,4 @@ function controller($mdDialog, contactService) {
   };
 
 }
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU3ZDU3YzJiOWI4MDZiMzg2Zjc3ZGFhNSIsImlhdCI6MTQ3MzcxOTc2MX0.jqCwOANAJhTK0Fsh2Zn42B4z6fyvXv1fKXCZK8IlBio
