@@ -66,7 +66,21 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'header'
         },
         main: {
-          template: '<div>Temp Position Main</div>'
+          component: 'positions'
+        },
+        footer: {
+          component: 'footer'
+        }
+      }
+    })
+    .state('position', {
+      url: '/position',
+      views: {
+        header: {
+          component: 'header'
+        },
+        main: {
+          component: 'position'
         },
         footer: {
           component: 'footer'

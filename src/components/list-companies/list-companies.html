@@ -1,4 +1,14 @@
 <section ng-class="$ctrl.styles.listCompanies">
+
+<!--buttons for adding a new company-->
+    <md-button class="md-secondary md-icon-button"
+      ng-click="$ctrl.addButton = 'save'"
+      ng-show="$ctrl.addButton === 'add'">Add Company
+    </md-button>
+    <new-company add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-company>
+    
+
+<!--list of user's current companies-->
     <div ng-repeat="company in $ctrl.companies">
         <h1>{{company.name}}</h1>
         <h3>{{company.info}}</h3>
