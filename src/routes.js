@@ -59,8 +59,8 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('position', {
-      url: '/position',
+    .state('positions', {
+      url: '/positions',
       views: {
         header: {
 
@@ -77,13 +77,13 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/contacts',
       views: {
         header: {
-
+          component: 'header'
         },
         main: {
-
+          component: 'contacts'
         },
         footer: {
-
+          template: '<h3>Footer</h3>'
         }
       }
     })

@@ -1,0 +1,74 @@
+<form name="addContact" ng-submit="addContact.$valid && $ctrl.submit()"
+      novalidate>
+    <md-input-container>
+        <label>Name:</label>
+        <input
+            name="addName"
+            required
+            ng-model="$ctrl.contact.name"/>
+            <div ng-messages="addContact.addName.$error" role="alert">
+                <div ng-message="required">A name is required</div>
+            </div>
+    </md-input-container>
+    <md-input-container>
+        <label>E-mail:</label>
+        <input
+            name="addEmail"
+            required
+            ng-model="$ctrl.contact.email"/>
+        <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+            <div ng-message="required">An e-mail is required</div>
+        </div> -->
+    </md-input-container>
+    <md-input-container>
+        <label>Phone:</label>
+        <input
+            name="addPhone"
+            required
+            ng-model="$ctrl.contact.phone"/>
+        <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+            <div ng-message="required">An e-mail is required</div>
+        </div> -->
+    </md-input-container>
+    <md-input-container>
+        <label>Company:</label>
+        <!-- <select>
+          For selecting company from companies that already exist?
+        </select>
+        <p>Would also need option to add company if it does not exist. -->
+        <input
+            name="addCompany"
+            
+            ng-model="$ctrl.contact.company"/>
+        <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+            <div ng-message="required">An e-mail is required</div>
+        </div> -->
+    </md-input-container>
+    <md-input-container>
+        <label>Role:</label>
+        <input
+            name="addRole"
+            required
+            ng-model="$ctrl.contact.role"/>
+        <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+            <div ng-message="required">An e-mail is required</div>
+        </div> -->
+    </md-input-container>
+    <md-input-container>
+        <label>Relevant Information:</label>
+        <textarea
+            name="addInformation"
+            required
+            ng-model="$ctrl.contact.info">
+          <!-- <div ng-messages="addContact.addInformation.$error" role="alert">
+              <ng-message when="required">This field is required</ng-message>
+          </div> -->
+        </textarea>
+    </md-input-container>
+    <md-dialog-actions>
+      <md-button type="submit" class="md-primary">Save Contact</md-button>
+    </md-dialog-actions>
+    <md-dialog-actions>
+      <md-button ng-click="$ctrl.addButton = 'add'" class="md-primary">Cancel</md-button>
+    </md-dialog-actions>
+</form>
