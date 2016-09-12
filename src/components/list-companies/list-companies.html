@@ -1,0 +1,17 @@
+<section ng-class="$ctrl.styles.listCompanies">
+    <div ng-repeat="company in $ctrl.companies">
+        <h1>{{company.name}}</h1>
+        <h3>{{company.info}}</h3>
+            <div ng-if="company.actionItems.length">
+                <p>Action Items: </p>
+                <ul>
+                    <li ng-repeat="item in company.actionItems">{{item.date}} {{item.plan}}</li>
+                </ul>
+            </div>
+            <!--TODO: feed company id into the ui-sref value as a param-->
+            <p> VVVV Leading to profile with dummy data for Apple</p>
+            <a ui-sref="company">More Details</a>
+    </div>
+</section>
+
+
