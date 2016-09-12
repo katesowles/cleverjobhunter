@@ -12,7 +12,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'landing'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     })
@@ -20,13 +20,13 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/dashboard',
       views: {
         header: {
-
+          component: 'header'
         },
         main: {
-
+          template: '<div>Temp Dashboard Main</div>'
         },
         footer: {
-
+          component: 'footer'
         }
       }
     })
@@ -40,7 +40,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'listCompanies'
         },
         footer: {
-          template: '<div>Footer component will go here</div>'
+          component: 'footer'
         }
       }
     })
@@ -55,7 +55,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'companyDetail'
         },
         footer: {
-          template: '<div>Footer component will go here</div>'
+          component: 'footer'
         }
       }
     })
@@ -69,7 +69,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'positions'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     })
@@ -83,8 +83,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'position'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
-
+          component: 'footer'
         }
       }
     })
@@ -98,7 +97,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'contacts'
         },
         footer: {
-          template: '<h3>Footer</h3>'
+          component: 'footer'
         }
       }
     })
@@ -112,7 +111,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'userDetail'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     });
