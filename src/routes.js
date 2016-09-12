@@ -86,6 +86,20 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           
         }
       }
+    })
+    .state('user', {
+      url: '/user',
+      views: {
+        header: {
+          component: 'header'
+        },
+        main: {
+          component: 'userDetail'
+        },
+        footer: {
+          template: '<div>Bomb Ass Job Search Footer</div>'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/');
