@@ -9,7 +9,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'header'
         },
         main: {
-          template: 'landing'
+          component: 'landing'
         },
         footer: {
           template: '<div>Bomb Ass Job Search Footer</div>'
