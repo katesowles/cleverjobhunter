@@ -80,7 +80,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'header'
         },
         main: {
-          component: 'position-info'
+          component: 'position'
         },
         footer: {
           template: '<div>Bomb Ass Job Search Footer</div>'

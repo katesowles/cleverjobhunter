@@ -1,2 +1,28 @@
-<h3 class="md-primary">{{$ctrl.position.title}}</h3>
-<p class="md-primary">{{$ctrl.position.method}}</p>
+<section ng-class="$ctrl.styles.position">
+    <h1>{{$ctrl.position.title}}</h1>
+        <h3>Info: {{$ctrl.position.postingInfo}}</h3>
+        <h3>Method Applied: {{$ctrl.position.method}}</h3>
+        <div ng-if="$ctrl.position.actionItems.length">Action Items: 
+            <ul>
+                <li ng-repeat="item in $ctrl.position.actionItems">{{item.date}} {{item.plan}}</li>
+            </ul>
+        </div>
+        <div ng-if="$ctrl.position.followups.length">Follow Ups: 
+            <ul>
+                <li ng-repeat="item in $ctrl.position.followups">{{item}}</li>
+            </ul>
+        </div>
+        <div ng-if="$ctrl.position.question.length">Questions: 
+            <ul>
+                <li ng-repeat="item in $ctrl.position.questions">{{item}}</li>
+            </ul>
+        </div>
+        <!--<div ng-if="$ctrl.position.contacts.length">Contacts: 
+            <ul>
+            ui-sref to the contact???
+                <li>Populate with the peron's name linking to their contact data</li>
+                <li ng-repeat="item in $ctrl.position.contacts">{{item._id}}</li>
+            </ul>
+        </div>-->
+        
+</section>
