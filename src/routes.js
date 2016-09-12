@@ -9,7 +9,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'header'
         },
         main: {
-          template: '<div>Bomb Ass Job Search</div>'
+          template: 'landing'
         },
         footer: {
           template: '<div>Bomb Ass Job Search Footer</div>'
@@ -26,7 +26,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
 
         },
         footer: {
-          
+
         }
       }
     })
@@ -69,7 +69,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
 
         },
         footer: {
-          
+
         }
       }
     })
@@ -83,11 +83,11 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
 
         },
         footer: {
-          
+
         }
       }
     });
 
   $urlRouterProvider.otherwise('/');
-    
+
 };
