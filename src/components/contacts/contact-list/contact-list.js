@@ -4,7 +4,7 @@ import styles from './contact-list.scss';
 export default {
   template,
   bindings: {
-    contact: '<'
+    contact: '<',
   },
   controller
 };
