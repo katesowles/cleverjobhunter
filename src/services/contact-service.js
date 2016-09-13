@@ -1,3 +1,4 @@
+//service for contact components
 contactService.$inject = ['$http', 'apiUrl'];
 
 export default function contactService ($http, apiUrl) {

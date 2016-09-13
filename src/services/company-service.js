@@ -1,3 +1,4 @@
+//service for company components
 companyService.$inject = ['$http', 'apiUrl'];
 
 export default function companyService($http, apiUrl){
@@ -7,13 +8,18 @@ export default function companyService($http, apiUrl){
         .then(response => response.data);
     },
 
+    get (companyId) {
+      return $http.get(`${apiUrl}/companies/${companyId}`)
+        .then(response => response.data);
+    },
+
     add (company, userId) {
       return $http.post(`${apiUrl}/companies/${userId}`, company)
         .then(response => response.data);
     },
  
-    remove (company) {
-      return $http.delete(`${apiUrl}/companies/${company._id}`)
+    remove (companyId) {
+      return $http.delete(`${apiUrl}/companies/${companyId}`)
         .then(response => response.data);
     },
 
