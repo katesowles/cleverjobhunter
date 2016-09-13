@@ -9,13 +9,13 @@ import 'angular-ui-router/release/stateEvents';
 
 
 const app = angular.module('jobHunter', [
-  router, 
+  router,
   angular.module('ui.router.state.events').name,
   components,
-  services, 
+  services,
   md,
   messages
-]); 
+]);
 
 app.config(['$mdThemingProvider', function($mdThemingProvider){
   $mdThemingProvider.theme('default')

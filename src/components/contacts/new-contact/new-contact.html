@@ -67,6 +67,9 @@
           </div> -->
         </textarea>
     </md-input-container>
+    <div flex-gt-xs>
+       <md-datepicker ng-model="$ctrl.contact.dateMet" md-placeholder="Date met:"></md-datepicker>
+     </div>
     <md-dialog-actions>
       <md-button type="submit" class="md-primary">Save Contact</md-button>
     </md-dialog-actions>
@@ -74,3 +77,4 @@
       <md-button ng-click="$ctrl.addButton = 'add'" class="md-primary">Cancel</md-button>
     </md-dialog-actions>
 </form>
+<md-divider ></md-divider>
