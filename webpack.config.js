@@ -1,14 +1,14 @@
-const HtmlWebpackPlugin = require(`html-webpack-plugin`);
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const EnvironmentPlugin = require('webpack').EnvironmentPlugin;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: `./src/index.js`,
+  entry: './src/index.js',
   output: {
-    path: `../cleverjobserver/public`,
-    filename: `bundle.js`
+    path: '../cleverjobserver/public',
+    filename: 'bundle.js'
   },
-  devtool: `source-map`,
+  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/app.html'
