@@ -1,0 +1,80 @@
+<!--template for the dialog form to add a new position-->
+<!--<md-dialog aria-label="List dialog">-->
+    <md-dialog-content>
+        <form name="newPosition" ng-submit="newPosition.$valid && $ctrl.submit()"
+      novalidate>
+            <md-input-container>
+                <label>Title:</label>
+                <input name="addTitle" required ng-model="$ctrl.position.title"/>
+                    <!--<div ng-messages="addCompany.addName.$error" role="alert">
+                        <div ng-message="required">A name is required</div>
+                    </div>-->
+            </md-input-container>
+            <md-input-container>
+                <label>Date Posted:</label>
+                <input name="addDateAdvertised" ng-model="$ctrl.position.dateAdvertised"/>
+                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
+                    <div ng-message="required">An e-mail is required</div>
+                </div> -->
+            </md-input-container>
+            <md-input-container>
+                <label>Date Applied:</label>
+                <input name="addDateApplied" required ng-model="$ctrl.position.dateApplied"/>
+                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
+                    <div ng-message="required">An Service is required</div>
+                </div> -->
+            </md-input-container>
+            <md-input-container>
+                <label>Method:</label>
+                <input name="addMethod" required ng-model="$ctrl.position.method"/>
+                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
+                    <div ng-message="required">An e-mail is required</div>
+                </div> -->
+            </md-input-container>
+            <md-input-container>
+                <label>Info:</label>
+                <input name="addPostingInfo" ng-model="$ctrl.position.postingInfo"/>
+                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
+                    <div ng-message="required">An e-mail is required</div>
+                </div> -->
+            </md-input-container>
+            <!--<md-input-container>
+                <label>Pros:</label>
+                <textarea name="addPros" required ng-model="$ctrl.company.info">
+                <div ng-messages="addPosition.addInformation.$error" role="alert">
+                    <ng-message when="required">This field is required</ng-message>
+                </div> 
+                </textarea>
+            </md-input-container>-->
+            <!--<md-input-container>
+                <label>Questions:</label>
+                <select>
+                For selecting company from companies that already exist?
+                </select>
+                <input name="addQuestions" ng-model="$ctrl.company.company"/>
+                <div ng-messages="addPosition.addEmail.$error" role="alert">
+                    <div ng-message="required">An e-mail is required</div>
+                </div> 
+            </md-input-container>-->
+            <!--<md-input-container>
+                <label>Contact:</label>
+                <input name="addContact" ng-model="$ctrl.company.company"/>
+                <div ng-messages="addPosition.addEmail.$error" role="alert">
+                    <div ng-message="required">An e-mail is required</div>
+                </div> 
+            </md-input-container>-->
+            <!--<md-input-container>
+                <label>Action Items:</label>
+                <input name="addActionItems" ng-model="$ctrl.company.actionItems"/>
+                <div ng-messages="addPosition.addEmail.$error" role="alert">
+                    <div ng-message="required">An e-mail is required</div>
+                </div> 
+            </md-input-container>-->
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="$ctrl.submit()" class="md-primary">Save Position</md-button>
+        <md-button ng-click="$ctrl.cancel()" class="md-primary">Cancel</md-button>
+    </md-dialog-actions>
+<!--</md-dialog>-->
+

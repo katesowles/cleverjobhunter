@@ -1,4 +1,4 @@
-import template from './new-company.html';
+import template from './new-position.html';
 
 export default {
   template,
@@ -13,24 +13,22 @@ controller.$inject = ['$scope', '$window', '$mdDialog'];
 function controller ($scope, $window, $mdDialog) {
 
   this.userId = $window.localStorage['id'];
-  console.log(this.userId);
 
-  const resetCompany = () => {
-    this.company = {};
+  const resetPosition = () => {
+    this.position = {};
   };
 
-  resetCompany();
+  resetPosition();
 
   this.cancel = () => {
     $mdDialog.hide();
   };
 
   this.submit = () => {
-    console.log('got here to new-company form submit');
     $mdDialog.hide();
-    this.add(this.company, this.userId);
-    resetCompany();
-    $scope.newCompany.$setPristine();
-    $scope.newCompany.$setUntouched();
+    this.add(this.position, this.userId);
+    resetPosition();
+    $scope.newPosition.$setPristine();
+    $scope.newPosition.$setUntouched();
   };
 };

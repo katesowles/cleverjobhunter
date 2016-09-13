@@ -6,8 +6,8 @@ export default {
   controller
 };
 
-controller.$inject = ['companyService', '$window'];
-function controller(companyService, $window){
+controller.$inject = ['companyService', '$window', '$mdDialog'];
+function controller(companyService, $window, $mdDialog){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
   this.addButton = 'add';
@@ -28,9 +28,39 @@ function controller(companyService, $window){
   };
 
   this.remove = companyId => {
+    console.log(companyId);
     companyService.remove(companyId)
-      .then(message => console.log(message))
+        .then(() => {
+          companyService.getByUser(this.userId)
+            .then(companies => {
+              this.companies = companies;
+            })
       .catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
+  };
+
+  this.newCompany = ($event) => {
+    var parentEl = angular.element(document.body);
+    $mdDialog.show({
+      parent: parentEl,
+      targetEvent: $event,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      template: '<new-company add="$ctrl.add" company="$ctrl.company"></new-company>',
+      controller() {},
+      locals: {
+        company: this.company,
+        add: this.add
+      },
+      clickOutsideToClose: true,
+      escapeToClose: true
+    })
+    .then(newCompany => {
+      if(!newCompany) return;
+      console.log(newCompany);
+      angular.copy(newCompany, this.company);
+    });
   };
 
   // this.companies = [

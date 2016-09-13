@@ -1,17 +1,26 @@
-<section ng-class="$ctrl.styles.listCompanies">
-    <div ng-repeat="position in $ctrl.positions">
-        <h1>{{position.title}}</h1>
-        <h3>{{position.postingInfo}}</h3>
-            <div ng-if="position.actionItems.length">
-                <p>Action Items: </p>
-                <ul>
-                    <li ng-repeat="item in position.actionItems">{{item.date}} {{item.plan}}</li>
-                </ul>
-            </div>
-            <!--TODO: feed position id into the ui-sref value as a param-->
-            <p> VVVV Leading to profile with dummy data for Apple</p>
-            <a ui-sref="position">More Details</a>
-    </div>
+<!--template for the list of user positions-->
+<md-button class="md-secondary md-icon-button"
+    ng-click="$ctrl.newPosition($event)"
+    ng-show="$ctrl.addButton === 'add'">Add Position
+</md-button>
+
+<new-position add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-position>
+
+<section ng-class="$ctrl.styles.positions" ng-repeat="position in $ctrl.positions">
+    <md-card>
+        <md-card-header>
+            <md-card-header-text>
+            <span class="md-title">{{position.title}}</span>
+            <span class="md-subhead">{{position.company}}</span>
+            </md-card-header-text>
+        </md-card-header>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ui-sref="position({positionId: position._id})">More Details</md-button>
+            <md-button ng-click="$ctrl.remove(position._id)">Remove Position</md-button>
+        </md-card-actions>
+    </md-card>
 </section>
+
+
 
 

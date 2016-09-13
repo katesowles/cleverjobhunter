@@ -46,7 +46,10 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     // Will be /company/:id or /company?id once the db is set up
     .state('company', {
-      url: '/company',
+      url: '/company/:companyId',
+      resolve: {
+        companyId: ['$stateParams', p => p.companyId]
+      },
       views: {
         header: {
           component: 'header'
@@ -74,7 +77,10 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       }
     })
     .state('position', {
-      url: '/position',
+      url: '/position/:positionId',
+      resolve: {
+        positionId: ['$stateParams', p => p.positionId]
+      },
       views: {
         header: {
           component: 'header'
@@ -84,8 +90,10 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         },
         footer: {
           template: '<div>Bomb Ass Job Search Footer</div>'
-
         }
+        // params: {
+        //   display: {dynamic: true}
+        // }
       }
     })
     .state('contacts', {

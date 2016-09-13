@@ -7,8 +7,8 @@ export default function positionService ($http, apiUrl) {
         .then(response => response.data);
     },
 
-    get (position) {
-      return $http.get(`${apiUrl}/positions/${position._id}`)
+    get (positionId) {
+      return $http.get(`${apiUrl}/positions/${positionId}`)
         .then(response => response.data);
     },
 
@@ -22,8 +22,8 @@ export default function positionService ($http, apiUrl) {
         .then(response => response.data);
     },
 
-    remove (position) {
-      return $http.delete(`${apiUrl}/positions/${position._id}`)
+    remove (positionId) {
+      return $http.delete(`${apiUrl}/positions/${positionId}`)
         .then(response => response.data);
     },
 
