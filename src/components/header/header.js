@@ -1,4 +1,4 @@
-import template from './header-login.html';
+import template from './header.html';
 
 export default {
   template,
