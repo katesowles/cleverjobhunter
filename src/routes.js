@@ -26,7 +26,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'header'
         },
         main: {
-          template: '<div>Temp Dashboard Main</div>'
+          component: 'dashboard'
         },
         footer: {
           component: 'footer'
