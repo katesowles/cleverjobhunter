@@ -4,18 +4,21 @@ import components from './components';
 import services from './services';
 import md from 'angular-material';
 import messages from 'angular-messages';
+// import 'moment';
+// import angularMoment from 'angular-moment';
 import 'angular-material/angular-material.css';
 import 'angular-ui-router/release/stateEvents';
 
 
 const app = angular.module('jobHunter', [
-  router, 
+  router,
   angular.module('ui.router.state.events').name,
   components,
-  services, 
+  services,
   md,
   messages
-]); 
+  // angularMoment
+]);
 
 app.config(['$mdThemingProvider', function($mdThemingProvider){
   $mdThemingProvider.theme('default')

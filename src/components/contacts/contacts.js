@@ -21,7 +21,11 @@ function controller (contactService, $window, companyService) {
 
   contactService.getByUser(this.userId)
     .then(contacts => {
+      contacts.map(e => {
+        moment(e.dateMet).format('dddd, MMMM Do YYYY');
+      });
       this.contacts = contacts;
+
     })
     .catch(err => console.log(err));
 
