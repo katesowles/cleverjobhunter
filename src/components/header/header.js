@@ -7,5 +7,5 @@ export default {
 
 controller.$inject = ['$state'];
 function controller($state) {
-
+  // TODO : logic to determine whether or not isAuthenticated is valid or not, determines which links show
 };

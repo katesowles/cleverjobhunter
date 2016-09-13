@@ -7,7 +7,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/',
       views: {
         header: {
-          component: 'headerLogout'
+          component: 'header'
         },
         main: {
           component: 'landing'
@@ -22,7 +22,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/welcome',
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
           component: 'landing'
@@ -36,7 +36,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/dashboard',
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
 
@@ -50,7 +50,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/companies',
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
           component: 'listCompanies'
@@ -65,7 +65,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/company',
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
           component: 'companyDetail'
@@ -79,7 +79,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/position',
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
 
@@ -93,7 +93,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/contacts',
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
 
@@ -107,7 +107,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/user',
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
           component: 'userDetail'
