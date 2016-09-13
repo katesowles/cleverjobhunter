@@ -91,7 +91,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       },
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'positions'
