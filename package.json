@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "karma",
+    "test": "karma start",
     "build": "env $(cat .env) webpack",
     "start": "env $(cat .env) webpack-dev-server --inline"
   },
@@ -54,5 +54,10 @@
     "camelcase": "^3.0.0",
     "chart.js": "^2.2.2",
     "html-webpack-plugin": "^2.22.0"
+  },
+    "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
