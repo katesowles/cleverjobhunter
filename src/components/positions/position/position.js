@@ -1,21 +1,26 @@
+//component for detailed position view
 import template from './position.html';
 import styles from './position.scss';
 
 export default {
   template,
+  bindings: {
+    positions: '=',
+  },
   controller
 };
 
-function controller(){
+controller.$inject = ['positionService', '$window', '$state'];
+function controller(positionService, $window, $state){
   this.styles = styles;
-  //dummy data for now, but will eventually be a company id in the bindings
-  this.position = {
-    title: 'abcs',
-    postingInfo: 'Take this Job!',
-    dateAdvertised: new Date(),
-    actionItems: [{
-      date: new Date(),
-      plan: 'Get money, yo'
-    }]
-  };
+  this.userId = $window.localStorage['id'];
+
+  //gets the detailed info of selected position
+  positionService.get($state.params.positionId)
+    .then(position => {
+      this.position = position;
+      console.log(this.position);
+    })
+    .catch(err => console.log(err));
+
 }

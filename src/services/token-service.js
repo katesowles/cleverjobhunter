@@ -1,3 +1,4 @@
+//service for token components
 tokenService.$inject = ['$window'];
 
 const TOKEN_NAME = 'token';

@@ -1,5 +1,6 @@
 configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
+//routing for app
 export default function configRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
     // this is "home" state displays by default, also when no token is found
@@ -68,7 +69,10 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     // Will be /company/:id or /company?id once the db is set up
     .state('company', {
-      url: '/company',
+      url: '/company/:companyId',
+      resolve: {
+        companyId: ['$stateParams', p => p.companyId]
+      },
       data: {
         requiresAuth: true
       },
@@ -102,7 +106,10 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       }
     })
     .state('position', {
-      url: '/position',
+      url: '/position/:positionId',
+      resolve: {
+        positionId: ['$stateParams', p => p.positionId]
+      },
       data: {
         requiresAuth: true
       },
@@ -116,6 +123,9 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         footer: {
           component: 'footer'
         }
+        // params: {
+        //   display: {dynamic: true}
+        // }
       }
     })
     .state('contacts', {

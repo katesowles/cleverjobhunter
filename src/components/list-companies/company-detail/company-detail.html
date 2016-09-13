@@ -1,10 +1,36 @@
+<!--template for detailed company view-->
+
 <section ng-class="$ctrl.styles.companyDetail">
+    <md-card>
+        <md-card-header>
+            <md-card-header-text>
+            <span class="md-title">{{$ctrl.company.name}}</span>
+            <span class="md-subhead">{{$ctrl.company.info}}</span>
+            </md-card-header-text>
+        </md-card-header>
+        <md-card-content>
+            <p>{{$ctrl.company.service}}</p>
+            <p>{{$ctrl.company.location}}</p>
+            <p>{{$ctrl.company.tech}}</p>
+            <p>{{$ctrl.company.method}}</p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button>Follow Ups</md-button>
+            <md-button>Action Items</md-button>
+            <md-button>Questions</md-button>
+        </md-card-actions>
+    </md-card>
+</section>
+
+<!--<section ng-class="$ctrl.styles.companyDetail">
     <h1>{{$ctrl.company.name}}</h1>
     <h2>Service: {{$ctrl.company.service}}</h2> 
         <h3>Location: {{$ctrl.company.location}}</h3>
         <h3>Info: {{$ctrl.company.info}}</h3>
         <h3>Technology Stack: {{$ctrl.company.tech}}</h3>
-        <div ng-if="$ctrl.company.actionItems.length">Action Items: 
+        
+</section>-->
+<!--<div ng-if="$ctrl.company.actionItems.length">Action Items: 
             <ul>
                 <li ng-repeat="item in $ctrl.company.actionItems">{{item.date}} {{item.plan}}</li>
             </ul>
@@ -27,7 +53,7 @@
         <div ng-if="$ctrl.company.contacts.length">Contacts: 
             <ul>
             <!--ui-sref to the contact???-->
-                <li>Populate with the peron's name linking to their contact data</li>
+                <!--<li>Populate with the peron's name linking to their contact data</li>
                 <li ng-repeat="item in $ctrl.company.contacts">{{item._id}}</li>
             </ul>
         </div>
@@ -35,5 +61,4 @@
             <ul>
                 <li ng-repeat="item in $ctrl.company.links"><a ng-href="{{item.url}}">{{item.desc}}</a></li>
             </ul>
-        </div>
-</section>
+        </div>-->
