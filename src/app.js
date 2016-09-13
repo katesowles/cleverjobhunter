@@ -18,9 +18,11 @@ const app = angular.module('jobHunter', [
 
 app.config(['$mdThemingProvider', function($mdThemingProvider){
   $mdThemingProvider.theme('default')
-    .primaryPalette('grey')
+    .primaryPalette('blue-grey')
+    .accentPalette('lime')
     .backgroundPalette('blue-grey')
-    .warnPalette('amber');
+    .warnPalette('lime')
+    .dark();
 }]);
 
 export default app;
