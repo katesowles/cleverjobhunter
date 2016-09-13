@@ -12,6 +12,9 @@ function controller (contactService, $window, companyService) {
   this.styles = styles;
   this.addButton = 'add';
   this.userId = $window.localStorage['id'];
+  console.log(new Date().getDay());
+  console.log($window.moment().startOf('day').toDate());
+  console.log($window.moment().startOf('week').toDate());
 
   companyService.getByUser(this.userId)
     .then(companies => {
@@ -22,7 +25,7 @@ function controller (contactService, $window, companyService) {
   contactService.getByUser(this.userId)
     .then(contacts => {
       contacts.map(e => {
-        moment(e.dateMet).format('dddd, MMMM Do YYYY');
+        e.dateMet = $window.moment(e.dateMet).format('MM-DD-YYYY');
       });
       this.contacts = contacts;
 
@@ -32,6 +35,7 @@ function controller (contactService, $window, companyService) {
   this.add = (contactToAdd, userId) => {
     contactService.add(contactToAdd, userId)
       .then(addedContact => {
+        addedContact.dateMet = $window.moment(addedContact.dateMet).format('MM-DD-YYYY');
         this.contacts.unshift(addedContact);
         this.addButton = 'add';
       })

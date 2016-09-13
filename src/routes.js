@@ -80,7 +80,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       },
       views: {
         header: {
-          component: 'headerLogin'
+          component: 'header'
         },
         main: {
           component: 'positions'
