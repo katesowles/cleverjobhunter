@@ -5,13 +5,15 @@ export default {
   template,
   bindings: {
     add: '<',
-    addButton: '='
+    addButton: '=',
+    companies: '<'
   },
   controller
 };
 
 controller.$inject = ['$scope', '$window', '$mdDialog'];
 function controller ($scope, $window, $mdDialog) {
+  console.log(this.companies);
 
   this.userId = $window.localStorage['id'];
 
