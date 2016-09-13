@@ -1,26 +1,15 @@
 <div ng-cloak>
   <md-content class="md-padding">
     <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-
-      <!-- always shows -->
       <md-nav-item md-nav-sref="welcome" name="welcome" id="logo">Job Hunter</md-nav-item>
-
-      <!-- only shows if user is authenticated -->
-      <div ng-if="isAuthenticated">
-        <md-nav-item md-nav-sref="dashboard" name="dashboard">Dashboard</md-nav-item>
-        <md-nav-item md-nav-sref="positions" name="positions">Positions</md-nav-item>
-        <md-nav-item md-nav-sref="companies" name="companies">Companies</md-nav-item>
-        <md-nav-item md-nav-sref="contacts" name="contacts">Contacts</md-nav-item>
-        <md-nav-item md-nav-sref="userDetail" name="userDetail">Welcome, {{username}}</md-nav-item>
-        <md-nav-item md-nav-sref="loggedOut" name="loggedOut">Logout</md-nav-item>
-      </div>
-
-      <!-- only shows if user is not authenticated -->
-      <div ng-if="!isAuthenticated">
-        <md-nav-item md-nav-sref="signup" name="signup">Create Account</md-nav-item>
-        <md-nav-item md-nav-sref="signin" name="signin">Login</md-nav-item>
-      </div>
-
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="dashboard">Dashboard</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="positions" name="positions">Positions</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="companies" name="companies">Companies</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="contacts" name="contacts">Contacts</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="userDetail" name="userDetail">Welcome, {{username}}</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-Nav-Click="$ctrl.logout()" name="loggedOut">Logout</md-nav-item>
+      <md-nav-item md-Nav-Click="$ctrl.prompt()" name="signup">Enter</md-nav-item>
+      <!--<md-nav-item md-nav-sref="signin" name="signin">Login</md-nav-item>-->
     </md-nav-bar>
   </md-content>
 </div>
