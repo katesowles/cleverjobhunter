@@ -6,20 +6,18 @@
 
 .full-height {
   height: 100%;
-}
-
-.lift-bottom {
-  /* Equal to height of footer */
-  margin-bottom: -75px;
-  /* But may need to account for margin-bottom of last child */
+  margin-bottom: 50px;
 }
 
 .sticky-footer {
-  height: 75px;
-  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  padding: 1em;
   color: white;
   text-align: center;
-  background-color: blue;
+  background-color: slategray;
 }
 
 .sticky-footer a {

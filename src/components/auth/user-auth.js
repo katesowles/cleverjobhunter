@@ -5,7 +5,7 @@ export default {
       <md-radio-button class="md-accent" ng-model="$ctrl.action" value="signin">
           Signin
       </md-radio-button>
-      <md-radio-button class="md-accent" ng-model="$ctrl.action" value="signup">
+      <md-radio-button ng-model="$ctrl.action" value="signup">
           Signup
       </md-radio-button>
     </md-radio-group>
