@@ -2,11 +2,27 @@ configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export default function configRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
+    // this is "home" state displays by default, also when no token is found
     .state('home', {
       url: '/',
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogout'
+        },
+        main: {
+          component: 'landing'
+        },
+        footer: {
+          template: '<div>Bomb Ass Job Search Footer</div>'
+        }
+      }
+    })
+    // this is "home" state when valid token is found -- CAN WE STILL USE URL: '/', THE DIFFERENCE BEING THAT AUTH IS REQUIRED HERE WHEREAS IT'S NOT ABOVE?
+    .state('welcome', {
+      url: '/welcome',
+      views: {
+        header: {
+          component: 'headerLogin'
         },
         main: {
           component: 'landing'
@@ -20,7 +36,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/dashboard',
       views: {
         header: {
-
+          component: 'headerLogin'
         },
         main: {
 
@@ -34,7 +50,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/companies',
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'listCompanies'
@@ -49,7 +65,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/company',
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'companyDetail'
@@ -63,7 +79,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/position',
       views: {
         header: {
-
+          component: 'headerLogin'
         },
         main: {
 
@@ -77,7 +93,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/contacts',
       views: {
         header: {
-
+          component: 'headerLogin'
         },
         main: {
 
@@ -91,7 +107,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       url: '/user',
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'userDetail'
