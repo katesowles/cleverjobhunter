@@ -28,26 +28,32 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'landing'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     })
     .state('dashboard', {
       url: '/dashboard',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'headerLogin'
         },
         main: {
-
+          component: 'dashboard'
         },
         footer: {
-
+          component: 'footer'
         }
       }
     })
     .state('companies', {
       url: '/companies',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'headerLogin'
@@ -56,13 +62,16 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'listCompanies'
         },
         footer: {
-          template: '<div>Footer component will go here</div>'
+          component: 'footer'
         }
       }
     })
     // Will be /company/:id or /company?id once the db is set up
     .state('company', {
       url: '/company',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'headerLogin'
@@ -71,40 +80,66 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'companyDetail'
         },
         footer: {
-          template: '<div>Footer component will go here</div>'
+          component: 'footer'
+        }
+      }
+    })
+    .state('positions', {
+      url: '/positions',
+      data: {
+        requiresAuth: true
+      },
+      views: {
+        header: {
+          component: 'header'
+        },
+        main: {
+          component: 'positions'
+        },
+        footer: {
+          component: 'footer'
         }
       }
     })
     .state('position', {
       url: '/position',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'headerLogin'
         },
         main: {
-
+          component: 'position'
         },
         footer: {
-
+          component: 'footer'
         }
       }
     })
     .state('contacts', {
       url: '/contacts',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'headerLogin'
         },
         main: {
-
+          component: 'contacts'
         },
         footer: {
-
+          component: 'footer'
         }
       }
     })
     .state('user', {
       url: '/user',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'headerLogin'
@@ -113,7 +148,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'userDetail'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     });

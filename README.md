@@ -1,64 +1,26 @@
-# cleverjobhunter
+# Job Hunter App
 
-### Goals
-- Track the following (and make printer friendly, exportable):
-  - details about the job search (MVP)
-    - companies I send applications to
-    - roles at each company I have applied for
-    - the date I submitted an application
-    - the method of applying
-    - who you spoke with at each company
-    - follow up with best practice next steps
-    - motivations, goals to keep in mind, personal successes
-  - details about interviews (MVP)
-    - formal or informational
-    - who you met with
-    - when you met
-    - etc...
-  - details about each company (MVP)
-    - what product(s)/service(s) do they provide
-    - who is their market
-    - internal contacts within company
-    - operating location, other offices (?), remote work (?)
-    - current technology stack
-    - actionable steps (follow up in X weeks for Y role)
-    - pros / cons
-    - size of company
-    - outstanding questions
-    - media sources (article links, tips for saving locally)
-  - meet ups attended (MVP)
-    - location
-    - date
-    - contacts made
-  - catalog of contacts (MVP)
-    - name
-    - role
-    - company
-    - phone
-    - email
-    - twitter
-    - linkedin
-    - etc...
-  - motivations (BONUS)
-    - goal setting
-    - personal successes
-    - reminders
-    - mood tracking
-    - resources + exploration
-  - analytics / data visualizations (BONUS)
-    - applications sent per week
-    - contacts made per week
-    - networks checked into per day
-    - daily reflection / mood tracker
-    - maintain personal brand (twitter)
-    - maintain github projects?
-    - track treehouse / code wars / etc...
-    - further gamification!?
 
-### Questions / potential issues to resolve
+### This is an job search helper app that uses MongoDB, Express, AngularJS, node.js, Webpack, and deployed via Heroku.
 
-  - what's the workflow from the user perspective?
-  - can we add bits of information without adding a "whole" company or set of data?
-  - make sure it's set for mobile
-  - incremental form sections so as not to overwhelm
-  - 
+
+### Directions to run locally
+1. Download the files
+2. Set up database
+  - [Download MongoDB](https://www.mongodb.com/download-center#community)
+  - Start the database `mongod --dbpath [path to your MongoDB folder here]`
+3. Set up the server
+  - `cd cleverjobserver` and `npm install`
+  - Start the server `npm start` (in a new terminal window)
+4. Set up the frontend
+  - New terminal window and `cd cleverjobhunter`
+  - `npm install` and `npm start`
+  - Navigate to `localhost:8080` in a web browser
+
+### Misc Info
+- Server runs on `localhost:3000` by default
+- Frontend runs on `localhost:8080` by default
+
+
+### Tests
+`cd app` and `npm run test`
