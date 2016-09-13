@@ -7,21 +7,20 @@ import messages from 'angular-messages';
 import 'angular-material/angular-material.css';
 import 'angular-ui-router/release/stateEvents';
 
-
 const app = angular.module('jobHunter', [
-  router, 
+  router,
   angular.module('ui.router.state.events').name,
   components,
-  services, 
+  services,
   md,
   messages
-]); 
+]);
 
 app.config(['$mdThemingProvider', function($mdThemingProvider){
   $mdThemingProvider.theme('default')
-    .primaryPalette('indigo')
-    .backgroundPalette('deep-purple')
-    .warnPalette('red');
+    .primaryPalette('grey')
+    .backgroundPalette('blue-grey')
+    .warnPalette('amber');
 }]);
 
 export default app;
