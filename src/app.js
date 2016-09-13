@@ -6,6 +6,7 @@ import md from 'angular-material';
 import messages from 'angular-messages';
 import 'angular-material/angular-material.css';
 import 'angular-ui-router/release/stateEvents';
+// import angularMoment from 'angularMoment';
 
 
 const app = angular.module('jobHunter', [

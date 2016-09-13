@@ -123,9 +123,6 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         footer: {
           component: 'footer'
         }
-        // params: {
-        //   display: {dynamic: true}
-        // }
       }
     })
     .state('contacts', {
