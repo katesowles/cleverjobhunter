@@ -21,9 +21,19 @@ function controller($window, companyService, contactService, positionService){
     this.numContacts = result.length;
   });
 
+  contactService.getCountForWeek(this.userId)
+    .then( result => {
+      this.contactCount = result;
+    });
+
   positionService.getByUser(this.userId)
   .then( result => {
     this.numPositions = result.length;
   });
+
+  positionService.getCountForWeek(this.userId)
+    .then( result => {
+      this.positionCount = result;
+    });
 
 }

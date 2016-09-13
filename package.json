@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "karma",
+    "test": "karma start",
     "build": "env $(cat .env) webpack",
     "start": "env $(cat .env) webpack-dev-server --inline"
   },
@@ -50,9 +50,16 @@
     "angular-aria": "^1.5.8",
     "angular-material": "^1.1.1",
     "angular-messages": "^1.5.8",
+    "angular-moment": "^1.0.0-beta.6",
     "angular-ui-router": "1.0.0-beta.1",
     "camelcase": "^3.0.0",
     "chart.js": "^2.2.2",
+    "moment": "^2.15.0",
     "html-webpack-plugin": "^2.22.0"
+  },
+    "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
