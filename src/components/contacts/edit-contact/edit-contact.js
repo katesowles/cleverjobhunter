@@ -28,6 +28,8 @@ function controller($mdDialog, contactService, companyService, $window) {
   this.save = () => {
     contactService.update(this.contact)
       .then(updatedContact => {
+        updatedContact.dateMet = $window.moment(updatedContact.dateMet).format('MM-DD-YYYY');
+
         $mdDialog.hide(updatedContact);
       });
   };
