@@ -17,21 +17,6 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    // this is "home" state when valid token is found -- CAN WE STILL USE URL: '/', THE DIFFERENCE BEING THAT AUTH IS REQUIRED HERE WHEREAS IT'S NOT ABOVE?
-    .state('welcome', {
-      url: '/welcome',
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'landing'
-        },
-        footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
-        }
-      }
-    })
     .state('dashboard', {
       url: '/dashboard',
       views: {
