@@ -146,6 +146,24 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'footer'
         }
       }
+    })
+    .state('users', {
+      url: '/users',
+      data: {
+        requiresAuth: true,
+        requiresAdmin: true
+      },
+      views: {
+        header: {
+          component: 'headerLogin'
+        },
+        main: {
+          component: 'listUsers'
+        },
+        footer: {
+          component: 'footer'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/');

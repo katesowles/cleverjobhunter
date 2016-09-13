@@ -1,12 +1,12 @@
 <!--template for the view of user positions-->
-<md-button class="md-secondary md-icon-button"
-    ng-click="$ctrl.newPosition($event)"
-    ng-show="$ctrl.addButton === 'add'">Add Position
-</md-button>
+<section ng-class="$ctrl.styles.positions">
+  <md-button class="md-secondary md-icon-button"
+  ng-click="$ctrl.newPosition($event)"
+  ng-show="$ctrl.addButton === 'add'">Add Position</md-button>
 
 <new-position companies="$ctrl.companies" add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-position>
 
-<section ng-class="$ctrl.styles.positions" ng-repeat="position in $ctrl.positions">
+  <div ng-repeat="position in $ctrl.positions">
     <md-card>
         <md-card-header>
             <md-card-header-text>
