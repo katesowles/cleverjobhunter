@@ -1,17 +1,35 @@
+<!--template for the list of user companies-->
 <section ng-class="$ctrl.styles.listCompanies">
-    <div ng-repeat="company in $ctrl.companies">
-        <h1>{{company.name}}</h1>
-        <h3>{{company.info}}</h3>
+
+<md-button class="md-secondary md-icon-button"
+    ng-click="$ctrl.newCompany($event)"
+    ng-show="$ctrl.addButton === 'add'">Add Position
+</md-button>
+
+<new-company add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-company>
+
+<section ng-class="$ctrl.styles.companies" ng-repeat="company in $ctrl.companies">
+    <md-card>
+        <md-card-header>
+            <md-card-header-text>
+            <span class="md-title">{{company.name}}</span>
+            <span class="md-subhead">{{company.info}}</span>
+            </md-card-header-text>
+        </md-card-header>
+        <md-card-content>
             <div ng-if="company.actionItems.length">
                 <p>Action Items: </p>
                 <ul>
                     <li ng-repeat="item in company.actionItems">{{item.date}} {{item.plan}}</li>
                 </ul>
             </div>
-            <!--TODO: feed company id into the ui-sref value as a param-->
-            <p> VVVV Leading to profile with dummy data for Apple</p>
-            <a ui-sref="company">More Details</a>
-    </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ui-sref="company({companyId: company._id})">More Details</md-button>
+            <md-button ng-click="$ctrl.remove(company._id)">Remove Position</md-button>
+        </md-card-actions>
+    </md-card>
 </section>
+
 
 
