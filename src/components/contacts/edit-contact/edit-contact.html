@@ -35,19 +35,20 @@
                     </div> -->
                 </md-input-container>
                 <md-input-container>
+                  <md-select ng-model="$ctrl.contact.company" placeholder="Select a company">
+                    <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
+                  </md-select>
+                </md-input-container>
+                <!-- <md-input-container>
                     <label>Company:</label>
-                    <!-- <select>
-                      For selecting company from companies that already exist?
-                    </select>
-                    <p>Would also need option to add company if it does not exist. -->
                     <input
                         name="editCompany"
                         required
-                        ng-model="$ctrl.contact.company"/>
-                    <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+                        ng-model="$ctrl.contact.company.name"/>
+                   <div ng-messages="addContact.addEmail.$error" role="alert">
                         <div ng-message="required">An e-mail is required</div>
-                    </div> -->
-                </md-input-container>
+                    </div>
+                </md-input-container> -->
                 <md-input-container>
                     <label>Relevant Information:</label>
                     <textarea

@@ -7,11 +7,17 @@ export default {
   controller
 };
 
-controller.$inject = ['contactService', '$window'];
-function controller (contactService, $window) {
+controller.$inject = ['contactService', '$window', 'companyService'];
+function controller (contactService, $window, companyService) {
   this.styles = styles;
   this.addButton = 'add';
   this.userId = $window.localStorage['id'];
+
+  companyService.getByUser(this.userId)
+    .then(companies => {
+      this.companies = companies;
+    })
+    .catch(err => console.log(err));
 
   contactService.getByUser(this.userId)
     .then(contacts => {

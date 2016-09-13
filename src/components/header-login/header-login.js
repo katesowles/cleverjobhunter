@@ -1,4 +1,4 @@
-import template from './header.html';
+import template from './header-login.html';
 
 export default {
   template,
@@ -8,6 +8,8 @@ export default {
 
 controller.$inject = ['$state'];
 function controller($state) {
+
   this.username = 'Name-Goes-Here';
 
 };
+

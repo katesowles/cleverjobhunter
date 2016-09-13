@@ -2,11 +2,12 @@ configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export default function configRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
+    // this is "home" state displays by default, also when no token is found
     .state('home', {
       url: '/',
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogout'
         },
         main: {
           component: 'landing'
@@ -16,31 +17,52 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('dashboard', {
-      url: '/dashboard',
+    // this is "home" state when valid token is found -- CAN WE STILL USE URL: '/', THE DIFFERENCE BEING THAT AUTH IS REQUIRED HERE WHEREAS IT'S NOT ABOVE?
+    .state('welcome', {
+      url: '/welcome',
       views: {
         header: {
-
+          component: 'headerLogin'
         },
         main: {
-
+          component: 'landing'
         },
         footer: {
-
+          component: 'footer'
+        }
+      }
+    })
+    .state('dashboard', {
+      url: '/dashboard',
+      data: {
+        requiresAuth: true
+      },
+      views: {
+        header: {
+          component: 'headerLogin'
+        },
+        main: {
+          component: 'dashboard'
+        },
+        footer: {
+          component: 'footer'
         }
       }
     })
     .state('companies', {
       url: '/companies',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'listCompanies'
         },
         footer: {
-          template: '<div>Footer component will go here</div>'
+          component: 'footer'
         }
       }
     })
@@ -50,20 +72,26 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       resolve: {
         companyId: ['$stateParams', p => p.companyId]
       },
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'companyDetail'
         },
         footer: {
-          template: '<div>Footer component will go here</div>'
+          component: 'footer'
         }
       }
     })
     .state('positions', {
       url: '/positions',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
           component: 'header'
@@ -72,7 +100,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'positions'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     })
@@ -81,15 +109,18 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       resolve: {
         positionId: ['$stateParams', p => p.positionId]
       },
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'position'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
         // params: {
         //   display: {dynamic: true}
@@ -98,29 +129,35 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     })
     .state('contacts', {
       url: '/contacts',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'contacts'
         },
         footer: {
-          template: '<h3>Footer</h3>'
+          component: 'footer'
         }
       }
     })
     .state('user', {
       url: '/user',
+      data: {
+        requiresAuth: true
+      },
       views: {
         header: {
-          component: 'header'
+          component: 'headerLogin'
         },
         main: {
           component: 'userDetail'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     });
