@@ -1,3 +1,4 @@
+//component for handling submit/cancel of new position
 import template from './new-position.html';
 
 export default {
@@ -24,6 +25,7 @@ function controller ($scope, $window, $mdDialog) {
     $mdDialog.hide();
   };
 
+  //saves and adds information to user's positions
   this.submit = () => {
     $mdDialog.hide();
     this.add(this.position, this.userId);

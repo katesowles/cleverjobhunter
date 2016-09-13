@@ -1,5 +1,6 @@
 configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
+//routing for app
 export default function configRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
     // this is "home" state displays by default, also when no token is found

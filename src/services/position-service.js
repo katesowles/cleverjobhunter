@@ -1,3 +1,4 @@
+//service for position components
 positionService.$inject = ['$http', 'apiUrl'];
 
 export default function positionService ($http, apiUrl) {

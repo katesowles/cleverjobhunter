@@ -1,3 +1,4 @@
+// component for handling form submit info of a new company
 import template from './new-company.html';
 
 export default {
@@ -25,6 +26,7 @@ function controller ($scope, $window, $mdDialog) {
     $mdDialog.hide();
   };
 
+  //gives the form info to add a new company
   this.submit = () => {
     console.log('got here to new-company form submit');
     $mdDialog.hide();

@@ -17,6 +17,7 @@ function controller(companyService, $window, $state){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
 
+  //gets the detailed info of selected company
   companyService.get($state.params.companyId)
     .then(company => {
       this.company = company;

@@ -1,3 +1,4 @@
+//service for company components
 companyService.$inject = ['$http', 'apiUrl'];
 
 export default function companyService($http, apiUrl){

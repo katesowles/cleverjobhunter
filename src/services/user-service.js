@@ -1,3 +1,4 @@
+//service for user components
 userService.$inject = ['tokenService', '$http', 'apiUrl'];
 
 export default function userService (token, $http, apiUrl) {

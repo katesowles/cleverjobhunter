@@ -15,6 +15,7 @@ function controller(positionService, $window, $state){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
 
+  //gets the detailed info of selected position
   positionService.get($state.params.positionId)
     .then(position => {
       this.position = position;

@@ -1,3 +1,4 @@
+//component for the main user page for positions
 import template from './positions.html';
 import styles from './positions.scss';
 
@@ -12,12 +13,14 @@ function controller(positionService, $window, $mdDialog){
   this.userId = $window.localStorage['id'];
   this.addButton = 'add';
   
+  //gets all positions
   positionService.getByUser(this.userId)
     .then(positions => {
       this.positions = positions;
     })
     .catch(err => console.log(err));
 
+  //adds new position
   this.add = (positionToAdd, userId) => {
     positionService.add(positionToAdd, userId)
       .then(addedPosition => {
@@ -27,6 +30,7 @@ function controller(positionService, $window, $mdDialog){
       .catch(err => console.log(err));
   };
 
+  //removes selected postion
   this.remove = positionId => {
     positionService.remove(positionId)
       .then(() => {
@@ -39,6 +43,7 @@ function controller(positionService, $window, $mdDialog){
       .catch(err => console.log(err));
   };
 
+  //opens dialog/form to add a new position
   this.newPosition = ($event) => {
     var parentEl = angular.element(document.body);
     $mdDialog.show({

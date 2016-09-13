@@ -1,3 +1,4 @@
+//component for the user's companies page
 import template from './list-companies.html';
 import styles from './list-companies.scss';
 
@@ -11,13 +12,15 @@ function controller(companyService, $window, $mdDialog){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
   this.addButton = 'add';
-  // dummy data to remove later once services are added
+  
+  //gets all of user's companies
   companyService.getByUser(this.userId)
     .then(companies => {
       this.companies = companies;
     })
     .catch(err => console.log(err));
 
+  //adds a new company
   this.add = (companyToAdd, userId) => {
     companyService.add(companyToAdd, userId)
       .then(addedcompany => {
@@ -27,6 +30,7 @@ function controller(companyService, $window, $mdDialog){
       .catch(err => console.log(err));
   };
 
+  //removes a selected company
   this.remove = companyId => {
     console.log(companyId);
     companyService.remove(companyId)
@@ -40,6 +44,7 @@ function controller(companyService, $window, $mdDialog){
         .catch(err => console.log(err));
   };
 
+  //opens new Dialog/form to add a new company
   this.newCompany = ($event) => {
     var parentEl = angular.element(document.body);
     $mdDialog.show({
