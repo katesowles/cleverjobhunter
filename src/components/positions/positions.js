@@ -7,15 +7,27 @@ export default {
   controller
 };
 
-controller.$inject = ['positionService', '$window', '$mdDialog'];
-function controller(positionService, $window, $mdDialog){
+controller.$inject = ['positionService', '$window', '$mdDialog', 'companyService'];
+function controller(positionService, $window, $mdDialog, companyService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
   this.addButton = 'add';
-  
+
+  companyService.getByUser(this.userId)
+    .then(companies => {
+
+      this.companies = companies;
+      console.log(this.companies);
+    })
+    .catch(err => console.log(err));
+
   //gets all positions
   positionService.getByUser(this.userId)
     .then(positions => {
+      // positions.map(e => {
+      //   e.dateApplied = $window.moment(e.dateApplied).format('MM-DD-YYYY');
+      //   e.dateAdvertised = $window.moment(e.dateAdvertised).format('MM-DD-YYYY');
+      // });
       this.positions = positions;
     })
     .catch(err => console.log(err));
@@ -24,6 +36,9 @@ function controller(positionService, $window, $mdDialog){
   this.add = (positionToAdd, userId) => {
     positionService.add(positionToAdd, userId)
       .then(addedPosition => {
+        console.log(addedPosition.company);
+        addedPosition.dateApplied = $window.moment(addedPosition.dateApplied).format('MM-DD-YYYY');
+        addedPosition.dateAdvertised = $window.moment(addedPosition.dateAdvertised).format('MM-DD-YYYY');
         this.positions.unshift(addedPosition);
         this.addButton = 'add';
       })
@@ -51,11 +66,12 @@ function controller(positionService, $window, $mdDialog){
       targetEvent: $event,
       controllerAs: '$ctrl',
       bindToController: true,
-      template: '<new-position add="$ctrl.add" position="$ctrl.position"></new-position>',
+      template: '<new-position companies="$ctrl.companies" add="$ctrl.add" position="$ctrl.position"></new-position>',
       controller() {},
       locals: {
         position: this.position,
-        add: this.add
+        add: this.add,
+        companies: this.companies
       },
       clickOutsideToClose: true,
       escapeToClose: true
@@ -65,5 +81,5 @@ function controller(positionService, $window, $mdDialog){
       angular.copy(newPosition, this.position);
     });
   };
-    
+
 };

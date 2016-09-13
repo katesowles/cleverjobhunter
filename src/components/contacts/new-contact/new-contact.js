@@ -12,6 +12,7 @@ export default {
 
 controller.$inject = ['$scope', '$window'];
 function controller ($scope, $window) {
+  console.log(this.companies);
 
   this.userId = $window.localStorage['id'];
 
