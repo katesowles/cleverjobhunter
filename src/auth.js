@@ -4,7 +4,12 @@ auth.$inject = ['$rootScope', 'userService', '$mdDialog', '$state'];
 
 export default function auth($rootScope, userService, $mdDialog, $state) {
   $rootScope.$on('$stateChangeStart', (event, toState, toParams) => {
-    if (toState.data && toState.data.requiresAuth && !userService.isAuthenticated()){
+    if( toState.data && toState.data.requiresAdmin && !userService.isAdmin() ){
+      event.preventDefault();
+      console.log('Not the admin! Go home!');
+      return $state.go('home');
+    } else
+    if( toState.data && toState.data.requiresAuth && !userService.isAuthenticated() ){
       event.preventDefault();
 
       $mdDialog.show({
