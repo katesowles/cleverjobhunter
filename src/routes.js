@@ -14,7 +14,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
           component: 'landing'
         },
         footer: {
-          template: '<div>Bomb Ass Job Search Footer</div>'
+          component: 'footer'
         }
       }
     })
