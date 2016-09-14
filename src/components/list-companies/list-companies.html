@@ -3,7 +3,7 @@
 
 <md-button class="md-secondary md-icon-button"
     ng-click="$ctrl.newCompany($event)"
-    ng-show="$ctrl.addButton === 'add'">Add Position
+    ng-show="$ctrl.addButton === 'add'">Add Company
 </md-button>
 
 <new-company add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-company>
@@ -26,7 +26,7 @@
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
             <md-button ui-sref="company({companyId: company._id})">More Details</md-button>
-            <md-button ng-click="$ctrl.remove(company._id)">Remove Position</md-button>
+            <md-button ng-click="$ctrl.remove(company._id)">Remove Company</md-button>
         </md-card-actions>
     </md-card>
 </section>
