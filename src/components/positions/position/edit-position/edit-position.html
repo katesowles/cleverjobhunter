@@ -11,10 +11,12 @@
                     required
                     ng-model="$ctrl.position.title"/>
             </md-input-container>
-            <!--TODO
-            company
-            dateAdvertised
-            dateApplied-->
+            <md-input-container>
+                <md-select ng-model="$ctrl.position.company" placeholder="{{$ctrl.positionToEdit.company.name}}"> 
+                    <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
+                </md-select>
+            </md-input-container>
+            <!--TODO: dateAdvertised and dateApplied???-->
             <md-input-container>
                 <label>Method:</label>
                 <input

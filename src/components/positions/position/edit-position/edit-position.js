@@ -8,9 +8,18 @@ export default {
   controller
 };
 
-controller.$inject = ['$mdDialog', 'positionService', '$state', '$window'];
+controller.$inject = ['$mdDialog', 'positionService', '$state', '$window', 'companyService'];
 
-function controller($mdDialog, positionService, $state, $window){
+function controller($mdDialog, positionService, $state, $window, companyService){
+
+  this.userId = $window.localStorage['id'];
+
+  //get users companies to populate the drop down
+  companyService.getByUser(this.userId)
+    .then(companies => {
+      this.companies = companies;
+    })
+    .catch(err => console.log(err));
 
   this.cancel = () => {
     $mdDialog.hide();
