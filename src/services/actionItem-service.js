@@ -23,7 +23,8 @@ export default function actionItemService ($http, apiUrl) {
     },
 
     getByPosOrComp (which, id) {
-      return $http.get(`${apiUrl}/actionItems/byPosOrComp/${id}/${which}`);
+      return $http.get(`${apiUrl}/actionItems/byPosOrComp/${id}/${which}`)
+        .then(response => response.data);
     },
 
     getCountForWeek (userId) {
@@ -31,8 +32,8 @@ export default function actionItemService ($http, apiUrl) {
         .then(response => response.data.count);
     },
 
-    add (actionItem, userId) {
-      return $http.post(`${apiUrl}/actionItems/${userId}`, actionItem)
+    add (actionItem, positionId, userId) {
+      return $http.post(`${apiUrl}/actionItems/position/${positionId}/${userId}`, actionItem)
         .then(response => response.data);
     },
 

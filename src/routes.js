@@ -110,6 +110,28 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('actions', {
+      url: '/actions/:parentId/:parentName/:which',
+      resolve: {
+        parentId: ['$stateParams', p => p.parentId],
+        which: ['$stateParams', p => p.which],
+        parentName: ['$stateParams', p => p.parentName]
+      },
+      data: {
+        requiresAuth: true
+      },
+      views: {
+        header: {
+          component: 'header'
+        },
+        main: {
+          component: 'actionItemList'
+        },
+        footer: {
+          component: 'footer'
+        }
+      }
+    })
     .state('contacts', {
       url: '/contacts',
       data: {

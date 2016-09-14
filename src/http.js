@@ -19,11 +19,11 @@ function interceptor($window, tokenService, $state) {
       return config;
     },
     responseError(response) {
-      if (response.status >= 400 && response.status < 500) {
-        tokenService.remove();
-        $state.go('home');
-      }
-      return Promise.reject(response);
+      // if (response.status >= 400 && response.status < 500) {
+      //   tokenService.remove();
+      //   $state.go('home');
+      // }
+      // return Promise.reject(response);
     }
   };
 
