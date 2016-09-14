@@ -39,11 +39,11 @@ function controller($mdDialog, positionService, $window, $state){
       clickOutsideToClose: true,
       escapeToClose: true
     })
-    // .then( updatedContact => {
-    //   if (!updatedContact) return;
-    //   //pass copied and updated version to original
-    //   angular.copy(updatedContact, this.contact);
-    // });
+    .then( updatedPosition => {
+      if (!updatedPosition) return;
+      //pass copied and updated version to original
+      angular.copy(updatedPosition, this.position);
+    });
   };
 
 }
