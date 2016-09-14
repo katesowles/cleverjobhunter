@@ -9,6 +9,16 @@ canvas {
   height: 200px;
 }
 
+h1 {
+  font-size: 5em;
+  font-weight: 300;
+}
+
+p {
+  font-size: 2.5em;
+  font-weight: 200;
+}
+
 .full-height {
   height: 100%;
   margin-bottom: 50px;
@@ -27,6 +37,21 @@ canvas {
 
 .sticky-footer a {
   color: white;
+}
+
+.error {
+	color: red;
+}
+
+.canvasContain {
+  width: 400px;
+  height: 400px;
+  display: inline-block;
+  margin-right: calc((100% - ( 4 * 400px)) / 4);
+}
+
+.canvasContain:last-child {
+  margin-right: 0;
 }
 
 md-dialog {
