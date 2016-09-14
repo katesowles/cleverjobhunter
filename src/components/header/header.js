@@ -9,11 +9,16 @@ controller.$inject = ['userService', '$state', '$mdDialog', '$window'];
 
 function controller(userService, $state, $mdDialog, $window) {
   // to grab the username for the 'welcome {{username}}'
-  userService.getMe($window.localStorage.getItem('id'))
+  this.userId = $window.localStorage.getItem('id');
+  // prevents a console error if the user isn't logged in
+  if (this.userId){
+    userService.getMe($window.localStorage.getItem('id'))
     .then(user =>{
+      if(!user) return;
       this.username = user.name;
     })
     .catch(err => console.log(err));
+  }
 
   this.logout = ()=>{
     userService.logout();
