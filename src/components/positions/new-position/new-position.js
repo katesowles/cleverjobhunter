@@ -28,6 +28,7 @@ function controller ($scope, $window, $mdDialog) {
   //saves and adds information to user's positions
   this.submit = () => {
     $mdDialog.hide();
+    console.log(this.position);
     this.add(this.position, this.userId);
     resetPosition();
     $scope.newPosition.$setPristine();
