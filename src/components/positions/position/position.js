@@ -34,4 +34,25 @@ function controller(positionService, $window, $state, actionItemService){
     })
     .catch(err => console.log(err));
 
+  this.edit = ()=>{
+    const parentEl = angular.element(document.body);
+    $mdDialog.show({
+      parent: parentEl,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      template: '<edit-position position="$ctrl.position"></edit-position>',
+      controller(){},
+      locals: {
+        position: this.position
+      },
+      clickOutsideToClose: true,
+      escapeToClose: true
+    })
+    .then( updatedPosition => {
+      if (!updatedPosition) return;
+      //pass copied and updated version to original
+      angular.copy(updatedPosition, this.position);
+    });
+  };
+
 }
