@@ -1,5 +1,4 @@
 import template from './signup.html';
-import './signup.scss';
 
 export default {
   template,

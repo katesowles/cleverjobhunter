@@ -1,5 +1,4 @@
 import template from './signin.html';
-import './signin.scss';
 
 export default {
   template,
