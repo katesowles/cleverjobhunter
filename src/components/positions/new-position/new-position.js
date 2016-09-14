@@ -14,6 +14,7 @@ export default {
 controller.$inject = ['$scope', '$window', '$mdDialog'];
 function controller ($scope, $window, $mdDialog) {
   console.log(this.companies);
+  this.currentDate = $window.moment(new Date()).format('MM-DD-YYYY');
 
   this.userId = $window.localStorage['id'];
 
@@ -30,6 +31,7 @@ function controller ($scope, $window, $mdDialog) {
   //saves and adds information to user's positions
   this.submit = () => {
     $mdDialog.hide();
+    console.log(this.position);
     this.add(this.position, this.userId);
     resetPosition();
     $scope.newPosition.$setPristine();
