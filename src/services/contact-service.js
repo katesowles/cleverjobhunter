@@ -28,8 +28,8 @@ export default function contactService ($http, apiUrl) {
         .then(response => response.data);
     },
 
-    remove (contact) {
-      return $http.delete(`${apiUrl}/contacts/${contact._id}`)
+    remove (contactId) {
+      return $http.delete(`${apiUrl}/contacts/${contactId}`)
         .then(response => response.data);
     },
 

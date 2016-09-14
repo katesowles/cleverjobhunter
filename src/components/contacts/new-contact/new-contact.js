@@ -3,6 +3,7 @@ import template from './new-contact.html';
 
 export default {
   template,
+  transclude: true,
   bindings: {
     add: '<',
     addButton: '=',
