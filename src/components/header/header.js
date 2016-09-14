@@ -19,7 +19,9 @@ function controller(userService, $state, $mdDialog, $window) {
     userService.logout();
     $state.go('home');
   };
+
   this.isAuthenticated = userService.isAuthenticated;
+
   this.prompt = ()=>{
     $mdDialog.show({
       parent: angular.element(document.body),
@@ -37,4 +39,5 @@ function controller(userService, $state, $mdDialog, $window) {
       escapeToClose: true
     });
   };
+  
 };
