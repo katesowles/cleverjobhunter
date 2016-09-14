@@ -20,13 +20,48 @@
   <div>
     Contacts added this week: {{$ctrl.contactCount}}
   </div>
-  <div>
+  <h2>Overdue Action Items</h2>
+  <div ng-repeat="overDue in $ctrl.overDue">
+  <md-content>
+      <md-list flex>
+        <md-list-item class="md-3-line">
+          <md-button class="md-secondary md-icon-button"
+            ng-click="">Action Completed
+          </md-button>
+          <div class="md-list-item-text" layout="column">
+            <h3>Position: {{overDue.position.title}} at {{overDue.company.name}}</h3>
+            <h4>Date Due: {{overDue.dateDue}}</h4>
+            <p>Action: {{overDue.action}}</p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+      </md-list>
+    </md-content>
+  </div>
+  <h2>Due Action Items</h2>
+  <div ng-repeat="almostDue in $ctrl.almostDue">
+  <md-content>
+      <md-list flex>
+        <md-list-item class="md-3-line">
+          <md-button class="md-secondary md-icon-button"
+            ng-click="">Action Completed
+          </md-button>
+          <div class="md-list-item-text" layout="column">
+            <h3>Position: {{almostDue.position.title}} at {{almostDue.company.name}}</h3>
+            <h4>Date Due: {{almostDue.dateDue}}</h4>
+            <p>Action: {{almostDue.action}}</p>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+      </md-list>
+    </md-content>
+  </div>
+  <!-- <div>
      # Due Action Items: {{$ctrl.almostDue.length}}
      <div ng-repeat="almostDue in $ctrl.almostDue">
-       <p>Company Name: {{almostDue.company.name}}</p>
-       <p>Position Title: {{almostDue.position.title}}</p>
-       <p>Date Due: {{almostDue.dateDue}}</p>
-       <p>Action: {{almostDue.action}}</p>
+       <p>Company Name: </p>
+       <p></p>
+
        <button>Action Completed</button>
     </div>
   </div>
@@ -39,7 +74,7 @@
       <p>Action: {{overDue.action}}</p>
       <button>Action Completed</button>
    </div>
-  </div>
+  </div> -->
 
   <visualizations>Loading...</visualizations>
 </section>
