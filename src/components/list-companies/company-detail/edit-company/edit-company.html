@@ -1,0 +1,54 @@
+<md-dialog-content layout-gt-sm="row" layout-padding>
+    <form name="editCompany" novalidate>
+        <md-input-container>
+            <label>Name:</label>
+            <input
+                placeholder="{{$ctrl.companyToEdit.name}}"
+                name="editName"
+                required
+                ng-model="$ctrl.company.name"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Service:</label>
+            <input
+                placeholder="{{$ctrl.companyToEdit.service}}"
+                name="editService"
+                required
+                ng-model="$ctrl.company.service"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Location:</label>
+            <input
+                placeholder="{{$ctrl.companyToEdit.location}}"
+                name="editLocation"
+                required
+                ng-model="$ctrl.company.location"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Info:</label>
+            <input
+                placeholder="{{$ctrl.companyToEdit.info}}"
+                name="editInfo"
+                required
+                ng-model="$ctrl.company.info"/>
+        </md-input-container>
+        <md-input-container>
+            <label>Tech:</label>
+            <input
+                placeholder="{{$ctrl.companyToEdit.tech}}"
+                name="editTech"
+                required
+                ng-model="$ctrl.company.tech"/>
+        </md-input-container>
+        <!--TODO: add contacts???-->
+    </form>
+</md-dialog-content>
+<md-dialog-actions>
+    <md-button ng-click="$ctrl.cancel()" class="md-primary">
+        Cancel
+    </md-button>
+    <md-button ng-click="$ctrl.save()" class="md-primary">
+        Save
+    </md-button>
+</md-dialog-actions>
+
