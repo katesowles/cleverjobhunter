@@ -25,7 +25,6 @@ function controller($mdDialog, positionService, $window, $state){
     .catch(err => console.log(err));
 
   this.edit = ()=>{
-    //console.log(this.position);
     const parentEl = angular.element(document.body);
     $mdDialog.show({
       parent: parentEl,
