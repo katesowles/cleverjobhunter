@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  word-wrap: break-word;
 }
 
 canvas {
@@ -9,10 +10,36 @@ canvas {
   height: 200px;
 }
 
-h1 {
-  font-size: 5em;
+h1 { // landing header
+  font-size: 5.063em;
   font-weight: 300;
 }
+
+h2 { // dialog header OR page header
+  font-size: 3.375em;
+  font-weight: 300;
+}
+
+h3 { // sub headers OR card headers
+  font-size: 2.25em;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+h6 {
+  font-size: .667em;
+  font-weight: 300;
+}
+
 
 p {
   font-size: 2.5em;
@@ -60,4 +87,8 @@ md-dialog {
 
 .md-button.md-icon-button {
   width: 100%;
+}
+
+md-dialog-content form md-input-container {
+  width: 400px !important;
 }

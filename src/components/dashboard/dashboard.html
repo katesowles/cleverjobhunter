@@ -1,25 +1,17 @@
-<section ng-class="$ctrl.styles.dashboard">
+<section ng-class="$ctrl.styles.dashboard" ng-cloak>
+  <h2>Dashboard</h2>
 
-  <h2>Position stats:</h2>
-  <div>
-    Positions applied: {{$ctrl.numPositions}}
-  </div>
-  <div>
-    Positions applied this week: {{$ctrl.positionCount}}
-  </div>
+  <h3>Position stats:</h3>
+  <p>Positions applied: {{$ctrl.numPositions}}</p>
+  <p>Positions applied this week: {{$ctrl.positionCount}}</p>
 
-  <h2>Company stats:</h2>
-  <div>
-    Companies researched:  {{$ctrl.numCompanies}}
-  </div>
+  <h3>Company stats:</h3>
+  <p>Companies researched: {{$ctrl.numCompanies}}</p>
+  <p>Companies researched this week: {{$ctrl.companyCount}}</p>
 
-  <h2>Contact stats:</h2>
-  <div>
-    Contacts added:  {{$ctrl.numContacts}}
-  </div>
-  <div>
-    Contacts added this week: {{$ctrl.contactCount}}
-  </div>
+  <h3>Contact stats:</h3>
+  <p>Contacts added: {{$ctrl.numContacts}}</p>
+  <p>Contacts added this week: {{$ctrl.contactCount}}</p>
 
   <visualizations>Loading...</visualizations>
 </section>
