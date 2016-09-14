@@ -12,6 +12,20 @@
                     ng-model="$ctrl.position.title"/>
             </md-input-container>
             <md-input-container>
+                <md-select ng-model="$ctrl.position.company" placeholder="{{$ctrl.positionToEdit.company.name}}"> 
+                    <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
+                </md-select>
+            </md-input-container>
+            <!--TODO: dateAdvertised and dateApplied???-->
+            <md-input-container>
+                <label>Method:</label>
+                <input
+                    placeholder="{{$ctrl.positionToEdit.method}}"
+                    name="editMethod"
+                    required
+                    ng-model="$ctrl.position.method"/>
+            </md-input-container>
+            <md-input-container>
                 <label>Position Info:</label>
                 <input
                     placeholder="{{$ctrl.positionToEdit.postingInfo}}"

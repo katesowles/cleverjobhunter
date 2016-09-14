@@ -15,9 +15,7 @@ function controller(positionService, $window, $mdDialog, companyService){
 
   companyService.getByUser(this.userId)
     .then(companies => {
-
       this.companies = companies;
-      console.log(this.companies);
     })
     .catch(err => console.log(err));
 
