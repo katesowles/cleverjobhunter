@@ -13,7 +13,7 @@ controller.$inject = ['userService'];
 
 function controller(userService){
   this.credentials = {
-    username: '',
+    email: '',
     password: ''
   };
 

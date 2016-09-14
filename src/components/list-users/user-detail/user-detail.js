@@ -6,51 +6,30 @@ export default {
   controller
 };
 
-function controller(){
+controller.$inject = ['userService', '$window', 'positionService', 'companyService', 'contactService'];
+function controller(userService, $window, positionService, companyService, contactService){
   this.styles = styles;
+  this.userId = $window.localStorage['id'];
 
-  this.user = {
-    name: 'Joe User',
-    username: 'joe@email.com',
-    positions: [
-      {
-        dateApplied: '2016-09-19',
-        title: 'Web Developer',
-        company: 'ABC Corp'
-      },
-      {
-        dateApplied: '2016-09-19',
-        title: 'Front-End Developer',
-        company: 'XYZ Inc.'
-      },
-      {
-        dateApplied: '2016-09-20',
-        title: 'Back-End Developer',
-        company: 'Cool Company'
-      }
-    ],
-    companies: [
-      {
-        name: 'ABC Corp'
-      },
-      {
-        name: 'IJK Corp'
-      },
-      {
-        name: 'Sweet Company'
-      }
-    ],
-    contacts: [
-      {
-        name: 'Jane Recruiter',
-        role: 'Lead Assistant',
-        company: 'Jobby Jobs'
-      },
-      {
-        name: 'Jack',
-        role: 'HR',
-        company: 'Klassic Korp'
-      }
-    ]
-  };
+  userService.getMe(this.userId)
+  .then( result => this.user = result )
+  .catch( err => console.log(err) );
+
+  positionService.getByUser(this.userId)
+  .then( result => {
+    this.positions = result;
+    // this.positions.forEach( (position, index, arr) => {
+    //   arr[index].dateApplied = $window.moment(position.dateApplied).format('MM-DD-YYYY'); 
+    // });
+  })
+  .catch( err => console.log(err) );
+
+  companyService.getByUser(this.userId)
+  .then( result => this.companies = result )
+  .catch( err => console.log(err) );
+
+  contactService.getByUser(this.userId)
+  .then( result => this.user.contacts = result )
+  .catch( err => console.log(err) );
+
 }
