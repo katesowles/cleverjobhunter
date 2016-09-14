@@ -41,5 +41,5 @@ function controller() {
 
   this.renderViz('contact', 'New Contacts', 'Made', 20, 3);
 
-  this.renderViz('event', 'Events', 'Attended', 1000, 750);
+  // this.renderViz('event', 'Events', 'Attended', 1000, 750);
 };
