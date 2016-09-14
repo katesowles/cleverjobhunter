@@ -11,6 +11,18 @@
                     required
                     ng-model="$ctrl.position.title"/>
             </md-input-container>
+            <!--TODO
+            company
+            dateAdvertised
+            dateApplied-->
+            <md-input-container>
+                <label>Method:</label>
+                <input
+                    placeholder="{{$ctrl.positionToEdit.method}}"
+                    name="editMethod"
+                    required
+                    ng-model="$ctrl.position.method"/>
+            </md-input-container>
             <md-input-container>
                 <label>Position Info:</label>
                 <input
