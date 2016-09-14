@@ -23,7 +23,7 @@ export default function actionItemService ($http, apiUrl) {
     },
 
     getByPosOrComp (which, id) {
-      return $http.get(`${apiUrl}/byPosOrComp/${id}/${which}`);
+      return $http.get(`${apiUrl}/actionItems/byPosOrComp/${id}/${which}`);
     },
 
     getCountForWeek (userId) {

@@ -11,9 +11,9 @@
       ng-click="$ctrl.addContact()"
       ng-show="$ctrl.addButton === 'add'">Add Action Item
     </md-button>
-    <new-contact companies="$ctrl.companies" add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-contact>
-    <div ng-repeat="contact in $ctrl.contacts">
-      <contact-list contact="contact"></contact-list>
+    <new-action-item companies="$ctrl.companies" add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-contact>
+    <div ng-if="$ctrl.addButton === 'save'"" ng-repeat="item in $ctrl.actionItems">
+      <action-item-list item="item"></contact-list>
     </div>
   </div>
 </div>

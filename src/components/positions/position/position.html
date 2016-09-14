@@ -16,13 +16,15 @@
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
           <md-button class="md-secondary md-icon-button"
-            ui-sref="position.actionItems({positionId: position._id})"
+            ng-click="$ctrl.action = 'show'"
             >Action Items
           </md-button>
-            <md-button>Action Items</md-button>
             <md-button>Questions</md-button>
             <md-button ng-click="$ctrl.edit()">Edit Position<md-button>
         </md-card-actions>
     </md-card>
-    <action-items position="position"></action-items>
+
+    <div ng-if="$ctrl.action === 'show'" ng-repeat="item in $ctrl.actionItems" >
+      <action-item-list items="$ctrl.actionItems"></action-item-list>
+    </div>
 </section>

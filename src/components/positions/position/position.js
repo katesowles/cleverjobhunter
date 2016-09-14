@@ -14,12 +14,11 @@ controller.$inject = ['positionService', '$window', '$state', 'actionItemService
 function controller(positionService, $window, $state, actionItemService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
-  this.addButton = 'add';
+  this.action = 'hide';
   this.which = 'position';
 
   actionItemService.getByPosOrComp(this.which, $state.params.positionId)
     .then(actionItems => {
-      console.log(actionItems);
       this.actionItems = actionItems;
     })
     .catch(err => console.log(err));
