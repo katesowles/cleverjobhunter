@@ -1,5 +1,4 @@
 import template from './contact-list.html';
-import styles from './contact-list.scss';
 
 export default {
   template,
@@ -12,7 +11,6 @@ export default {
 
 controller.$inject = ['$mdDialog'];
 function controller ($mdDialog) {
-  this.styles = styles;
 
   this.edit = $event => {
     const parentEl = angular.element(document.body);

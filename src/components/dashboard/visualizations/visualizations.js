@@ -1,7 +1,7 @@
 import Chart from 'chart.js';
 
 import template from './visualizations.html';
-import styles from './visualizations.scss';
+// import styles from './visualizations.scss';
 
 export default {
   template,
@@ -9,7 +9,7 @@ export default {
 };
 
 function controller() {
-  this.styles = styles;
+  // this.styles = styles;
 
   this.renderViz = (element, objTracked, objVerb, completed, total) => {
     // this hides the legend on each chart
@@ -35,13 +35,11 @@ function controller() {
     });
   };
 
-  this.renderViz('application', 'Applications', 'Sent', 5, 3);
+  this.renderViz('application', 'Applications', 'Sent', 5, 1);
 
-  this.renderViz('brand', 'Online Interactions', 'Complete', 8, 5);
+  this.renderViz('brand', 'Online Interactions', 'Complete', 10, 5);
 
-  this.renderViz('contact', 'New Contacts', 'Made', 13, 8);
+  this.renderViz('contact', 'New Contacts', 'Made', 20, 3);
 
-  this.renderViz('events', 'Events', 'Attended', 21, 13);
-
-
+  this.renderViz('event', 'Events', 'Attended', 1000, 750);
 };
