@@ -18,8 +18,9 @@ function controller(positionService, $window, $state){
   //gets the detailed info of selected position
   positionService.get($state.params.positionId)
     .then(position => {
+      position.dateApplied = $window.moment(position.dateApplied).format('MM-DD-YYYY');
+      position.dateAdvertised = $window.moment(position.dateAdvertised).format('MM-DD-YYYY');
       this.position = position;
-      console.log(this.position);
     })
     .catch(err => console.log(err));
 

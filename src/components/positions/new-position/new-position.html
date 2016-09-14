@@ -10,20 +10,6 @@
                     </div>-->
             </md-input-container>
             <md-input-container>
-                <label>Date Posted:</label>
-                <input name="addDateAdvertised" ng-model="$ctrl.position.dateAdvertised"/>
-                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
-                    <div ng-message="required">An e-mail is required</div>
-                </div> -->
-            </md-input-container>
-            <md-input-container>
-                <label>Date Applied:</label>
-                <input name="addDateApplied" required ng-model="$ctrl.position.dateApplied"/>
-                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
-                    <div ng-message="required">An Service is required</div>
-                </div> -->
-            </md-input-container>
-            <md-input-container>
                 <label>Method:</label>
                 <input name="addMethod" required ng-model="$ctrl.position.method"/>
                 <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
@@ -31,18 +17,35 @@
                 </div> -->
             </md-input-container>
             <md-input-container>
+              <md-select ng-model="$ctrl.position.company" placeholder="Select a company">
+                <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
+              </md-select>
+            </md-input-container>
+            <md-input-container>
                 <label>Info:</label>
-                <input name="addPostingInfo" ng-model="$ctrl.position.postingInfo"/>
+                <textarea name="addPostingInfo" ng-model="$ctrl.position.postingInfo"/></textarea>
                 <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
                 </div> -->
+            </md-input-container>
+            <md-input-container>
+              <label>Date Posted:</label>
+              <div flex-gt-xs>
+                 <md-datepicker ng-model="$ctrl.position.dateAdvertised" md-placeholder="{{$ctrl.currentDate}}"></md-datepicker>
+               </div>
+            </md-input-container>
+            <md-input-container>
+              <label>Date Applied:</label>
+              <div flex-gt-xs>
+                <md-datepicker ng-model="$ctrl.position.dateApplied" md-placeholder="{{$ctrl.currentDate}}"></md-datepicker>
+              </div>
             </md-input-container>
             <!--<md-input-container>
                 <label>Pros:</label>
                 <textarea name="addPros" required ng-model="$ctrl.company.info">
                 <div ng-messages="addPosition.addInformation.$error" role="alert">
                     <ng-message when="required">This field is required</ng-message>
-                </div> 
+                </div>
                 </textarea>
             </md-input-container>-->
             <!--<md-input-container>
@@ -53,21 +56,21 @@
                 <input name="addQuestions" ng-model="$ctrl.company.company"/>
                 <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
-                </div> 
+                </div>
             </md-input-container>-->
             <!--<md-input-container>
                 <label>Contact:</label>
                 <input name="addContact" ng-model="$ctrl.company.company"/>
                 <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
-                </div> 
+                </div>
             </md-input-container>-->
             <!--<md-input-container>
                 <label>Action Items:</label>
                 <input name="addActionItems" ng-model="$ctrl.company.actionItems"/>
                 <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
-                </div> 
+                </div>
             </md-input-container>-->
         </form>
     </md-dialog-content>
@@ -75,5 +78,3 @@
         <md-button ng-click="$ctrl.submit()" class="md-primary">Save Position</md-button>
         <md-button ng-click="$ctrl.cancel()" class="md-primary">Cancel</md-button>
     </md-dialog-actions>
-
-

@@ -19,8 +19,8 @@ export default function contactService ($http, apiUrl) {
     },
 
     getCountForWeek (userId) {
-      return $http.get(`${apiUrl}/contacts/byUser/${userId}/contactCount`)
-        .then(response => response.data.count);
+      return $http.get(`${apiUrl}/contacts/byUser/${userId}/weekly`)
+        .then(response => response.data.length);
     },
 
     add (contact, userId) {

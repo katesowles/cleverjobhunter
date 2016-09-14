@@ -37,4 +37,22 @@ describe('company service', ()=>{
     $httpBackend.flush();
   });
 
+  it('DELETEs a company', done=>{
+    const companyToDelete = {_id: '123', name: 'Company name'};
+    const mockResponse = {__v: 0, name: 'Company name'};
+
+    $httpBackend
+      .expectDELETE(`/api/companies/${companyToDelete._id}`)
+      .respond(mockResponse);
+
+    companyService.remove(companyToDelete._id)
+      .then(deletedCompany=>{
+        assert.deepEqual(deletedCompany, mockResponse);
+        done();
+      })
+      .catch(done);
+
+    $httpBackend.flush();
+  });
+
 });

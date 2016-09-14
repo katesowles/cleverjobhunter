@@ -5,15 +5,23 @@ export default {
   controller
 };
 
-controller.$inject = ['userService', '$state', '$mdDialog'];
+controller.$inject = ['userService', '$state', '$mdDialog', '$window'];
 
-function controller(userService, $state, $mdDialog) {
-  this.username = 'Name-Goes-Here';
+function controller(userService, $state, $mdDialog, $window) {
+  // to grab the username for the 'welcome {{username}}'
+  userService.getMe($window.localStorage.getItem('id'))
+    .then(user =>{
+      this.username = user.name;
+    })
+    .catch(err => console.log(err));
+
   this.logout = ()=>{
     userService.logout();
     $state.go('home');
   };
+
   this.isAuthenticated = userService.isAuthenticated;
+
   this.prompt = ()=>{
     $mdDialog.show({
       parent: angular.element(document.body),
@@ -31,4 +39,5 @@ function controller(userService, $state, $mdDialog) {
       escapeToClose: true
     });
   };
+  
 };
