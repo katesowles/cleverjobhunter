@@ -19,8 +19,8 @@ export default function positionService ($http, apiUrl) {
     },
 
     getCountForWeek (userId) {
-      return $http.get(`${apiUrl}/positions/byUser/${userId}/positionCount`)
-        .then(response => response.data.count);
+      return $http.get(`${apiUrl}/positions/byUser/${userId}/weekly`)
+        .then(response => response.data.length);
     },
 
     add (position, userId) {

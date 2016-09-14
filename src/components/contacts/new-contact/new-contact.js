@@ -1,7 +1,9 @@
+//component for the new-contact dialog
 import template from './new-contact.html';
 
 export default {
   template,
+  transclude: true,
   bindings: {
     add: '<',
     addButton: '=',
@@ -10,9 +12,8 @@ export default {
   controller
 };
 
-controller.$inject = ['$scope', '$window'];
-function controller ($scope, $window) {
-  console.log(this.companies);
+controller.$inject = ['$scope', '$window', '$mdDialog'];
+function controller ($scope, $window, $mdDialog) {
 
   this.userId = $window.localStorage['id'];
 
@@ -21,11 +22,17 @@ function controller ($scope, $window) {
   };
 
   resetContact();
+  this.cancel = () => {
+    $mdDialog.hide();
+  };
 
+  //saves and adds information to user's contacts
   this.submit = () => {
+    $mdDialog.hide();
     this.add(this.contact, this.userId);
     resetContact();
     $scope.addContact.$setPristine();
     $scope.addContact.$setUntouched();
   };
+
 };

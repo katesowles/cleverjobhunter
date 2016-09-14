@@ -10,8 +10,9 @@ export default {
   controller
 };
 
-controller.$inject = ['positionService', '$window', '$state'];
-function controller(positionService, $window, $state){
+controller.$inject = ['$mdDialog', 'positionService', '$window', '$state'];
+
+function controller($mdDialog, positionService, $window, $state){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
 
@@ -23,5 +24,26 @@ function controller(positionService, $window, $state){
       this.position = position;
     })
     .catch(err => console.log(err));
+
+  this.edit = ()=>{
+    const parentEl = angular.element(document.body);
+    $mdDialog.show({
+      parent: parentEl,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      template: '<edit-position position="$ctrl.position"></edit-position>',
+      controller(){},
+      locals: {
+        position: this.position
+      },
+      clickOutsideToClose: true,
+      escapeToClose: true
+    })
+    .then( updatedPosition => {
+      if (!updatedPosition) return;
+      //pass copied and updated version to original
+      angular.copy(updatedPosition, this.position);
+    });
+  };
 
 }
