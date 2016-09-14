@@ -18,6 +18,11 @@ export default function actionItemService ($http, apiUrl) {
         .then(response => response.data);
     },
 
+    getDueAndOverdue (userId) {
+      return $http.get(`${apiUrl}/actionItems/byUser/${userId}/overdue`)
+        .then(response => response.data);
+    },
+
     getCountForWeek (userId) {
       return $http.get(`${apiUrl}/actionItems/byUser/${userId}/actionItemCount`)
         .then(response => response.data.count);
