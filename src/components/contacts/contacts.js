@@ -32,6 +32,7 @@ function controller (contactService, $window, companyService, $mdDialog) {
     })
     .catch(err => console.log(err));
 
+  //adds a contact
   this.add = (contactToAdd, userId) => {
     contactService.add(contactToAdd, userId)
       .then(addedContact => {
@@ -50,11 +51,12 @@ function controller (contactService, $window, companyService, $mdDialog) {
       targetEvent: $event,
       controllerAs: '$ctrl',
       bindToController: true,
-      template: '<new-contact add="$ctrl.add" contact="$ctrl.contact"></new-contact>',
+      template: '<new-contact companies="$ctrl.companies" add="$ctrl.add" contact="$ctrl.contact"></new-contact>',
       controller() {},
       locals: {
         contact: this.contact,
-        add: this.add
+        add: this.add,
+        companies: this.companies
       },
       clickOutsideToClose: true,
       escapeToClose: true
@@ -67,6 +69,7 @@ function controller (contactService, $window, companyService, $mdDialog) {
 
   //removes selected contact
   this.remove = contactId => {
+    console.log(`about to remove ${contactId}`);
     contactService.remove(contactId)
       .then(() => {
         contactService.getByUser(this.userId)

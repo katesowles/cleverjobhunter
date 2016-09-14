@@ -10,8 +10,10 @@ export default {
   controller
 };
 
-controller.$inject = ['positionService', '$window', '$state', 'actionItemService'];
-function controller(positionService, $window, $state, actionItemService){
+
+controller.$inject = ['$mdDialog', 'positionService', '$window', '$state', 'actionItemService'];
+
+function controller($mdDialog, positionService, $window, $state, actionItemService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
   this.action = 'hide';

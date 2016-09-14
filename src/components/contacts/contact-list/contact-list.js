@@ -1,9 +1,11 @@
+//component for each contact card
 import template from './contact-list.html';
 
 export default {
   template,
   bindings: {
     contact: '<',
+    remove: '='
   },
   controller
 };
@@ -32,5 +34,9 @@ function controller ($mdDialog) {
       //pass copied and updated version to original
       angular.copy(updatedContact, this.contact);
     });
+  };
+  this.testButton = (contactId) => {
+    console.log('In test button');
+    console.log(contactId);
   };
 };
