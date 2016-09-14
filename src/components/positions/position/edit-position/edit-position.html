@@ -1,0 +1,36 @@
+<md-dialog-content layout-gt-sm="row" layout-padding>
+    <md-content layout-gt-sm="row" layout-padding>
+        <div>
+
+        <form name="editPosition" novalidate>
+            <md-input-container>
+                <label>Title:</label>
+                <input
+                    placeholder="{{$ctrl.positionToEdit.title}}"
+                    name="editTitle"
+                    required
+                    ng-model="$ctrl.position.title"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Position Info:</label>
+                <input
+                    placeholder="{{$ctrl.positionToEdit.postingInfo}}"
+                    name="editPostingInfo"
+                    required
+                    ng-model="$ctrl.position.postingInfo"/>
+            </md-input-container>  
+        </form>
+        </div>
+    </md-content>
+</md-dialog-content>
+<div>
+</div>
+<md-dialog-actions>
+    <md-button ng-click="$ctrl.cancel()" class="md-primary">
+        Cancel
+    </md-button>
+    <md-button ng-click="$ctrl.save()" class="md-primary">
+        Save
+    </md-button>
+</md-dialog-actions>
+
