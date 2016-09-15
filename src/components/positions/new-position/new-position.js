@@ -13,7 +13,7 @@ export default {
 
 controller.$inject = ['$scope', '$window', '$mdDialog'];
 function controller ($scope, $window, $mdDialog) {
-  this.currentDate = $window.moment(new Date()).format('MM-DD-YYYY');
+  this.currentDate = new Date();
 
   this.userId = $window.localStorage['id'];
 

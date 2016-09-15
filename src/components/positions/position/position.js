@@ -10,20 +10,44 @@ export default {
   controller
 };
 
-controller.$inject = ['$mdDialog', 'positionService', '$window', '$state'];
 
+controller.$inject = ['$mdDialog', 'positionService', '$window', '$state'];
 function controller($mdDialog, positionService, $window, $state){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
+  this.action = 'hide';
+  this.which = 'position';
 
   //gets the detailed info of selected position
   positionService.get($state.params.positionId)
     .then(position => {
-      position.dateApplied = $window.moment(position.dateApplied).format('MM-DD-YYYY');
-      position.dateAdvertised = $window.moment(position.dateAdvertised).format('MM-DD-YYYY');
       this.position = position;
     })
     .catch(err => console.log(err));
+
+  this.newActionItem = ($event) => {
+    const parentEl = angular.element(document.body);
+    $mdDialog.show({
+      parent: parentEl,
+      targetEvent: $event,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      template: '<new-action-item company="$ctrl.company" which="$ctrl.which" position="$ctrl.position"></new-action-item>',
+      controller(){},
+      locals: {
+        company: this.company,
+        position: this.position,
+        which: this.which
+      },
+      clickOutsideToClose: true,
+      escapeToClose: true
+    })
+    .then( updatedPosition => {
+      if (!updatedPosition) return;
+      //pass copied and updated version to original
+      angular.copy(updatedPosition, this.position);
+    });
+  };
 
   this.edit = ()=>{
     const parentEl = angular.element(document.body);

@@ -31,13 +31,13 @@
             <md-input-container>
               <label>Date Posted:</label>
               <div flex-gt-xs>
-                 <md-datepicker ng-model="$ctrl.position.dateAdvertised" md-placeholder="{{$ctrl.currentDate}}"></md-datepicker>
+                 <md-datepicker ng-model="$ctrl.position.dateAdvertised" md-placeholder="{{$ctrl.currentDate | date: 'shortDate'}}"></md-datepicker>
                </div>
             </md-input-container>
             <md-input-container>
               <label>Date Applied:</label>
               <div flex-gt-xs>
-                <md-datepicker ng-model="$ctrl.position.dateApplied" md-placeholder="{{$ctrl.currentDate}}"></md-datepicker>
+                <md-datepicker ng-model="$ctrl.position.dateApplied" md-placeholder="{{$ctrl.currentDate | date: 'shortDate'}}"></md-datepicker>
               </div>
             </md-input-container>
             <!--<md-input-container>

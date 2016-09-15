@@ -1,7 +1,7 @@
 import template from './edit-company.html';
 
 export default {
-  template,  
+  template,
   bindings: {
     companyToEdit: '<company'
   },
@@ -11,7 +11,7 @@ export default {
 controller.$inject = ['$mdDialog', 'companyService', '$state', '$window'];
 
 function controller($mdDialog, companyService, $state, $window){
-
+  this.company = angular.copy(this.companyToEdit);
   this.userId = $window.localStorage['id'];
 
   //get users companies to populate the drop down
@@ -27,11 +27,9 @@ function controller($mdDialog, companyService, $state, $window){
 
   this.save = () => {
     this.company._id = $state.params.companyId;
-    
+
     companyService.update(this.company)
       .then(updatedCompany => {
-        //updatedPosition.dateAdvertised = $window.moment(updatedPosition.dateAdvertised).format('MM-DD-YYYY');
-        //updatedPosition.dateApplied = $window.moment(updatedPosition.dateApplied).format('MM-DD-YYYY');
         $mdDialog.hide(updatedCompany);
       });
   };
