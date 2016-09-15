@@ -74,4 +74,56 @@ function controller(positionService, $window, $mdDialog, companyService){
     });
   };
 
+  this.exportToCSV = function() {
+
+    const headerList = [
+      '_id',
+      'title',
+      'company_name',
+      'dateAdvertised',
+      'dateApplied',
+      'method',
+      'postingInfo',
+    ];
+
+    console.log('this.positions',this.positions);
+
+    saveToCsv(this.positions, headerList, 'default.csv');
+
+    function saveToCsv(dataRows, columnHeaders, filename) {
+
+
+      dataRows = dataRows.map(function(dataRow) {
+        var array = [];
+
+        array.push(dataRow._id || '' );
+        array.push(dataRow.title || '' );
+        dataRow.company ? array.push(dataRow.company.name || '' ) : array.push('');
+        array.push(dataRow.dateAdvertised || '' );
+        array.push(dataRow.dateApplied || '' );
+        array.push(dataRow.method || '' );
+        array.push(dataRow.postingInfo || '' );
+
+        return array.join(',');
+      }).join('\n\n');
+
+      console.log('dataRows',dataRows);
+
+      var content =
+          'data:text/csv;charset=utf-8,' +
+          columnHeaders.join(',') + '\n' +
+          dataRows;
+              
+      var encodedUri = encodeURI(content);
+
+      // faux link is required to give the file a name
+      var link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', filename);
+      document.body.appendChild(link);
+
+      link.click();
+    }
+  }
+
 };
