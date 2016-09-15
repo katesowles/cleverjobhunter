@@ -26,6 +26,11 @@ export default function companyService($http, apiUrl){
     update (company) {
       return $http.put(`${apiUrl}/companies/${company._id}`, company)
         .then(response => response.data);
-    }
+    },
+
+    getCountForWeek (userId) {
+      return $http.get(`${apiUrl}/companies/byUser/${userId}/weekly`)
+        .then(response => response.data.length);
+    },
   };
 }

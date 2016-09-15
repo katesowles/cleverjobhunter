@@ -55,6 +55,18 @@
                     <div ng-message="required">An e-mail is required</div>
                 </div> -->
             </md-input-container>
+            <md-input-container>
+               <div ng-repeat="each in $ctrl.company.pros">
+                 <input ng-model="each.pro"\>
+               </div>
+            </md-input-container>
+            <button ng-click="$ctrl.addInput(pros)">Add another Pro</button>
+            <md-input-container>
+               <div ng-repeat="each in $ctrl.company.pros">
+                 <input ng-model="each.pro"\>
+               </div>
+            </md-input-container>
+            <button ng-click="$ctrl.addInput(cons)">Add another Con</button>
             <!--<md-input-container>
                 <label>Pros:</label>
                 <textarea
@@ -63,7 +75,7 @@
                     ng-model="$ctrl.company.info">
                 <div ng-messages="addPosition.addInformation.$error" role="alert">
                     <ng-message when="required">This field is required</ng-message>
-                </div> 
+                </div>
                 </textarea>
             </md-input-container>-->
             <!--<md-input-container>
@@ -73,11 +85,11 @@
                 </select>
                 <input
                     name="addQuestions"
-                    
+
                     ng-model="$ctrl.company.company"/>
                 <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
-                </div> 
+                </div>
             </md-input-container>-->
             <!--<md-input-container>
                 <label>Contact:</label>
@@ -86,21 +98,21 @@
                 </select>
                 <input
                     name="addContact"
-                    
+
                     ng-model="$ctrl.company.company"/>
                 <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
-                </div> 
+                </div>
             </md-input-container>-->
             <!--<md-input-container>
                 <label>Links:</label>
                 <input
                     name="addLinks"
-                    
+
                     ng-model="$ctrl.company.links"/>
                 <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
-                </div> 
+                </div>
             </md-input-container>-->
             <!--<md-input-container>
                 <label>Action Items:</label>
@@ -109,11 +121,11 @@
                 </select>
                 <input
                     name="addActionItems"
-                    
+
                     ng-model="$ctrl.company.actionItems"/>
                 <div ng-messages="addPosition.addEmail.$error" role="alert">
                     <div ng-message="required">An e-mail is required</div>
-                </div> 
+                </div>
             </md-input-container>-->
         </form>
     </md-dialog-content>
@@ -121,4 +133,3 @@
         <md-button ng-click="$ctrl.submit()" class="md-primary">Save Company</md-button>
         <md-button ng-click="$ctrl.cancel()" class="md-primary">Cancel</md-button>
     </md-dialog-actions>
-

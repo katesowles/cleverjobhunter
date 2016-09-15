@@ -10,35 +10,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { // page header
-  font-size: 5.063em;
+  font-size: 3.889em;
 }
 
 h2 { // dialog header // sub header OR card header
-  font-size: 3.375em;
+  font-size: 2.827em;
   margin: 0;
 }
 
 h3 { // card sub header OR landing detail
-  font-size: 2.25em;
+  font-size: 1.999em;
   margin: 0;
 }
 
-h4 { // graph sub headers OR
-  font-size: 1.5em;
+h4 { // graph sub headers OR footer content
+  font-size: 1.414em;
   margin: 0;
 }
 
-h5 { // footer content OR block messages (errors)
+h5 { // block messages (errors)
   font-size: 1em;
+  margin: 0;
 }
 
 h6 {
-  font-size: .667em;
+  font-size: .707em;
 }
 
 
 p {
-  font-size: 1.5em;
+  font-size: 1.414em;
   font-weight: 200;
 }
 
@@ -51,7 +52,7 @@ p {
   margin-bottom: 150px;
 }
 
-.sticky-footer {
+footer {
   position: fixed;
   bottom: 0;
   height: auto;
@@ -62,7 +63,7 @@ p {
   background-color: slategray;
 }
 
-.sticky-footer a {
+footer a {
   color: white;
 }
 
@@ -124,3 +125,4 @@ md-dialog-content form md-input-container {
 md-menu-content {
   background-color: rgb(130, 168, 185);
 }
+

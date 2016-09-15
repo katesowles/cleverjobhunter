@@ -17,13 +17,20 @@ function controller ($scope, $window, $mdDialog) {
   console.log(this.userId);
 
   const resetCompany = () => {
-    this.company = {};
+    this.company = {
+      pros: [],
+      cons: []
+    };
   };
 
   resetCompany();
 
   this.cancel = () => {
     $mdDialog.hide();
+  };
+
+  this.addInput = (type) => {
+    this.company[type].push({});
   };
 
   //gives the form info to add a new company
