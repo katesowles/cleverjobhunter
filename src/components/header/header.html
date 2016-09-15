@@ -1,14 +1,34 @@
 <div ng-cloak>
   <md-content class="md-padding">
     <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-      <md-nav-item md-nav-sref="welcome" name="welcome" id="logo">Job Hunter</md-nav-item>
+      <md-nav-item ng-if="!$ctrl.isAuthenticated()" md-nav-sref="welcome" name="welcome" id="logo" flex="grow">Job Hunter</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="welcome" id="logo" flex="grow">Job Hunter</md-nav-item>
       <md-nav-item ng-if="!$ctrl.isAuthenticated()" md-Nav-Click="$ctrl.prompt()" name="enter">Enter Site</md-nav-item>
-      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="user" name="user">Welcome, {{$ctrl.name}}</md-nav-item>
-      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="dashboard">Dashboard</md-nav-item>
+      <!--<md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="dashboard">Dashboard</md-nav-item>-->
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="positions" name="positions">Positions</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="companies" name="companies">Companies</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="contacts" name="contacts">Contacts</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-Nav-Click="$ctrl.logout()" name="loggedOut">Logout</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="user" name="user">Welcome, {{$ctrl.username}}</md-nav-item>
+      <md-menu ng-if="$ctrl.isAuthenticated()" md-position-mode="target-right target">
+        <md-button aria-label="Open gear interactions menu" class="md-icon-button" ng-click="$ctrl.openMenu($mdOpenMenu, $event)">
+          <i md-menu-origin class="material-icons">settings</i></md-icon>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <md-button disabled="disabled">
+              Example disabled option
+            </md-button>
+          </md-menu-item>
+          <md-menu-divider></md-menu-divider>
+          <md-menu-item>
+            <md-button ng-click="$ctrl.logout()">
+              Log out
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+
     </md-nav-bar>
   </md-content>
 </div>
