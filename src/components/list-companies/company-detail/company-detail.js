@@ -12,8 +12,8 @@ export default {
 
 
 
-controller.$inject = ['$mdDialog', 'companyService', '$window', '$state'];
-function controller($mdDialog, companyService, $window, $state){
+controller.$inject = ['$mdDialog', 'companyService', '$window', '$state', 'contactService'];
+function controller($mdDialog, companyService, $window, $state, contactService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
   this.which = 'company';
@@ -22,6 +22,10 @@ function controller($mdDialog, companyService, $window, $state){
   companyService.get($state.params.companyId)
     .then(company => {
       this.company = company;
+      contactService.getByCompany(this.userId, company._id)
+        .then(contacts => {
+          this.companyContacts = contacts;
+        });
     })
     .catch(err => console.log(err));
 
@@ -71,5 +75,3 @@ function controller($mdDialog, companyService, $window, $state){
   };
 
 }
-
-
