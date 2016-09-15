@@ -3,7 +3,7 @@
     <md-card-header>
       <md-card-header-text>
       <span class="md-title">{{$ctrl.contact.name}}: {{ $ctrl.contact.role }} at {{ $ctrl.contact.company.name || "'Not Yet Specified'" }}</span>
-      <span class="md-subhead">Met on {{$ctrl.contact.dateMet}}</span>
+      <span class="md-subhead">Met on {{$ctrl.contact.dateMet | date: 'shortDate'}}</span>
       </md-card-header-text>
     </md-card-header>
     <md-card-content>

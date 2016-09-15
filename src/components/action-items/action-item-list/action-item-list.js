@@ -15,17 +15,11 @@ controller.$inject = ['$state', 'actionItemService', '$window'];
 
 function controller ($state, actionItemService, $window) {
   this.styles = styles;
-  console.log($state.params.which);
-  console.log($state.params.parentId);
   this.parentName = $state.params.parentName;
 
   actionItemService.getByPosOrComp($state.params.which, $state.params.parentId)
   .then(actionItems => {
-    actionItems.map(e => {
-      e.dateDue = $window.moment(e.dateDue).format('MM-DD-YYYY');
-    });
     this.actionItems = actionItems;
-    console.log(this.actionItems);
   })
   .catch(err => console.log(err));
 

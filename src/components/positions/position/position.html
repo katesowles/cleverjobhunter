@@ -10,26 +10,20 @@
         </md-card-header>
         <md-card-content>
             <p>Position Info: {{$ctrl.position.postingInfo}}</p>
-            <p>Date Advertised: {{$ctrl.position.dateAdvertised}}</p>
-            <p>Date Applied: {{$ctrl.position.dateApplied}}</p>
+            <p>Date Advertised: {{$ctrl.position.dateAdvertised | date: 'shortDate'}}</p>
+            <p>Date Applied: {{$ctrl.position.dateApplied | date: 'shortDate'}}</p>
             <p>Application Method: {{$ctrl.position.method}}</p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-          <!-- <md-button class="md-secondary md-icon-button"
-            ng-click="$ctrl.action = 'show'"
-            >Action Items
-          </md-button> -->
+
           <md-button class="md-secondary md-icon-button"
             ui-sref="actions({parentId: $ctrl.position._id, which: $ctrl.which, parentName: $ctrl.position.title})"
             >View Current Action Items
           </md-button>
             <md-button>Questions</md-button>
-            <md-button ng-click="$ctrl.newActionItem($event)"></md-button>
+            <md-button ng-click="$ctrl.newActionItem($event)">Add Action Item</md-button>
             <md-button ng-click="$ctrl.edit()">Edit Position<md-button>
         </md-card-actions>
     </md-card>
 
-    <!-- <div ng-if="$ctrl.action === 'show'" ng-repeat="item in $ctrl.actionItems">
-      <action-item-list item="item"></action-item-list>
-    </div> -->
 </section>

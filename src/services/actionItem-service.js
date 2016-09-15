@@ -33,7 +33,7 @@ export default function actionItemService ($http, apiUrl) {
     },
 
     add (actionItem, positionId, userId) {
-      return $http.post(`${apiUrl}/actionItems/position/${positionId}/${userId}`, actionItem)
+      return $http.post(`${apiUrl}/actionItems/${positionId}/${userId}`, actionItem)
         .then(response => response.data);
     },
 

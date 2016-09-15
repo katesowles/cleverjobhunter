@@ -10,63 +10,18 @@
             </textarea>
         </md-input-container>
 
-        <md-input-container>
-        <md-select ng-model="$ctrl.actionItem.company" placeholder="Select a company">
-            <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
-        </md-select>
-        </md-input-container>
-        <md-input-container>
-            <label>Phone:</label>
-            <input
-                name="addPhone"
-                required
-                ng-model="$ctrl.actionItem.phone"/>
-            <!-- <div ng-messages="addActionItem.addEmail.$error" role="alert">
-                <div ng-message="required">An e-mail is required</div>
-            </div> -->
-        </md-input-container>
-
-        <md-input-container>
-        <md-select ng-model="$ctrl.actionItem.company" placeholder="Select a company">
-            <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
-        </md-select>
-        </md-input-container>
-
         <!-- <md-input-container>
-            <label>Company:</label>
-            <input
-                name="addCompany"
-                ng-model="$ctrl.actionItem.company"/>
-            <div ng-messages="addActionItem.addEmail.$error" role="alert">
-                <div ng-message="required">An e-mail is required</div>
-            </div>
+        <md-select ng-model="$ctrl.actionItem.company" placeholder="Select a company">
+            <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
+        </md-select>
         </md-input-container> -->
+
         <md-input-container>
-            <label>Role:</label>
-            <input
-                name="addRole"
-                required
-                ng-model="$ctrl.actionItem.role"/>
-            <!-- <div ng-messages="addActionItem.addEmail.$error" role="alert">
-                <div ng-message="required">An e-mail is required</div>
-            </div> -->
-        </md-input-container>
+            <md-datepicker ng-required="true" ng-model="$ctrl.actionItem.dateDue" md-placeholder="Date Due:"></md-datepicker>
         <md-input-container>
-            <label>Relevant Information:</label>
-            <textarea
-                name="addInformation"
-                required
-                ng-model="$ctrl.actionItem.info">
-            <!-- <div ng-messages="addActionItem.addInformation.$error" role="alert">
-                <ng-message when="required">This field is required</ng-message>
-            </div> -->
-            </textarea>
-        </md-input-container>
-        <md-input-container>
-            <md-datepicker ng-model="$ctrl.actionItem.dateMet" md-placeholder="Date met:"></md-datepicker>
-        <md-input-container>
+
         <md-dialog-actions>
-            <md-button ng-click="$ctrl.submit()" type="submit" class="md-primary">Save Contact</md-button>
+            <md-button ng-click="$ctrl.submit()" type="submit" class="md-primary">Save Action Item</md-button>
             <md-button ng-click="$ctrl.cancel()" class="md-primary">Cancel</md-button>
         </md-dialog-actions>
     </form>

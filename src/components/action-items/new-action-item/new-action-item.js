@@ -9,15 +9,18 @@ export default {
   controller
 };
 
-controller.$inject = ['$mdDialog', '$window', '$scope', 'companyService'];
-function controller ($mdDialog, $window, $scope, companyService) {
+controller.$inject = ['$mdDialog', '$window', '$scope', 'actionItemService'];
+function controller ($mdDialog, $window, $scope, actionItemService) {
   this.styles = styles;
   this.userId = $window.localStorage['id'];
+  console.log(this.position.company._id);
 
-  companyService.getByUser
+  // companyService.getByUser
 
   const resetItem = () => {
-    this.actionItem = {};
+    this.actionItem = {
+      company: this.position.company._id
+    };
   };
 
   resetItem();
@@ -39,7 +42,7 @@ function controller ($mdDialog, $window, $scope, companyService) {
     $mdDialog.hide();
     this.add(this.actionItem, this.position._id, this.userId);
     resetItem();
-    $scope.addContact.$setPristine();
-    $scope.addContact.$setUntouched();
+    $scope.addActionItem.$setPristine();
+    $scope.addActionItem.$setUntouched();
   };
 }
