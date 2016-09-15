@@ -15,6 +15,7 @@ controller.$inject = ['$mdDialog', '$window', '$scope', 'actionItemService'];
 function controller ($mdDialog, $window, $scope, actionItemService) {
   this.styles = styles;
   this.userId = $window.localStorage['id'];
+  console.log(this.userId);
   console.log(this.which);
   console.log(this.position);
   console.log(this.company);
@@ -52,7 +53,7 @@ function controller ($mdDialog, $window, $scope, actionItemService) {
 
   this.submit = () => {
     $mdDialog.hide();
-    this.add(this.actionItem, this.position._id, this.userId, this.which);
+    this.add(this.actionItem, this.userId);
     resetItem();
     $scope.addActionItem.$setPristine();
     $scope.addActionItem.$setUntouched();
