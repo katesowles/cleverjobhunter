@@ -4,7 +4,9 @@ import styles from './new-action-item.scss';
 export default {
   template,
   bindings: {
-    position: '<'
+    position: '<',
+    company: '<',
+    which: '<'
   },
   controller
 };
@@ -13,14 +15,25 @@ controller.$inject = ['$mdDialog', '$window', '$scope', 'actionItemService'];
 function controller ($mdDialog, $window, $scope, actionItemService) {
   this.styles = styles;
   this.userId = $window.localStorage['id'];
-  console.log(this.position.company._id);
+  console.log(this.which);
+  console.log(this.position);
+  console.log(this.company);
 
-  // companyService.getByUser
 
   const resetItem = () => {
-    this.actionItem = {
-      company: this.position.company._id
-    };
+    if (this.which === 'position') {
+      this.actionItem = {
+        position: this.position._id,
+        company: this.position.company._id || ''
+      };
+    } else if (this.which === 'company') {
+      this.actionItem = {
+        company: this.company._id
+      };
+    } else {
+      this.actionItem = {};
+    }
+
   };
 
   resetItem();
@@ -29,9 +42,8 @@ function controller ($mdDialog, $window, $scope, actionItemService) {
     $mdDialog.hide();
   };
 
-
-  this.add = (actionItem, posId, userId) => {
-    actionItemService.add(actionItem, posId, userId)
+  this.add = (actionItem, userId) => {
+    actionItemService.addForPosOrComp(actionItem, userId)
     .then(addedService => {
       console.log(addedService);
     })
@@ -40,7 +52,7 @@ function controller ($mdDialog, $window, $scope, actionItemService) {
 
   this.submit = () => {
     $mdDialog.hide();
-    this.add(this.actionItem, this.position._id, this.userId);
+    this.add(this.actionItem, this.position._id, this.userId, this.which);
     resetItem();
     $scope.addActionItem.$setPristine();
     $scope.addActionItem.$setUntouched();

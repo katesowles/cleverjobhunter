@@ -13,12 +13,35 @@ function controller($window, companyService, contactService, positionService, ac
 
   actionItemService.getDueAndOverdue(this.userId)
   .then(items => {
+    console.log('get due and overdue called');
     this.almostDue = items.almostDue;
     this.overDue = items.overDue;
   })
   .catch(err => {
     console.log(err);
   });
+
+  this.complete = (id, category) => {
+    console.log(id);
+    console.log(category);
+    actionItemService.remove(id)
+    .then(removed => {
+      if (category === 'due') {
+        this.almostDue.forEach((e,i) => {
+          if (id === e._id) {
+            this.almostDue.splice(i, 1);
+          }
+        });
+      } else {
+        this.overDue.forEach((e,i) => {
+          if (id === e._id) {
+            this.overDue.splice(i, 1);
+          }
+        });
+      }
+      console.log(removed);
+    });
+  };
 
   companyService.getByUser(this.userId)
   .then( result => {
