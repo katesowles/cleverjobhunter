@@ -6,6 +6,8 @@ export default {
   template,
   bindings: {
     companies: '=',
+    position: '<',
+    which: '<'
   },
   controller
 };
@@ -59,10 +61,12 @@ function controller($mdDialog, companyService, $window, $state, contactService){
       targetEvent: $event,
       controllerAs: '$ctrl',
       bindToController: true,
-      template: '<new-action-item company="$ctrl.company"></new-action-item>',
+      template: '<new-action-item which="$ctrl.which" position="$ctrl.position" company="$ctrl.company"></new-action-item>',
       controller(){},
       locals: {
-        company: this.company
+        company: this.company,
+        position: this.position,
+        which: this.which
       },
       clickOutsideToClose: true,
       escapeToClose: true
