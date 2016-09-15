@@ -18,6 +18,11 @@ export default function contactService ($http, apiUrl) {
         .then(response => response.data);
     },
 
+    getByCompany (userId, companyId) {
+      return $http.get(`${apiUrl}/contacts/byUser/${userId}/byCompany/${companyId}`)
+        .then(response => response.data);
+    },
+    
     getCountForWeek (userId) {
       return $http.get(`${apiUrl}/contacts/byUser/${userId}/weekly`)
         .then(response => response.data.length);

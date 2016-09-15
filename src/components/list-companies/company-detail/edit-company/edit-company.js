@@ -11,7 +11,7 @@ export default {
 controller.$inject = ['$mdDialog', 'companyService', '$state', '$window'];
 
 function controller($mdDialog, companyService, $state, $window){
-
+  this.company = angular.copy(this.companyToEdit);
   this.userId = $window.localStorage['id'];
 
   //get users companies to populate the drop down
