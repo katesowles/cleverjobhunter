@@ -15,11 +15,6 @@ controller.$inject = ['$mdDialog', '$window', '$scope', 'actionItemService'];
 function controller ($mdDialog, $window, $scope, actionItemService) {
   this.styles = styles;
   this.userId = $window.localStorage['id'];
-  console.log(this.userId);
-  console.log(this.which);
-  console.log(this.position);
-  console.log(this.company);
-
 
   const resetItem = () => {
     if (this.which === 'position') {
@@ -34,7 +29,6 @@ function controller ($mdDialog, $window, $scope, actionItemService) {
     } else {
       this.actionItem = {};
     }
-
   };
 
   resetItem();

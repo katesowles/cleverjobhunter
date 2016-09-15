@@ -6,6 +6,8 @@ export default {
   template,
   bindings: {
     companies: '=',
+    position: '<',
+    which: '<'
   },
   controller
 };
@@ -16,6 +18,7 @@ controller.$inject = ['$mdDialog', 'companyService', '$window', '$state', 'conta
 function controller($mdDialog, companyService, $window, $state, contactService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
+  this.which = 'company';
 
   //gets the detailed info of selected company
   companyService.get($state.params.companyId)
@@ -28,6 +31,7 @@ function controller($mdDialog, companyService, $window, $state, contactService){
     })
     .catch(err => console.log(err));
 
+  //edits the company info
   this.edit = ()=>{
     const parentEl = angular.element(document.body);
     $mdDialog.show({
@@ -43,6 +47,31 @@ function controller($mdDialog, companyService, $window, $state, contactService){
       escapeToClose: true
     })
     .then(updatedCompany => {
+      if (!updatedCompany) return;
+      //pass copied and updated version to original
+      angular.copy(updatedCompany, this.company);
+    });
+  };
+
+  //opens dialog to enter a new action item
+  this.newActionItem = ($event) => {
+    const parentEl = angular.element(document.body);
+    $mdDialog.show({
+      parent: parentEl,
+      targetEvent: $event,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      template: '<new-action-item which="$ctrl.which" position="$ctrl.position" company="$ctrl.company"></new-action-item>',
+      controller(){},
+      locals: {
+        company: this.company,
+        position: this.position,
+        which: this.which
+      },
+      clickOutsideToClose: true,
+      escapeToClose: true
+    })
+    .then( updatedCompany => {
       if (!updatedCompany) return;
       //pass copied and updated version to original
       angular.copy(updatedCompany, this.company);

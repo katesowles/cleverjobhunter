@@ -35,7 +35,17 @@ export default function actionItemService ($http, apiUrl) {
     addForPosOrComp (actionItem, userId) {
       return $http.post(`${apiUrl}/actionItems/${userId}`, actionItem)
         .then(response => response.data);
-    },
+    }, 
+
+    // addPositionItem (actionItem, positionId, userId) {
+    //   return $http.post(`${apiUrl}/actionItems/${positionId}/${userId}`, actionItem)
+    //     .then(response => response.data);
+    // },
+
+    // addCompanyItem (actionItem, companyId, userId) {
+    //   return $http.post(`${apiUrl}/actionItems/company/${companyId}/${userId}`, actionItem)
+    //     .then(response => console.log('after actionItem service'));
+    // },
 
     remove (actionItemId) {
       return $http.delete(`${apiUrl}/actionItems/${actionItemId}`)

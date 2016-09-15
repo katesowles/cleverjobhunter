@@ -12,7 +12,6 @@ export default {
 
 
 controller.$inject = ['$mdDialog', 'positionService', '$window', '$state'];
-
 function controller($mdDialog, positionService, $window, $state){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
