@@ -32,10 +32,20 @@ export default function actionItemService ($http, apiUrl) {
         .then(response => response.data.count);
     },
 
-    add (actionItem, positionId, userId) {
-      return $http.post(`${apiUrl}/actionItems/${positionId}/${userId}`, actionItem)
+    addForPosOrComp (actionItem, userId) {
+      return $http.post(`${apiUrl}/actionItems/${userId}`, actionItem)
         .then(response => response.data);
     },
+
+    // addForPosition (actionItem, positionId, userId) {
+    //   return $http.post(`${apiUrl}/actionItems/position/${positionId}/${userId}`, actionItem)
+    //     .then(response => response.data);
+    // },
+    //
+    // addForCompany (actionItem, companyId, userId) {
+    //   return $http.post(`${apiUrl}/actionItems/position/${companyId}/${userId}`, actionItem)
+    //     .then(response => response.data);
+    // },
 
     remove (actionItemId) {
       return $http.delete(`${apiUrl}/actionItems/${actionItemId}`)
