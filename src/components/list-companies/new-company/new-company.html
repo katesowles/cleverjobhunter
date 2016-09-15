@@ -55,18 +55,24 @@
                     <div ng-message="required">An e-mail is required</div>
                 </div> -->
             </md-input-container>
-            <md-input-container>
-               <div ng-repeat="each in $ctrl.company.pros">
-                 <input ng-model="each.pro"\>
-               </div>
-            </md-input-container>
-            <button ng-click="$ctrl.addInput(pros)">Add another Pro</button>
-            <md-input-container>
-               <div ng-repeat="each in $ctrl.company.pros">
-                 <input ng-model="each.pro"\>
-               </div>
-            </md-input-container>
-            <button ng-click="$ctrl.addInput(cons)">Add another Con</button>
+            <md-button ng-click="$ctrl.addProsInput()">Add A Pro</md-button>
+            <md-button ng-click="$ctrl.addConsInput()">Add A Con</md-button>
+            <md-button ng-click="$ctrl.addQuestionsInput()">Question About Company</md-button>
+            <div ng-repeat="each in $ctrl.pros">
+              <md-input-container>
+                   <input aria-label="Company Pro" ng-model="each.pro" placeholder="Pro:"\>
+              </md-input-container>
+            </div>
+            <div ng-repeat="each in $ctrl.cons">
+              <md-input-container>
+                   <input aria-label="Company Con" ng-model="each.con" placeholder="Con:"\>
+              </md-input-container>
+            </div>
+            <div ng-repeat="each in $ctrl.questions">
+              <md-input-container>
+                   <input aria-label="Questions" ng-model="each.question" placeholder="Question:"\>
+              </md-input-container>
+            </div>
             <!--<md-input-container>
                 <label>Pros:</label>
                 <textarea

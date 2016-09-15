@@ -14,12 +14,15 @@ controller.$inject = ['$scope', '$window', '$mdDialog'];
 function controller ($scope, $window, $mdDialog) {
 
   this.userId = $window.localStorage['id'];
-  console.log(this.userId);
+  this.pros = [];
+  this.cons = [];
+  this.questions = [];
 
   const resetCompany = () => {
     this.company = {
       pros: [],
-      cons: []
+      cons: [],
+      questions: []
     };
   };
 
@@ -29,13 +32,42 @@ function controller ($scope, $window, $mdDialog) {
     $mdDialog.hide();
   };
 
-  this.addInput = (type) => {
-    this.company[type].push({});
+  this.addProsInput = () => {
+    this.pros.push({});
+  };
+
+  this.addConsInput = () => {
+    this.cons.push({});
+  };
+
+  this.addQuestionsInput = () => {
+    this.questions.push({});
   };
 
   //gives the form info to add a new company
   this.submit = () => {
-    console.log('got here to new-company form submit');
+    for (let i = 0; i < this.pros.length; i++) {
+      for (let each in this.pros[i]) {
+        if( each !== '$$hashKey') {
+          this.company.pros.push(this.pros[i][each]);
+        }
+      }
+    }
+    for (let i = 0; i < this.cons.length; i++) {
+      for (let each in this.cons[i]) {
+        if( each !== '$$hashKey') {
+          this.company.cons.push(this.cons[i][each]);
+        }
+      }
+    }
+    for (let i = 0; i < this.questions.length; i++) {
+      for (let each in this.questions[i]) {
+        if( each !== '$$hashKey') {
+          this.company.questions.push(this.questions[i][each]);
+        }
+      }
+    }
+
     $mdDialog.hide();
     this.add(this.company, this.userId);
     resetCompany();

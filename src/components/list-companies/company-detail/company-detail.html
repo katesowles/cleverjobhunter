@@ -21,6 +21,27 @@
         <md-card-content>
             <p ng-repeat="contact in $ctrl.companyContacts">{{contact.name || 'No company contacts'}}</p>
         </md-card-content>
+        <md-list>
+          <md-header>Company Pros:</md-header>
+          <md-list-item ng-repeat="pro in $ctrl.company.pros">
+            <p> {{ pro || 'No Pros Yet'}} </p>
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+        <md-list>
+          <md-header>Company Cons:</md-header>
+          <md-list-item ng-repeat="con in $ctrl.company.cons">
+            <p> {{ con || 'No Cons Yet'}} </p>
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+        <md-list>
+          <md-header>Questions:</md-header>
+          <md-list-item ng-repeat="question in $ctrl.company.questions">
+            <p> {{ question || 'No Questions Yet'}} </p>
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
 
         <md-card-actions layout="row" layout-align="end center">
             <md-button class="md-secondary md-icon-button"
