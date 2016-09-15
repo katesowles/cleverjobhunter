@@ -54,10 +54,10 @@
     "angular-ui-router": "1.0.0-beta.1",
     "camelcase": "^3.0.0",
     "chart.js": "^2.2.2",
-    "moment": "^2.15.0",
-    "html-webpack-plugin": "^2.22.0"
+    "html-webpack-plugin": "^2.22.0",
+    "moment": "^2.15.0"
   },
-    "babel": {
+  "babel": {
     "presets": [
       "es2015"
     ]
