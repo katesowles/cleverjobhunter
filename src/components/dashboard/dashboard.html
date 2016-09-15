@@ -1,6 +1,10 @@
 <section ng-class="$ctrl.styles.dashboard" ng-cloak>
   <h1>Dashboard</h1>
 
+  <md-button class="md-secondary md-icon-button" ng-click="$ctrl.newPosition($event)">Add Position</md-button>
+  <md-button class="md-secondary md-icon-button" ng-click="$ctrl.newCompany($event)">Add Company</md-button>
+  <md-button class="md-secondary md-icon-button" ng-click="$ctrl.newContact($event)">Add Contact</md-button>
+
   <md-card>
     <md-card-header>
       <md-card-header-text>

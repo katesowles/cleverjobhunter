@@ -4,7 +4,7 @@
       <md-nav-item ng-if="!$ctrl.isAuthenticated()" md-nav-sref="welcome" name="welcome" id="logo" flex="grow">Job Hunter</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="welcome" id="logo" flex="grow">Job Hunter</md-nav-item>
       <md-nav-item ng-if="!$ctrl.isAuthenticated()" md-Nav-Click="$ctrl.prompt()" name="enter">Enter Site</md-nav-item>
-      <!--<md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="dashboard">Dashboard</md-nav-item>-->
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="dashboard">Dashboard</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="positions" name="positions">Positions</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="companies" name="companies">Companies</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="contacts" name="contacts">Contacts</md-nav-item>

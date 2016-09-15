@@ -11,7 +11,6 @@ controller.$inject = ['companyService', '$window', '$mdDialog'];
 function controller(companyService, $window, $mdDialog){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
-  this.addButton = 'add';
   
   //gets all of user's companies
   companyService.getByUser(this.userId)
@@ -25,7 +24,6 @@ function controller(companyService, $window, $mdDialog){
     companyService.add(companyToAdd, userId)
       .then(addedcompany => {
         this.companies.unshift(addedcompany);
-        this.addButton = 'add';
       })
       .catch(err => console.log(err));
   };

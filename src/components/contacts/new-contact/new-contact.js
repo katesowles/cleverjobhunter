@@ -28,7 +28,7 @@ function controller ($scope, $window, $mdDialog) {
 
   //saves and adds information to user's contacts
   this.submit = () => {
-    $mdDialog.hide();
+    $mdDialog.hide(this.contact);
     this.add(this.contact, this.userId);
     resetContact();
     $scope.addContact.$setPristine();
