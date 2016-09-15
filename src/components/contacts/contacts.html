@@ -2,13 +2,12 @@
   <h1>Contacts</h1>
 
   <md-button class="md-secondary md-icon-button"
-    ng-click="$ctrl.addButton = 'save'"
-    ng-show="$ctrl.addButton === 'add'">Add Contact
+    ng-click="$ctrl.addContact($event)">Add Contact
   </md-button>
 
   <new-contact companies="$ctrl.companies" add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-contact>
 
   <div ng-repeat="contact in $ctrl.contacts">
-    <contact-list contact="contact"></contact-list>
+    <contact-list remove="$ctrl.remove" contact="contact"></contact-list>
   </div>
 </section>
