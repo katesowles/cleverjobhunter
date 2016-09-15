@@ -14,6 +14,7 @@ function controller($window, companyService, contactService, positionService, ac
   actionItemService.getDueAndOverdue(this.userId)
   .then(items => {
     console.log('get due and overdue called');
+    console.log(items);
     this.almostDue = items.almostDue;
     this.overDue = items.overDue;
   })
