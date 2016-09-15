@@ -30,6 +30,7 @@ h4 { // graph sub headers OR footer content
 
 h5 { // block messages (errors)
   font-size: 1em;
+  margin: 0;
 }
 
 h6 {
@@ -51,7 +52,7 @@ p {
   margin-bottom: 150px;
 }
 
-.sticky-footer {
+footer {
   position: fixed;
   bottom: 0;
   height: auto;
@@ -62,7 +63,7 @@ p {
   background-color: slategray;
 }
 
-.sticky-footer a {
+footer a {
   color: white;
 }
 
@@ -124,3 +125,4 @@ md-dialog-content form md-input-container {
 md-menu-content {
   background-color: rgb(130, 168, 185);
 }
+
