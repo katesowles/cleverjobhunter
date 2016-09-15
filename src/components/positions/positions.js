@@ -22,11 +22,6 @@ function controller(positionService, $window, $mdDialog, companyService){
   //gets all positions
   positionService.getByUser(this.userId)
     .then(positions => {
-      // positions.map(e => {
-      //   e.dateApplied = $window.moment(e.dateApplied).format('MM-DD-YYYY');
-      //   e.dateAdvertised = $window.moment(e.dateAdvertised).format('MM-DD-YYYY');
-      // });
-
       this.positions = positions;
       console.log(this.positions);
     })
@@ -36,9 +31,6 @@ function controller(positionService, $window, $mdDialog, companyService){
   this.add = (positionToAdd, userId) => {
     positionService.add(positionToAdd, userId)
       .then(addedPosition => {
-        console.log(addedPosition.company);
-        addedPosition.dateApplied = $window.moment(addedPosition.dateApplied).format('MM-DD-YYYY');
-        addedPosition.dateAdvertised = $window.moment(addedPosition.dateAdvertised).format('MM-DD-YYYY');
         this.positions.unshift(addedPosition);
         this.addButton = 'add';
       })

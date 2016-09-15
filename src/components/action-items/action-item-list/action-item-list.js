@@ -11,9 +11,27 @@ export default {
   controller
 };
 
-function controller () {
-  this.styles = styles;
+controller.$inject = ['$state', 'actionItemService', '$window'];
 
-  console.log(this.position);
-  console.log(this.item);
+function controller ($state, actionItemService, $window) {
+  this.styles = styles;
+  this.parentName = $state.params.parentName;
+
+  actionItemService.getByPosOrComp($state.params.which, $state.params.parentId)
+  .then(actionItems => {
+    this.actionItems = actionItems;
+  })
+  .catch(err => console.log(err));
+
+  this.complete = (id) => {
+    actionItemService.remove(id)
+    .then(removed => {
+      this.actionItems.forEach((e,i) => {
+        if (id === e._id) {
+          this.actionItems.splice(i, 1);
+        }
+      });
+      console.log(removed);
+    });
+  };
 }

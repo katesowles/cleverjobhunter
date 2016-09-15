@@ -4,24 +4,50 @@
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }
 
-canvas {
-  width: 200px;
-  height: 200px;
-}
-
-h1 {
-  font-size: 5em;
+h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
+h1 { // page header
+  font-size: 5.063em;
+}
+
+h2 { // dialog header // sub header OR card header
+  font-size: 3.375em;
+  margin: 0;
+}
+
+h3 { // card sub header OR landing detail
+  font-size: 2.25em;
+  margin: 0;
+}
+
+h4 { // graph sub headers OR
+  font-size: 1.5em;
+  margin: 0;
+}
+
+h5 { // footer content OR block messages (errors)
+  font-size: 1em;
+}
+
+h6 {
+  font-size: .667em;
+}
+
+
 p {
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: 200;
+}
+
+.center {
+  text-align: center;
 }
 
 .full-height {
   height: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 
 .sticky-footer {
@@ -44,10 +70,21 @@ p {
 }
 
 .canvasContain {
-  width: 400px;
+  width: 500px;
   height: 400px;
+  padding: calc((100% - 1500px)/6.1);
   display: inline-block;
-  margin-right: calc((100% - ( 4 * 400px)) / 4);
+}
+
+.canvasContain canvas {
+  margin-top: 40px;
+}
+
+.statBlock {
+  width: 33%;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .canvasContain:last-child {
@@ -58,6 +95,19 @@ md-dialog {
   padding: 3%;
 }
 
+md-card {
+  margin: 50px 0;
+  padding: 40px;
+}
+
 .md-button.md-icon-button {
   width: 100%;
+}
+
+md-dialog-content form md-input-container {
+  width: 400px !important;
+}
+
+.blue-lite {
+  background-color: rgb(140, 164, 176)
 }

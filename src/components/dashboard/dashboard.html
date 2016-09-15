@@ -1,61 +1,88 @@
-<section ng-class="$ctrl.styles.dashboard">
+<section ng-class="$ctrl.styles.dashboard" ng-cloak>
+  <h1>Dashboard</h1>
 
-  <h2>Position stats:</h2>
-  <div>
-    Positions applied: {{$ctrl.numPositions}}
-  </div>
-  <div>
-    Positions applied this week: {{$ctrl.positionCount}}
-  </div>
+  <md-card>
+    <md-card-header>
+      <md-card-header-text>
+        <h2>Stats</h2>
+      </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+      <div class="statBlock">
+        <h3>Positions Applied For</h3>
+        <p>Total: {{$ctrl.numPositions}}</p>
+        <p>This Week: {{$ctrl.positionCount}}</p>
+      </div>
 
-  <h2>Company stats:</h2>
-  <div>
-    Companies researched:  {{$ctrl.numCompanies}}
-  </div>
+      <div class="statBlock">
+        <h3>Companies Researched</h3>
+        <p>Total: {{$ctrl.numCompanies}}</p>
+        <p>This Week: {{$ctrl.companyCount}}</p>
+      </div>
 
-  <h2>Contact stats:</h2>
-  <div>
-    Contacts added:  {{$ctrl.numContacts}}
-  </div>
-  <div>
-    Contacts added this week: {{$ctrl.contactCount}}
-  </div>
-  <h2>Overdue Action Items</h2>
-  <div ng-repeat="overDue in $ctrl.overDue">
-  <md-content>
-      <md-list flex>
-        <md-list-item class="md-3-line">
-          <md-button class="md-secondary md-icon-button"
-            ng-click="">Action Completed
-          </md-button>
-          <div class="md-list-item-text" layout="column">
-            <h3>Position: {{overDue.position.title}} at {{overDue.company.name}}</h3>
-            <h4>Date Due: {{overDue.dateDue}}</h4>
-            <p>Action: {{overDue.action}}</p>
-          </div>
-        </md-list-item>
-        <md-divider ></md-divider>
-      </md-list>
-    </md-content>
-  </div>
-  <h2>Due Action Items</h2>
-  <div ng-repeat="almostDue in $ctrl.almostDue">
-  <md-content>
-      <md-list flex>
-        <md-list-item class="md-3-line">
-          <md-button class="md-secondary md-icon-button"
-            ng-click="">Action Completed
-          </md-button>
-          <div class="md-list-item-text" layout="column">
-            <h3>Position: {{almostDue.position.title}} at {{almostDue.company.name}}</h3>
-            <h4>Date Due: {{almostDue.dateDue}}</h4>
-            <p>Action: {{almostDue.action}}</p>
-          </div>
-        </md-list-item>
-        <md-divider ></md-divider>
-      </md-list>
-    </md-content>
-  </div>
+      <div class="statBlock">
+        <h3>Contacts Made</h3>
+        <p>Total: {{$ctrl.numContacts}}</p>
+        <p>This Week: {{$ctrl.contactCount}}</p>
+      </div>
+    </md-card-content>
+  </md-card>
 
-  <visualizations>Loading...</visualizations>
+  <md-card>
+    <md-card-header>
+      <md-card-header-text>
+        <h2>Overdue Action Items</h2>
+      </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+      <div ng-repeat="overDue in $ctrl.overDue">
+        <md-list flex>
+          <md-list-item class="md-3-line">
+            <md-button class="md-secondary md-icon-button"
+            ng-click="">Action Completed</md-button>
+            <div class="md-list-item-text" layout="column">
+              <h3>Position: {{overDue.position.title}} at {{overDue.company.name}}</h3>
+              <h4>Date Due: {{overDue.dateDue | date: 'shortDate'}}</h4>
+              <p>Action: {{overDue.action}}</p>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
+    <md-card-header>
+      <md-card-header-text>
+        <h2>Due Action Items</h2>
+      </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+      <div ng-repeat="almostDue in $ctrl.almostDue">
+        <md-list flex>
+          <md-list-item class="md-3-line">
+            <md-button class="md-secondary md-icon-button" ng-click="">Action Completed</md-button>
+            <div class="md-list-item-text" layout="column">
+              <h3>Position: {{almostDue.position.title}} at {{almostDue.company.name}}</h3>
+              <h4>Date Due: {{almostDue.dateDue}}</h4>
+              <p>Action: {{almostDue.action}}</p>
+            </div>
+          </md-list-item>
+          <md-divider ></md-divider>
+        </md-list>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
+    <md-card-header>
+      <md-card-header-text>
+        <h2>Goal Visualizations</h2>
+      </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+      <visualizations>Loading...</visualizations>
+    </md-card-content>
+  </md-card>
 </section>

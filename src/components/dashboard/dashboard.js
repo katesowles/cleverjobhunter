@@ -13,12 +13,6 @@ function controller($window, companyService, contactService, positionService, ac
 
   actionItemService.getDueAndOverdue(this.userId)
   .then(items => {
-    items.almostDue.map(e => {
-      e.dateDue = $window.moment(e.dateDue).format('MM-DD-YYYY');
-    });
-    items.overDue.map(e => {
-      e.dateDue = $window.moment(e.dateDue).format('MM-DD-YYYY');
-    });
     this.almostDue = items.almostDue;
     this.overDue = items.overDue;
   })

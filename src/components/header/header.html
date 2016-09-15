@@ -3,7 +3,7 @@
     <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
       <md-nav-item md-nav-sref="welcome" name="welcome" id="logo">Job Hunter</md-nav-item>
       <md-nav-item ng-if="!$ctrl.isAuthenticated()" md-Nav-Click="$ctrl.prompt()" name="enter">Enter Site</md-nav-item>
-      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="user" name="user">Welcome, {{$ctrl.username}}</md-nav-item>
+      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="user" name="user">Welcome, {{$ctrl.name}}</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="dashboard" name="dashboard">Dashboard</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="positions" name="positions">Positions</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="companies" name="companies">Companies</md-nav-item>
