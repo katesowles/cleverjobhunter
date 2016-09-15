@@ -1,9 +1,8 @@
 <!--template for the view of user positions-->
 <section ng-class="$ctrl.styles.positions">
   <h1>Positions</h1>
-  <md-button class="md-secondary md-icon-button"
-  ng-click="$ctrl.newPosition($event)"
-  ng-show="$ctrl.addButton === 'add'">Add Position</md-button>
+  <md-button class="md-secondary md-icon-button" ng-click="$ctrl.newPosition($event)">Add Position</md-button>
+  <md-button class="md-secondary md-icon-button" ng-click="$ctrl.exportToCSV()">Export Positions to CSV File</md-button>
 
 <new-position companies="$ctrl.companies" add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-position>
 
@@ -21,7 +20,5 @@
         </md-card-actions>
     </md-card>
   </div>
-
-  <md-button ng-click="$ctrl.exportToCSV()">Export Positions to CSV File</md-button>
 
 </section>

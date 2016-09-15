@@ -86,28 +86,22 @@ function controller(positionService, $window, $mdDialog, companyService){
       'postingInfo',
     ];
 
-    console.log('this.positions',this.positions);
+    const exportArray = this.positions.map( position => {
+      var array = [];
+      array.push(position._id || '' );
+      array.push(position.title || '' );
+      position.company ? array.push(position.company.name || '' ) : array.push('');
+      array.push(position.dateAdvertised || '' );
+      array.push(position.dateApplied || '' );
+      array.push(position.method || '' );
+      position.questions ? array.push(position.questions.join('\n') || '' ) : array.push('');
+      array.push(position.postingInfo || '' );
+      return array.join(',');
+    }).join('\n');
 
-    saveToCsv(this.positions, headerList, 'default.csv');
+    saveToCsv(exportArray, headerList, 'positions.csv');
 
     function saveToCsv(dataRows, columnHeaders, filename) {
-
-
-      dataRows = dataRows.map(function(dataRow) {
-        var array = [];
-
-        array.push(dataRow._id || '' );
-        array.push(dataRow.title || '' );
-        dataRow.company ? array.push(dataRow.company.name || '' ) : array.push('');
-        array.push(dataRow.dateAdvertised || '' );
-        array.push(dataRow.dateApplied || '' );
-        array.push(dataRow.method || '' );
-        array.push(dataRow.postingInfo || '' );
-
-        return array.join(',');
-      }).join('\n\n');
-
-      console.log('dataRows',dataRows);
 
       var content =
           'data:text/csv;charset=utf-8,' +
@@ -124,6 +118,6 @@ function controller(positionService, $window, $mdDialog, companyService){
 
       link.click();
     }
-  }
+  };
 
 };

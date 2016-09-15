@@ -1,19 +1,21 @@
-
-<h3>Position Title: {{$ctrl.parentName}}</h3>
-<h4 ng-if="!$ctrl.actionItems.length">You have not created action items for this position.</h4>
-<div ng-repeat="item in $ctrl.actionItems">
-  <md-content>
-    <md-card>
-        <md-card-header>
-            <md-card-header-text>
-            <span class="md-title">{{item.action}}</span>
-            <span>{{item.dateDue | date: 'shortDate'}}
-            </md-card-header-text>
-        </md-card-header>
-        <md-card-actions layout="row" layout-align="end center">
-            <!-- <md-button ng-click="$ctrl.edit()">Edit Action Item</md-button> -->
-            <md-button ng-click="$ctrl.complete(item._id)">Action Completed</md-button>
-        </md-card-actions>
-    </md-card>
-  </md-content>
-</div>
+<section ng-class="$ctrl.styles.actionItemsDetail">
+    <h3>Position Title: {{$ctrl.parentName}}</h3>
+    <h4 ng-if="!$ctrl.actionItems.length">You have not created action items for this position.</h4>
+    <div ng-repeat="item in $ctrl.actionItems">
+    <md-content>
+        <md-card>
+            <md-card-header>
+                <md-card-header-text>
+                <span class="md-title">{{item.action}}</span>
+                <span>Re: {{item.position.title}} at {{item.company.name}}</span>
+                <span>{{item.dateDue | date: 'shortDate'}}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-actions layout="row" layout-align="end center">
+                <!-- <md-button ng-click="$ctrl.edit()">Edit Action Item</md-button> -->
+                <md-button ng-click="$ctrl.complete(item._id)">Action Completed</md-button>
+            </md-card-actions>
+        </md-card>
+    </md-content>
+    </div>
+</section>

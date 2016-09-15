@@ -1,6 +1,6 @@
 //component for detailed position view
-import template from './position.html';
-import styles from './position.scss';
+import template from './position-detail.html';
+import styles from './position-detail.scss';
 
 export default {
   template,

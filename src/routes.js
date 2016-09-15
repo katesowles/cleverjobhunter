@@ -48,7 +48,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       data: {
         requiresAuth: true
       },
-      component: 'position'
+      component: 'positionDetail'
     })
     .state('actions', {
       url: '/actions/:parentId/:parentName/:which',

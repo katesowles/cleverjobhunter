@@ -1,18 +1,18 @@
 <!--template for a detailed position view-->
 
-<section ng-class="$ctrl.styles.position">
+<section ng-class="$ctrl.styles.positionDetail">
     <md-card>
         <md-card-header>
             <md-card-header-text>
-            <span class="md-title">{{$ctrl.position.title}}</span>
+            <h2 class="md-title">{{$ctrl.position.title}}</h2>
             <span class="md-subhead">{{$ctrl.position.company.name}}</span>
             </md-card-header-text>
         </md-card-header>
         <md-card-content>
-            <p>Position Info: {{$ctrl.position.postingInfo}}</p>
             <p>Date Advertised: {{$ctrl.position.dateAdvertised | date: 'shortDate'}}</p>
             <p>Date Applied: {{$ctrl.position.dateApplied | date: 'shortDate'}}</p>
             <p>Application Method: {{$ctrl.position.method}}</p>
+            <p>Position Info: {{$ctrl.position.postingInfo}}</p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
 
