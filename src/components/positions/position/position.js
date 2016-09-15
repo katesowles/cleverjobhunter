@@ -10,11 +10,19 @@ export default {
   controller
 };
 
-controller.$inject = ['$mdDialog', 'positionService', '$window', '$state'];
-
-function controller($mdDialog, positionService, $window, $state){
+controller.$inject = ['$mdDialog', 'positionService', '$window', '$state', 'actionItemService'];
+function controller($mdDialog, positionService, $window, $state, actionItemService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
+  this.action = 'hide';
+  this.which = 'position';
+
+  actionItemService.getByPosOrComp(this.which, $state.params.positionId)
+    .then(actionItems => {
+      this.actionItems = actionItems;
+    })
+    .catch(err => console.log(err));
+
 
   //gets the detailed info of selected position
   positionService.get($state.params.positionId)

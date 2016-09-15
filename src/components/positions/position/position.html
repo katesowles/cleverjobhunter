@@ -15,10 +15,16 @@
             <p>Application Method: {{$ctrl.position.method}}</p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-            <md-button>Follow Ups</md-button>
-            <md-button>Action Items</md-button>
+          <md-button class="md-secondary md-icon-button"
+            ng-click="$ctrl.action = 'show'"
+            >Action Items
+          </md-button>
             <md-button>Questions</md-button>
             <md-button ng-click="$ctrl.edit()">Edit Position<md-button>
         </md-card-actions>
     </md-card>
+
+    <div ng-if="$ctrl.action === 'show'" ng-repeat="item in $ctrl.actionItems" >
+      <action-item-list items="$ctrl.actionItems"></action-item-list>
+    </div>
 </section>

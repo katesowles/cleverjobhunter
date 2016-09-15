@@ -26,7 +26,9 @@ function controller(positionService, $window, $mdDialog, companyService){
       //   e.dateApplied = $window.moment(e.dateApplied).format('MM-DD-YYYY');
       //   e.dateAdvertised = $window.moment(e.dateAdvertised).format('MM-DD-YYYY');
       // });
+
       this.positions = positions;
+      console.log(this.positions);
     })
     .catch(err => console.log(err));
 

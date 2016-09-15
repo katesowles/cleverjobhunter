@@ -1,6 +1,5 @@
 //service for position components
 actionItemService.$inject = ['$http', 'apiUrl'];
-
 export default function actionItemService ($http, apiUrl) {
   return {
     getAll () {
@@ -20,6 +19,11 @@ export default function actionItemService ($http, apiUrl) {
 
     getDueAndOverdue (userId) {
       return $http.get(`${apiUrl}/actionItems/byUser/${userId}/overdue`)
+        .then(response => response.data);
+    },
+
+    getByPosOrComp (which, id) {
+      return $http.get(`${apiUrl}/actionItems/byPosOrComp/${id}/${which}`)
         .then(response => response.data);
     },
 
