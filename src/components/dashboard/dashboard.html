@@ -42,7 +42,7 @@
             ng-click="">Action Completed</md-button>
             <div class="md-list-item-text" layout="column">
               <h3>Position: {{overDue.position.title}} at {{overDue.company.name}}</h3>
-              <h4>Date Due: {{overDue.dateDue}}</h4>
+              <h4>Date Due: {{overDue.dateDue | date: 'shortDate'}}</h4>
               <p>Action: {{overDue.action}}</p>
             </div>
           </md-list-item>

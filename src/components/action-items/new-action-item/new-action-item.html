@@ -1,0 +1,29 @@
+<md-dialog-content>
+    <form name="addActionItem" ng-submit="addActionItem.$valid && $ctrl.submit()"
+        novalidate>
+        <md-input-container>
+            <label>Action:</label>
+            <textarea
+                name="addItemDescription"
+                required
+                ng-model="$ctrl.actionItem.action">
+            </textarea>
+        </md-input-container>
+
+        <!-- <md-input-container>
+        <md-select ng-model="$ctrl.actionItem.company" placeholder="Select a company">
+            <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
+        </md-select>
+        </md-input-container> -->
+
+        <md-input-container>
+            <md-datepicker ng-required="true" ng-model="$ctrl.actionItem.dateDue" md-placeholder="Date Due:"></md-datepicker>
+        <md-input-container>
+
+        <md-dialog-actions>
+            <md-button ng-click="$ctrl.submit()" type="submit" class="md-primary">Save Action Item</md-button>
+            <md-button ng-click="$ctrl.cancel()" class="md-primary">Cancel</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog-content>
+<md-divider ></md-divider>

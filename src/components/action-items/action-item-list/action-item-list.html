@@ -1,0 +1,17 @@
+<h3>Position Title: {{$ctrl.parentName}}</h3>
+<div ng-repeat="item in $ctrl.actionItems">
+  <md-content>
+    <md-card>
+        <md-card-header>
+            <md-card-header-text>
+            <span class="md-title">{{item.action}}</span>
+            <span>{{item.dateDue | date: 'shortDate'}}
+            </md-card-header-text>
+        </md-card-header>
+        <md-card-actions layout="row" layout-align="end center">
+            <!-- <md-button ng-click="$ctrl.edit()">Edit Action Item</md-button> -->
+            <md-button ng-click="$ctrl.complete(item._id)">Action Completed</md-button>
+        </md-card-actions>
+    </md-card>
+  </md-content>
+</div>

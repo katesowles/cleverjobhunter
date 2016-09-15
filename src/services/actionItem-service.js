@@ -1,6 +1,5 @@
 //service for position components
 actionItemService.$inject = ['$http', 'apiUrl'];
-
 export default function actionItemService ($http, apiUrl) {
   return {
     getAll () {
@@ -23,13 +22,18 @@ export default function actionItemService ($http, apiUrl) {
         .then(response => response.data);
     },
 
+    getByPosOrComp (which, id) {
+      return $http.get(`${apiUrl}/actionItems/byPosOrComp/${id}/${which}`)
+        .then(response => response.data);
+    },
+
     getCountForWeek (userId) {
       return $http.get(`${apiUrl}/actionItems/byUser/${userId}/actionItemCount`)
         .then(response => response.data.count);
     },
 
-    add (actionItem, userId) {
-      return $http.post(`${apiUrl}/actionItems/${userId}`, actionItem)
+    add (actionItem, positionId, userId) {
+      return $http.post(`${apiUrl}/actionItems/${positionId}/${userId}`, actionItem)
         .then(response => response.data);
     },
 
