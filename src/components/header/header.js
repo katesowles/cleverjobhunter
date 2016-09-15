@@ -1,4 +1,5 @@
 import template from './header.html';
+import styles from './header.scss';
 
 export default {
   template,
@@ -8,6 +9,8 @@ export default {
 controller.$inject = ['userService', '$state', '$mdDialog', '$window'];
 
 function controller(userService, $state, $mdDialog, $window) {
+  this.styles = styles;
+
   // to grab the user's display name for the 'welcome {{$ctrl.name}}'
   this.userId = $window.localStorage.getItem('id');
   // prevents a console error if the user isn't logged in
@@ -23,6 +26,10 @@ function controller(userService, $state, $mdDialog, $window) {
   this.logout = ()=>{
     userService.logout();
     $state.go('home');
+  };
+
+  this.detailView = ()=>{
+    $state.go('user');
   };
 
   this.isAuthenticated = userService.isAuthenticated;
