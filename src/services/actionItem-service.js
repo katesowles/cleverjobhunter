@@ -32,8 +32,13 @@ export default function actionItemService ($http, apiUrl) {
         .then(response => response.data.count);
     },
 
-    add (actionItem, positionId, userId) {
+    addPositionItem (actionItem, positionId, userId) {
       return $http.post(`${apiUrl}/actionItems/${positionId}/${userId}`, actionItem)
+        .then(response => response.data);
+    },
+
+    addCompanyItem (actionItem, companyId, userId) {
+      return $http.post(`${apiUrl}/actionItems/${companyId}/${userId}`, actionItem)
         .then(response => response.data);
     },
 

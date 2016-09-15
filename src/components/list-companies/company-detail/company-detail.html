@@ -15,9 +15,12 @@
             <p>Company Contact: {{$ctrl.company.contact.name || 'No company contacts'}}</p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
-            <md-button>Follow Ups</md-button>
-            <md-button>Action Items</md-button>
+            <md-button class="md-secondary md-icon-button"
+            ui-sref="actions({parentId: $ctrl.company._id, which: $ctrl.which, parentName: $ctrl.company.name})"
+            >View Current Action Items
+            </md-button>
             <md-button>Questions</md-button>
+            <md-button ng-click="$ctrl.newActionItem($event)">Add Action Item</md-button>
             <md-button ng-click="$ctrl.edit()">Edit Company<md-button>
         </md-card-actions>
     </md-card>
