@@ -8,22 +8,25 @@
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="positions" name="positions">Positions</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="companies" name="companies">Companies</md-nav-item>
       <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="contacts" name="contacts">Contacts</md-nav-item>
-      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-Nav-Click="$ctrl.logout()" name="loggedOut">Logout</md-nav-item>
-      <md-nav-item ng-if="$ctrl.isAuthenticated()" md-nav-sref="user" name="user">Welcome, {{$ctrl.username}}</md-nav-item>
-      <md-menu ng-if="$ctrl.isAuthenticated()" md-position-mode="target-right target">
-        <md-button aria-label="Open gear interactions menu" class="md-icon-button" ng-click="$ctrl.openMenu($mdOpenMenu, $event)">
-          <i md-menu-origin class="material-icons">settings</i></md-icon>
-        </md-button>
-        <md-menu-content width="4">
+      <!--<md-nav-item ng-if="$ctrl.isAuthenticated()" md-Nav-Click="$ctrl.logout()" name="loggedOut">Logout</md-nav-item>-->
+      <md-menu ng-if="$ctrl.isAuthenticated()" md-position-mode="target-right target" md-offset="0 55">
+        <md-nav-item aria-label="Open gear interactions menu" ng-click="$ctrl.openMenu($mdOpenMenu, $event)" md-menu-origin md-nav-sref="user" name="user">Welcome, {{$ctrl.username}}</md-nav-item>
+        <md-menu-content width="3">
           <md-menu-item>
-            <md-button disabled="disabled">
-              Example disabled option
+            <md-button ng-click="$ctrl.detailView()">
+              <div layout="row" flex="">
+                <p flex="">User details</p>
+                <i class="material-icons">mood</i>
+              </div>
             </md-button>
           </md-menu-item>
           <md-menu-divider></md-menu-divider>
           <md-menu-item>
             <md-button ng-click="$ctrl.logout()">
-              Log out
+              <div layout="row" flex="">
+                <p flex="">Log out</p>
+                <i class="material-icons">mood_bad</i>
+              </div>
             </md-button>
           </md-menu-item>
         </md-menu-content>
