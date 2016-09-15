@@ -44,5 +44,10 @@ function controller(userService, $state, $mdDialog, $window) {
       escapeToClose: true
     });
   };
-  
+
+  var originatorEv; // necessary? no idea.
+  this.openMenu = function($mdOpenMenu, ev) {
+    originatorEv = ev;
+    $mdOpenMenu(ev);
+  };
 };
