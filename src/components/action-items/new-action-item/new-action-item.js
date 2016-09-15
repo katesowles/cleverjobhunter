@@ -15,7 +15,7 @@ controller.$inject = ['$mdDialog', '$window', '$scope', 'actionItemService'];
 function controller ($mdDialog, $window, $scope, actionItemService) {
   this.styles = styles;
   this.userId = $window.localStorage['id'];
- 
+
   const resetItem = () => {
     if (this.which === 'position') {
       this.actionItem = {

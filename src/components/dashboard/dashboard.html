@@ -39,7 +39,7 @@
         <md-list flex>
           <md-list-item class="md-3-line">
             <md-button class="md-secondary md-icon-button"
-            ng-click="">Action Completed</md-button>
+            ng-click="$ctrl.complete(overDue._id, 'overdue')">Action Completed</md-button>
             <div class="md-list-item-text" layout="column">
               <h3>Position: {{overDue.position.title}} at {{overDue.company.name}}</h3>
               <h4>Date Due: {{overDue.dateDue | date: 'shortDate'}}</h4>
@@ -62,10 +62,10 @@
       <div ng-repeat="almostDue in $ctrl.almostDue">
         <md-list flex>
           <md-list-item class="md-3-line">
-            <md-button class="md-secondary md-icon-button" ng-click="">Action Completed</md-button>
+            <md-button class="md-secondary md-icon-button" ng-click="$ctrl.complete(almostDue._id, 'due')">Action Completed</md-button>
             <div class="md-list-item-text" layout="column">
               <h3>Position: {{almostDue.position.title}} at {{almostDue.company.name}}</h3>
-              <h4>Date Due: {{almostDue.dateDue}}</h4>
+              <h4>Date Due: {{almostDue.dateDue | date: 'shortDate'}}</h4>
               <p>Action: {{almostDue.action}}</p>
             </div>
           </md-list-item>

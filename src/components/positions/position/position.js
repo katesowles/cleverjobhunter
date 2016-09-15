@@ -32,11 +32,11 @@ function controller($mdDialog, positionService, $window, $state){
       targetEvent: $event,
       controllerAs: '$ctrl',
       bindToController: true,
-      template: '<new-action-item which="$ctrl.which" company="$ctrl.company" position="$ctrl.position"></new-action-item>',
+      template: '<new-action-item company="$ctrl.company" which="$ctrl.which" position="$ctrl.position"></new-action-item>',
       controller(){},
       locals: {
+        company: this.company,
         position: this.position,
-        comapany: this.company,
         which: this.which
       },
       clickOutsideToClose: true,

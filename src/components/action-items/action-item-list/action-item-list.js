@@ -11,9 +11,9 @@ export default {
   controller
 };
 
-controller.$inject = ['$state', 'actionItemService', '$window'];
+controller.$inject = ['$state', 'actionItemService'];
 
-function controller ($state, actionItemService, $window) {
+function controller ($state, actionItemService) {
   this.styles = styles;
   this.parentName = $state.params.parentName;
 
