@@ -1,20 +1,14 @@
 <!--template for the dialog form to add a new position-->
     <md-dialog-content>
-        <form name="newPosition" ng-submit="newPosition.$valid && $ctrl.submit()"
-      novalidate>
+        <form name="newPosition" ng-submit="newPosition.$valid && $ctrl.submit()" novalidate layout="row">
+          <div layout="column">
             <md-input-container>
                 <label>Title:</label>
                 <input name="addTitle" required ng-model="$ctrl.position.title"/>
-                    <!--<div ng-messages="addCompany.addName.$error" role="alert">
-                        <div ng-message="required">A name is required</div>
-                    </div>-->
             </md-input-container>
             <md-input-container>
                 <label>Method:</label>
                 <input name="addMethod" required ng-model="$ctrl.position.method"/>
-                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
-                    <div ng-message="required">An e-mail is required</div>
-                </div> -->
             </md-input-container>
             <md-input-container>
               <md-select ng-model="$ctrl.position.company" placeholder="Select a company">
@@ -22,56 +16,24 @@
               </md-select>
             </md-input-container>
             <md-input-container>
-                <label>Info:</label>
-                <textarea name="addPostingInfo" ng-model="$ctrl.position.postingInfo"/></textarea>
-                <!-- <div ng-messages="addPosition.addEmail.$error" role="alert">
-                    <div ng-message="required">An e-mail is required</div>
-                </div> -->
-            </md-input-container>
-            <md-input-container>
               <label>Date Posted:</label>
               <div flex-gt-xs>
-                 <md-datepicker ng-model="$ctrl.position.dateAdvertised" md-placeholder="{{$ctrl.currentDate | date: 'shortDate'}}"></md-datepicker>
+                 <md-datepicker ng-model="$ctrl.position.dateAdvertised"></md-datepicker>
                </div>
             </md-input-container>
             <md-input-container>
               <label>Date Applied:</label>
               <div flex-gt-xs>
-                <md-datepicker ng-model="$ctrl.position.dateApplied" md-placeholder="{{$ctrl.currentDate | date: 'shortDate'}}"></md-datepicker>
+                <md-datepicker ng-model="$ctrl.position.dateApplied"></md-datepicker>
               </div>
             </md-input-container>
-            <!--<md-input-container>
-                <label>Pros:</label>
-                <textarea name="addPros" required ng-model="$ctrl.company.info">
-                <div ng-messages="addPosition.addInformation.$error" role="alert">
-                    <ng-message when="required">This field is required</ng-message>
-                </div>
-                </textarea>
-            </md-input-container>-->
-            <!--<md-input-container>
-                <label>Questions:</label>
-                <select>
-                For selecting company from companies that already exist?
-                </select>
-                <input name="addQuestions" ng-model="$ctrl.company.company"/>
-                <div ng-messages="addPosition.addEmail.$error" role="alert">
-                    <div ng-message="required">An e-mail is required</div>
-                </div>
-            </md-input-container>-->
-            <!--<md-input-container>
-                <label>Contact:</label>
-                <input name="addContact" ng-model="$ctrl.company.company"/>
-                <div ng-messages="addPosition.addEmail.$error" role="alert">
-                    <div ng-message="required">An e-mail is required</div>
-                </div>
-            </md-input-container>-->
-            <!--<md-input-container>
-                <label>Action Items:</label>
-                <input name="addActionItems" ng-model="$ctrl.company.actionItems"/>
-                <div ng-messages="addPosition.addEmail.$error" role="alert">
-                    <div ng-message="required">An e-mail is required</div>
-                </div>
-            </md-input-container>-->
+          </div>
+          <div layout="column">
+            <md-input-container>
+                <label>Job Posting Text:</label>
+                <textarea name="addPostingInfo" ng-model="$ctrl.position.postingInfo" rows="10"></textarea>
+            </md-input-container>
+          </div>
         </form>
     </md-dialog-content>
     <md-dialog-actions>

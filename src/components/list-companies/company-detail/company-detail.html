@@ -9,6 +9,17 @@
             </md-card-header-text>
         </md-card-header>
         <md-card-content>
+            <h4>Action Items:</h4>
+            <md-list flex ng-repeat="actionItem in $ctrl.actionItems">
+                <md-list-item class="md-3-line">
+                    <md-button class="md-secondary md-icon-button" ng-click="$ctrl.complete(actionItem._id)">Action Completed</md-button>
+                    <div class="md-list-item-text" layout="column">
+                    <p>Date Due: {{actionItem.dateDue | date: 'shortDate'}} - Action: {{actionItem.action}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+            <md-divider></md-divider>
+            
             <p>Services Offered: {{$ctrl.company.service}}</p>
             <p>Company Info: {{$ctrl.company.info}}</p>
             <p>Tech Stack: {{$ctrl.company.tech}}</p>

@@ -20,8 +20,8 @@ function controller ($mdDialog, $window, $scope, actionItemService) {
     if (this.which === 'position') {
       this.actionItem = {
         position: this.position._id,
-        company: this.position.company._id || ''
       };
+      this.position.company ? this.actionItem.company = this.position.company._id : this.actionItem.company = '';
     } else if (this.which === 'company') {
       this.actionItem = {
         company: this.company._id
@@ -39,14 +39,14 @@ function controller ($mdDialog, $window, $scope, actionItemService) {
 
   this.add = (actionItem, userId) => {
     actionItemService.addForPosOrComp(actionItem, userId)
-    .then(addedService => {
-      console.log(addedService);
+    .then(addedItem => {
+      console.log('addedItem',addedItem);
+      $mdDialog.hide(addedItem);
     })
     .catch(err => console.log(err));
   };
 
   this.submit = () => {
-    $mdDialog.hide();
     this.add(this.actionItem, this.userId);
     resetItem();
     $scope.addActionItem.$setPristine();

@@ -74,4 +74,50 @@ function controller(positionService, $window, $mdDialog, companyService){
     });
   };
 
+  this.exportToCSV = function() {
+
+    const headerList = [
+      '_id',
+      'title',
+      'company_name',
+      'dateAdvertised',
+      'dateApplied',
+      'method',
+      'postingInfo',
+    ];
+
+    const exportArray = this.positions.map( position => {
+      var array = [];
+      array.push(position._id || '' );
+      array.push(position.title || '' );
+      position.company ? array.push(position.company.name || '' ) : array.push('');
+      array.push(position.dateAdvertised || '' );
+      array.push(position.dateApplied || '' );
+      array.push(position.method || '' );
+      position.questions ? array.push(position.questions.join('\n') || '' ) : array.push('');
+      array.push(position.postingInfo || '' );
+      return array.join(',');
+    }).join('\n');
+
+    saveToCsv(exportArray, headerList, 'positions.csv');
+
+    function saveToCsv(dataRows, columnHeaders, filename) {
+
+      var content =
+          'data:text/csv;charset=utf-8,' +
+          columnHeaders.join(',') + '\n' +
+          dataRows;
+              
+      var encodedUri = encodeURI(content);
+
+      // faux link is required to give the file a name
+      var link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', filename);
+      document.body.appendChild(link);
+
+      link.click();
+    }
+  };
+
 };

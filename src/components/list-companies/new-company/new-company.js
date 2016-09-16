@@ -68,7 +68,7 @@ function controller ($scope, $window, $mdDialog) {
       }
     }
 
-    $mdDialog.hide();
+    $mdDialog.hide(this.company);
     this.add(this.company, this.userId);
     resetCompany();
     $scope.newCompany.$setPristine();

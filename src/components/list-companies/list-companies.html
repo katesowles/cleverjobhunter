@@ -2,12 +2,10 @@
 <section ng-class="$ctrl.styles.listCompanies">
   <h1>Companies</h1>
 
-<md-button class="md-secondary md-icon-button"
-    ng-click="$ctrl.newCompany($event)"
-    ng-show="$ctrl.addButton === 'add'">Add Company
-</md-button>
+  <md-button class="md-secondary md-icon-button" ng-click="$ctrl.newCompany($event)">Add Company</md-button>
+  <md-button class="md-secondary md-icon-button" ng-click="$ctrl.exportToCSV()">Export Companies to CSV File</md-button>
 
-<new-company add="$ctrl.add" add-button="$ctrl.addButton" ng-if="$ctrl.addButton === 'save'"></new-company>
+<!--<new-company add="$ctrl.add"></new-company>-->
 
 <section ng-class="$ctrl.styles.companies" ng-repeat="company in $ctrl.companies">
     <md-card>
