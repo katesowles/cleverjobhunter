@@ -27,10 +27,10 @@ export default function actionItemService ($http, apiUrl) {
         .then(response => response.data);
     },
 
-    getCountForWeek (userId) {
-      return $http.get(`${apiUrl}/actionItems/byUser/${userId}/actionItemCount`)
-        .then(response => response.data.count);
-    },
+    // getCountForWeek (userId) {
+    //   return $http.get(`${apiUrl}/actionItems/byUser/${userId}/actionItemCount`)
+    //     .then(response => response.data.count);
+    // },
 
     addForPosOrComp (actionItem, userId) {
       return $http.post(`${apiUrl}/actionItems/${userId}`, actionItem)
