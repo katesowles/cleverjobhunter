@@ -11,7 +11,6 @@ controller.$inject = ['companyService', '$window', '$mdDialog'];
 function controller(companyService, $window, $mdDialog){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
-  this.addButton = 'add';
   
   //gets all of user's companies
   companyService.getByUser(this.userId)
@@ -25,7 +24,6 @@ function controller(companyService, $window, $mdDialog){
     companyService.add(companyToAdd, userId)
       .then(addedcompany => {
         this.companies.unshift(addedcompany);
-        this.addButton = 'add';
       })
       .catch(err => console.log(err));
   };
@@ -68,45 +66,48 @@ function controller(companyService, $window, $mdDialog){
     });
   };
 
-  // this.companies = [
-  //   {
-  //     name: 'Apple Inc.',
-  //     service: 'Computer hardware/software',
-  //     location: 'Cupertino, CA',
-  //     info: 'This is a company that built the iPhone and Mac OSX. They are also involved in selling digitial media view the iTunes and Mac App stores.',
-  //     tech: 'iOS, Mac OSX',
-  //     pros: ['pro1', 'pro2', 'pro3'],
-  //     cons: ['con1', 'con2'],
-  //     questions: ['question1', 'question2'],
-  //     companys: [{_id: '123'}, {_id: '456'}],
-  //     links: [{url: 'http://apple.com', desc: 'Apple homepage'}],
-  //     actionItems: [{date: 'Aug. 10, 2016', plan: 'Applied for job'}, {date: 'Sept. 1, 2016', plan: 'First round interview'}]
-  //   },
-  //   {
-  //     name: 'Google',
-  //     service: 'Search engine',
-  //     location: 'Mountain View, CA',
-  //     info: 'Google started out as a search engine but has since moved onto other online software as a service products.',
-  //     tech: 'AngularJS, Android',
-  //     pros: ['pro1', 'pro2', 'pro3'],
-  //     cons: ['con1', 'con2'],
-  //     questions: ['question1', 'question2'],
-  //     contacts: [{_id: '123'}, {_id: '456'}],
-  //     links: [{url: 'http://google.com', desc: 'Google homepage'}],
-  //     actionItems: [{date: 'Sept. 10, 2016', plan: 'Applied for job'}, {date: 'Oct. 10, 2016', plan: 'Check application status'}]
-  //   },
-  //   {
-  //     name: 'Facebook',
-  //     service: 'Social media',
-  //     location: 'Menlo Park, CA',
-  //     info: 'Facebook is a social media network designed to help you stay in touch with those that matter most to you.',
-  //     tech: 'React',
-  //     pros: ['pro1', 'pro2', 'pro3'],
-  //     cons: ['con1', 'con2'],
-  //     questions: ['question1', 'question2'],
-  //     contacts: [{_id: '123'}, {_id: '456'}],
-  //     links: [{url: 'http://facebook.com', desc: 'Facebook homepage'}],
-  //     actionItems: []
-  //   }
-  // ];
+  this.exportToCSV = function() {
+
+    const headerList = [
+      '_id',
+      'name',
+      'location',
+      'service',
+      'tech',
+      'info'
+    ];
+
+    const exportArray = this.companies.map( company => {
+      var array = [];
+
+      headerList.forEach( item => {
+        let val = company[item] || '';
+        val = val.replace(',',' ');
+        array.push(val);
+      });
+
+      return array.join(',');
+    }).join('\n');
+
+    saveToCsv(exportArray, headerList, 'companies.csv');
+
+    function saveToCsv(dataRows, columnHeaders, filename) {
+
+      var content =
+          'data:text/csv;charset=utf-8,' +
+          columnHeaders.join(',') + '\n' +
+          dataRows;
+              
+      var encodedUri = encodeURI(content);
+
+      // faux link is required to give the file a name
+      var link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', filename);
+      document.body.appendChild(link);
+
+      link.click();
+    }
+  };
+
 }

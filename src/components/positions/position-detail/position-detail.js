@@ -1,6 +1,6 @@
 //component for detailed position view
-import template from './position.html';
-import styles from './position.scss';
+import template from './position-detail.html';
+import styles from './position-detail.scss';
 
 export default {
   template,
@@ -11,8 +11,8 @@ export default {
 };
 
 
-controller.$inject = ['$mdDialog', 'positionService', '$window', '$state'];
-function controller($mdDialog, positionService, $window, $state){
+controller.$inject = ['$mdDialog', 'positionService', '$window', '$state', 'actionItemService'];
+function controller($mdDialog, positionService, $window, $state, actionItemService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
   this.action = 'hide';
@@ -42,10 +42,9 @@ function controller($mdDialog, positionService, $window, $state){
       clickOutsideToClose: true,
       escapeToClose: true
     })
-    .then( updatedPosition => {
-      if (!updatedPosition) return;
-      //pass copied and updated version to original
-      angular.copy(updatedPosition, this.position);
+    .then( newActionItem => {
+      if (!newActionItem) return;
+      this.actionItems.unshift(newActionItem);
     });
   };
 
@@ -67,6 +66,26 @@ function controller($mdDialog, positionService, $window, $state){
       if (!updatedPosition) return;
       //pass copied and updated version to original
       angular.copy(updatedPosition, this.position);
+    });
+  };
+
+  actionItemService.getByPosOrComp(this.which,$state.params.positionId)
+  .then(items => {
+    this.actionItems = items;
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+  this.complete = (id) => {
+    actionItemService.remove(id)
+    .then(removed => {
+      this.actionItems.forEach((e,i) => {
+        if (id === e._id) {
+          this.actionItems.splice(i, 1);
+        }
+      });
+      console.log(removed);
     });
   };
 

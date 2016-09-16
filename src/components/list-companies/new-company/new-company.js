@@ -29,7 +29,7 @@ function controller ($scope, $window, $mdDialog) {
   //gives the form info to add a new company
   this.submit = () => {
     console.log('got here to new-company form submit');
-    $mdDialog.hide();
+    $mdDialog.hide(this.company);
     this.add(this.company, this.userId);
     resetCompany();
     $scope.newCompany.$setPristine();

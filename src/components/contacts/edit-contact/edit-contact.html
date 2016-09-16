@@ -1,71 +1,64 @@
 <!-- <md-dialog> -->
   <md-dialog-content layout-gt-sm="row" layout-padding>
-      <md-content layout-gt-sm="row" layout-padding>
-          <div>
-
-            <form name="editContact" novalidate>
-                <md-input-container>
-                    <label>Name:</label>
-                    <input
-                        name="editName"
-                        required
-                        ng-model="$ctrl.contact.name"/>
-                        <div ng-messages="editContact.editName.$error" role="alert">
-                            <div ng-message="required">A name is required</div>
-                        </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>E-mail:</label>
-                    <input
-                        name="editEmail"
-                        required
-                        ng-model="$ctrl.contact.email"/>
-                    <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
-                        <div ng-message="required">An e-mail is required</div>
-                    </div> -->
-                </md-input-container>
-                <md-input-container>
-                    <label>Phone:</label>
-                    <input
-                        name="editPhone"
-                        required
-                        ng-model="$ctrl.contact.phone"/>
-                    <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
-                        <div ng-message="required">An e-mail is required</div>
-                    </div> -->
-                </md-input-container>
-                <md-input-container>
-                  <md-select ng-model="$ctrl.contact.company" placeholder="Select a company">
-                    <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
-              </md-select>
-                </md-input-container>
-                <md-input-container>
-                    <label>Role:</label>
-                    <input
-                        name="addRole"
-                        required
-                        ng-model="$ctrl.contact.role"/>
-                    <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
-                        <div ng-message="required">An e-mail is required</div>
-                    </div> -->
-                </md-input-container>
-                <md-input-container>
-                    <label>Relevant Information:</label>
-                    <textarea
-                        name="editInformation"
-                        required
-                        ng-model="$ctrl.contact.info">
-                      <!-- <div ng-messages="addContact.addInformation.$error" role="alert">
-                          <ng-message when="required">This field is required</ng-message>
-                      </div> -->
-                    </textarea>
-                </md-input-container>
-            </form>
-          </div>
-      </md-content>
+    <form name="editContact" novalidate>
+        <md-input-container>
+            <label>Name:</label>
+            <input
+                name="editName"
+                required
+                ng-model="$ctrl.contact.name"/>
+                <div ng-messages="editContact.editName.$error" role="alert">
+                    <div ng-message="required">A name is required</div>
+                </div>
+        </md-input-container>
+        <md-input-container>
+            <label>E-mail:</label>
+            <input
+                name="editEmail"
+                required
+                ng-model="$ctrl.contact.email"/>
+            <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+                <div ng-message="required">An e-mail is required</div>
+            </div> -->
+        </md-input-container>
+        <md-input-container>
+            <label>Phone:</label>
+            <input
+                name="editPhone"
+                required
+                ng-model="$ctrl.contact.phone"/>
+            <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+                <div ng-message="required">An e-mail is required</div>
+            </div> -->
+        </md-input-container>
+        <md-input-container>
+            <md-select ng-model="$ctrl.contact.company" placeholder="Select a company">
+            <md-option ng-value="company._id" ng-repeat="company in $ctrl.companies">{{company.name}}</md-option>
+        </md-select>
+        </md-input-container>
+        <md-input-container>
+            <label>Role:</label>
+            <input
+                name="addRole"
+                required
+                ng-model="$ctrl.contact.role"/>
+            <!-- <div ng-messages="addContact.addEmail.$error" role="alert">
+                <div ng-message="required">An e-mail is required</div>
+            </div> -->
+        </md-input-container>
+        <md-input-container>
+            <label>Relevant Information:</label>
+            <textarea
+                name="editInformation"
+                required
+                ng-model="$ctrl.contact.info">
+                <!-- <div ng-messages="addContact.addInformation.$error" role="alert">
+                    <ng-message when="required">This field is required</ng-message>
+                </div> -->
+            </textarea>
+        </md-input-container>
+    </form>
   </md-dialog-content>
-  <div>
-  </div>
   <md-dialog-actions>
       <md-button ng-click="$ctrl.cancel()" class="md-primary">
           Cancel

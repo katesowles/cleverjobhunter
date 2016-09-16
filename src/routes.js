@@ -6,51 +6,21 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
     // this is "home" state displays by default, also when no token is found
     .state('home', {
       url: '/',
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'landing'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'landing'
     })
     .state('dashboard', {
       url: '/dashboard',
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'dashboard'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'dashboard'
     })
     .state('companies', {
       url: '/companies',
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'listCompanies'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'listCompanies'
     })
     // Will be /company/:id or /company?id once the db is set up
     .state('company', {
@@ -61,34 +31,14 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'companyDetail'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'companyDetail'
     })
     .state('positions', {
       url: '/positions',
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'positions'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'positions'
     })
     .state('position', {
       url: '/position/:positionId',
@@ -98,17 +48,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'position'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'positionDetail'
     })
     .state('actions', {
       url: '/actions/:parentId/:parentName/:which',
@@ -120,51 +60,21 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'actionItemList'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'actionItemList'
     })
     .state('contacts', {
       url: '/contacts',
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'contacts'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'contacts'
     })
     .state('user', {
       url: '/user',
       data: {
         requiresAuth: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'userDetail'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'userDetail'
     })
     .state('users', {
       url: '/users',
@@ -172,17 +82,7 @@ export default function configRoutes($stateProvider, $urlRouterProvider) {
         requiresAuth: true,
         requiresAdmin: true
       },
-      views: {
-        header: {
-          component: 'header'
-        },
-        main: {
-          component: 'listUsers'
-        },
-        footer: {
-          component: 'footer'
-        }
-      }
+      component: 'listUsers'
     });
 
   $urlRouterProvider.otherwise('/');
