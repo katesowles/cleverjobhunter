@@ -1,7 +1,7 @@
 //service for position components
-positionService.$inject = ['$http', 'apiUrl'];
+positionService.$inject = ['$http', 'apiUrl', 'companyService'];
 
-export default function positionService ($http, apiUrl) {
+export default function positionService ($http, apiUrl, companyService) {
   return {
     getAll () {
       return $http.get(`${apiUrl}/positions`)
@@ -24,8 +24,20 @@ export default function positionService ($http, apiUrl) {
     },
 
     add (position, userId) {
-      return $http.post(`${apiUrl}/positions/${userId}`, position)
-        .then(response => response.data);
+      if(position.newCompany && position.newCompany != '') {
+        const company = {name: position.newCompany};
+        return companyService.add(company,userId)
+        .then( newCompany => {
+          position.company = newCompany._id;
+          return $http.post(`${apiUrl}/positions/${userId}`, position)
+          .then(response => response.data);
+        })
+        .catch( error => response.error = error );
+      } else {
+        return $http.post(`${apiUrl}/positions/${userId}`, position)
+        .then( response => response.data )
+        .catch( error => response.error = error );
+      }
     },
 
     remove (positionId) {

@@ -11,7 +11,6 @@ controller.$inject = ['positionService', '$window', '$mdDialog', 'companyService
 function controller(positionService, $window, $mdDialog, companyService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
-  this.addButton = 'add';
 
   companyService.getByUser(this.userId)
     .then(companies => {
@@ -23,31 +22,34 @@ function controller(positionService, $window, $mdDialog, companyService){
   positionService.getByUser(this.userId)
     .then(positions => {
       this.positions = positions;
-      console.log(this.positions);
     })
     .catch(err => console.log(err));
 
   //adds new position
   this.add = (positionToAdd, userId) => {
     positionService.add(positionToAdd, userId)
-      .then(addedPosition => {
-        this.positions.unshift(addedPosition);
-        this.addButton = 'add';
-      })
-      .catch(err => console.log(err));
+    .then(addedPosition => {
+      this.positions.unshift(addedPosition);
+    })
+    .catch(err => {
+      console.log('error adding position:');
+      console.log(err);
+    });
   };
 
   //removes selected postion
   this.remove = positionId => {
     positionService.remove(positionId)
-      .then(() => {
-        positionService.getByUser(this.userId)
-          .then(positions => {
-            this.positions = positions;
-          })
-    .catch(err => console.log(err));
-      })
-      .catch(err => console.log(err));
+    .then(() => {
+      positionService.getByUser(this.userId)
+      .then(positions => {
+        this.positions = positions;
+      });
+    })
+    .catch(err => {
+      console.log('error removing position:');
+      console.log(err);
+    });
   };
 
   //opens dialog/form to add a new position
