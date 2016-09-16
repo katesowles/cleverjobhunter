@@ -91,10 +91,13 @@ function controller (contactService, $window, companyService, $mdDialog) {
 
       headerList.forEach( item => {
         let val;
-        if(item != 'company') {
-          val = contact[item] || '';
-        } else {
+        if(item === 'company') {
           contact.company ? val = contact.company.name : val = '';
+        } else 
+        if(item === 'info') {
+          val = '"' + contact[item] + '"';
+        } else {
+          val = contact[item] || '';
         }
         val = val.replace(',',' ');
         array.push(val);
