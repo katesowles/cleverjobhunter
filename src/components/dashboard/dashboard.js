@@ -52,6 +52,14 @@ function controller($window, companyService, contactService, positionService, ac
     console.log(err);
   });
 
+  companyService.getCountForWeek(this.userId)
+    .then( result => {
+      this.companyCount = result;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
   contactService.getByUser(this.userId)
   .then( result => {
     this.numContacts = result.length;
