@@ -6,8 +6,8 @@ export default {
   controller
 };
 
-controller.$inject = ['userService', '$window', 'positionService', 'companyService', 'contactService'];
-function controller(userService, $window, positionService, companyService, contactService){
+controller.$inject = ['$mdDialog', 'userService', '$window', 'positionService', 'companyService', 'contactService'];
+function controller($mdDialog, userService, $window, positionService, companyService, contactService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
 
@@ -16,12 +16,7 @@ function controller(userService, $window, positionService, companyService, conta
   .catch( err => console.log(err) );
 
   positionService.getByUser(this.userId)
-  .then( result => {
-    this.positions = result;
-    // this.positions.forEach( (position, index, arr) => {
-    //   arr[index].dateApplied = $window.moment(position.dateApplied).format('MM-DD-YYYY'); 
-    // });
-  })
+  .then( result => this.positions = result )
   .catch( err => console.log(err) );
 
   companyService.getByUser(this.userId)
@@ -31,5 +26,27 @@ function controller(userService, $window, positionService, companyService, conta
   contactService.getByUser(this.userId)
   .then( result => this.user.contacts = result )
   .catch( err => console.log(err) );
+
+  //edits the company info
+  this.edit = ()=>{
+    const parentEl = angular.element(document.body);
+    $mdDialog.show({
+      parent: parentEl,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      template: '<user-edit user="$ctrl.user"></user-edit>',
+      controller(){},
+      locals: {
+        user: this.user
+      },
+      clickOutsideToClose: true,
+      escapeToClose: true
+    })
+    .then( updateduser => {
+      if (!updateduser) return;
+      //pass copied and updated version to original
+      angular.copy(updateduser, this.user);
+    });
+  };
 
 }

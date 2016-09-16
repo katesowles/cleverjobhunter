@@ -1,0 +1,29 @@
+<md-dialog-content layout-gt-sm="column" layout-padding>
+  <form name="userEdit" novalidate>
+    <md-input-container>
+      <label>Display Name:</label>
+      <input
+        placeholder="{{$ctrl.userToEdit.name}}"
+        name="editName"
+        required
+        ng-model="$ctrl.user.name"/>
+    </md-input-container>
+    <md-input-container>
+      <label>Email:</label>
+      <input
+        placeholder="{{$ctrl.userToEdit.email}}"
+        name="editEmail"
+        required
+        ng-model="$ctrl.user.email"/>
+    </md-input-container>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <md-button ng-click="$ctrl.save()" class="md-primary">
+    Save
+  </md-button>
+  <md-button ng-click="$ctrl.cancel()" class="md-primary">
+    Cancel
+  </md-button>
+</md-dialog-actions>
+
