@@ -18,13 +18,19 @@ function controller ($scope, $window, $mdDialog) {
   this.userId = $window.localStorage['id'];
 
   const resetPosition = () => {
-    this.position = {};
+    this.position = {
+      questions: []
+    };
   };
 
   resetPosition();
 
   this.cancel = () => {
     $mdDialog.hide();
+  };
+
+  this.addQuestionsInput = () => {
+    this.position.questions.unshift({});
   };
 
   //saves and adds information to user's positions

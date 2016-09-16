@@ -13,8 +13,6 @@ function controller($window, companyService, contactService, positionService, ac
 
   actionItemService.getDueAndOverdue(this.userId)
   .then(items => {
-    console.log('get due and overdue called');
-    console.log(items);
     this.almostDue = items.almostDue;
     this.overDue = items.overDue;
   })
@@ -23,8 +21,6 @@ function controller($window, companyService, contactService, positionService, ac
   });
 
   this.complete = (id, category) => {
-    console.log(id);
-    console.log(category);
     actionItemService.remove(id)
     .then(removed => {
       if (category === 'due') {
@@ -127,7 +123,7 @@ function controller($window, companyService, contactService, positionService, ac
       $state.go('positions');
     });
   };
-  
+
   //adds a new company
   this.addCompany = (companyToAdd, userId) => {
     companyService.add(companyToAdd, userId)
@@ -136,7 +132,7 @@ function controller($window, companyService, contactService, positionService, ac
       })
       .catch(err => console.log(err));
   };
-    
+
   //opens new Dialog/form to add a new company
   this.newCompany = ($event) => {
     var parentEl = angular.element(document.body);

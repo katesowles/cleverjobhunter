@@ -12,13 +12,14 @@
       </md-card-header-text>
     </md-card-header>
     <md-card-content>
-      <div ng-repeat="overDue in $ctrl.overDue">
+      <h3 ng-if="!$ctrl.overDue.length">You do not currently have overdue action items.</h3>
+      <div ng-if="$ctrl.overDue.length" ng-repeat="overDue in $ctrl.overDue">
         <md-list flex>
           <md-list-item class="md-3-line">
             <md-button class="md-secondary md-icon-button"
             ng-click="$ctrl.complete(overDue._id, 'overdue')">Action Completed</md-button>
             <div class="md-list-item-text" layout="column">
-              <h3>Position: {{overDue.position.title}} at {{overDue.company.name}}</h3>
+              <h3>Position: {{overDue.position.title || 'No Position Specified'}} at {{overDue.company.name || 'No Company Specified'}}</h3>
               <h4>Date Due: {{overDue.dateDue | date: 'shortDate'}}</h4>
               <p>Action: {{overDue.action}}</p>
             </div>
@@ -36,12 +37,13 @@
       </md-card-header-text>
     </md-card-header>
     <md-card-content>
-      <div ng-repeat="almostDue in $ctrl.almostDue">
+      <h3 ng-if="!$ctrl.almostDue.length">You do not currently have upcoming action items.</h3>
+      <div ng-if="$ctrl.almostDue.length" ng-repeat="almostDue in $ctrl.almostDue">
         <md-list flex>
           <md-list-item class="md-3-line">
             <md-button class="md-secondary md-icon-button" ng-click="$ctrl.complete(almostDue._id, 'due')">Action Completed</md-button>
             <div class="md-list-item-text" layout="column">
-              <h3>Position: {{almostDue.position.title}} at {{almostDue.company.name}}</h3>
+              <h3>Position: {{almostDue.position.title || 'No Position Specified'}} at {{almostDue.company.name || 'No Company Specified'}}</h3>
               <h4>Date Due: {{almostDue.dateDue | date: 'shortDate'}}</h4>
               <p>Action: {{almostDue.action}}</p>
             </div>
@@ -78,7 +80,7 @@
       </div>
     </md-card-content>
   </md-card>
-  
+
   <md-card>
     <md-card-header>
       <md-card-header-text>
