@@ -73,4 +73,54 @@ function controller (contactService, $window, companyService, $mdDialog) {
       .catch(err => console.log(err));
   };
 
+  this.exportToCSV = function() {
+
+    const headerList = [
+      '_id',
+      'name',
+      'company',
+      'email',
+      'phone',
+      'role',
+      'dateMet',
+      'info'
+    ];
+
+    const exportArray = this.contacts.map( contact => {
+      var array = [];
+
+      headerList.forEach( item => {
+        let val;
+        if(item != 'company') {
+          val = contact[item] || '';
+        } else {
+          contact.company ? val = contact.company.name : val = '';
+        }
+        val = val.replace(',',' ');
+        array.push(val);
+      });
+      return array.join(',');
+    }).join('\n');
+
+    saveToCsv(exportArray, headerList, 'contacts.csv');
+
+    function saveToCsv(dataRows, columnHeaders, filename) {
+
+      var content =
+          'data:text/csv;charset=utf-8,' +
+          columnHeaders.join(',') + '\n' +
+          dataRows;
+              
+      var encodedUri = encodeURI(content);
+
+      // faux link is required to give the file a name
+      var link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', filename);
+      document.body.appendChild(link);
+
+      link.click();
+    }
+  };
+
 };

@@ -66,33 +66,30 @@ function controller(companyService, $window, $mdDialog){
     });
   };
 
-// TODO: customize
   this.exportToCSV = function() {
 
     const headerList = [
       '_id',
-      'title',
-      'company_name',
-      'dateAdvertised',
-      'dateApplied',
-      'method',
-      'postingInfo',
+      'name',
+      'location',
+      'service',
+      'tech',
+      'info'
     ];
 
-    const exportArray = this.positions.map( position => {
+    const exportArray = this.companies.map( company => {
       var array = [];
-      array.push(position._id || '' );
-      array.push(position.title || '' );
-      position.company ? array.push(position.company.name || '' ) : array.push('');
-      array.push(position.dateAdvertised || '' );
-      array.push(position.dateApplied || '' );
-      array.push(position.method || '' );
-      position.questions ? array.push(position.questions.join('\n') || '' ) : array.push('');
-      array.push(position.postingInfo || '' );
+
+      headerList.forEach( item => {
+        let val = company[item] || '';
+        val = val.replace(',',' ');
+        array.push(val);
+      });
+
       return array.join(',');
     }).join('\n');
 
-    saveToCsv(exportArray, headerList, 'positions.csv');
+    saveToCsv(exportArray, headerList, 'companies.csv');
 
     function saveToCsv(dataRows, columnHeaders, filename) {
 
