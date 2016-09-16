@@ -5,7 +5,6 @@ export default {
   template,
   bindings: {
     add: '<',
-    addButton: '=',
     companies: '<'
   },
   controller
@@ -30,7 +29,6 @@ function controller ($scope, $window, $mdDialog) {
   //saves and adds information to user's positions
   this.submit = () => {
     $mdDialog.hide(this.position);
-    console.log(this.position);
     this.add(this.position, this.userId);
     resetPosition();
     $scope.newPosition.$setPristine();
