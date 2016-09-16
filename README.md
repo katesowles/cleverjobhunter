@@ -1,7 +1,21 @@
-# Job Hunter App
+# Clever Job Hunter
+
+Throw away those spreadsheets and todo apps! 
+
+Clever Job Hunter is a central location where you can keep information about positions, companies, and contacts related to jobs that you've applied for or would like to apply.
+
+…but if you want a spreadsheet, we do offer the ability to export information in a .csv format.
+
+[Live Site Here](http://insertclevernamehere.herokuapp.com/#/)
 
 
-### This is an job search helper app that uses MongoDB, Express, AngularJS, node.js, Webpack, and deployed via Heroku.
+## Technologies used
+- MongoDB
+- Express
+- AngularJS
+- node.js
+- Webpack
+- deployed via Heroku
 
 
 ### Directions to run locally
