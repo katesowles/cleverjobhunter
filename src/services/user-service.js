@@ -31,12 +31,12 @@ export default function userService (token, $http, apiUrl) {
       .then(result => result.data);
   };
 
-  function getMe (id) {
+  function getMe(id) {
     return $http.get(`${apiUrl}/users/${id}`)
       .then(result => result.data);
   };
 
-  function update (userToUpdate, data) {
+  function update(userToUpdate, data) {
     return $http.put(`${apiUrl}/users/${userToUpdate._id}`, data)
       .then(result => {
         return result.data;
