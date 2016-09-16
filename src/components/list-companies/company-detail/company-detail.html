@@ -19,7 +19,7 @@
                 </md-list-item>
             </md-list>
             <md-divider></md-divider>
-            
+
             <p>Services Offered: {{$ctrl.company.service}}</p>
             <p>Company Info: {{$ctrl.company.info}}</p>
             <p>Tech Stack: {{$ctrl.company.tech}}</p>
@@ -32,13 +32,34 @@
         <md-card-content>
             <p ng-repeat="contact in $ctrl.companyContacts">{{contact.name || 'No company contacts'}}</p>
         </md-card-content>
+        <md-list>
+          <md-header>Company Pros:</md-header>
+          <md-list-item ng-repeat="pro in $ctrl.company.pros">
+            <p> {{ pro.pro || 'No Pros Yet'}} </p>
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+        <md-list>
+          <md-header>Company Cons:</md-header>
+          <md-list-item ng-repeat="con in $ctrl.company.cons">
+            <p> {{ con.con || 'No Cons Yet'}} </p>
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+        <md-list>
+          <md-header>Questions:</md-header>
+          <md-list-item ng-repeat="question in $ctrl.company.questions">
+            <p> {{ question.question || 'No Questions Yet'}} </p>
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
 
         <md-card-actions layout="row" layout-align="end center">
             <md-button class="md-secondary md-icon-button"
             ui-sref="actions({parentId: $ctrl.company._id, which: $ctrl.which, parentName: $ctrl.company.name})"
             >View Current Action Items
             </md-button>
-            <md-button>Questions</md-button>
+            <!-- <md-button>Questions</md-button> -->
             <md-button ng-click="$ctrl.newActionItem($event)">Add Action Item</md-button>
             <md-button ng-click="$ctrl.edit()">Edit Company<md-button>
         </md-card-actions>

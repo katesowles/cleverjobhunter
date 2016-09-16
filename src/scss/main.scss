@@ -30,6 +30,10 @@ h3 { // card sub header OR landing detail
   margin: 0;
 }
 
+landing h3 {
+  margin-bottom: 20px;
+}
+
 h4 { // graph sub headers OR footer content
   font-size: 1.25em;
   margin: 0;
@@ -79,7 +83,7 @@ footer a {
 }
 
 .canvasContain {
-  width: 500px;
+  width: 33%;
   height: 400px;
   padding: calc((100% - 1500px)/6.1);
   display: inline-block;
@@ -125,11 +129,11 @@ md-dialog-content form md-input-container {
 }
 
 .menudemoMenuPositionModes .md-menu-demo {
-  padding: 24px; 
+  padding: 24px;
 }
 
 .menudemoMenuPositionModes .menu-demo-container {
-  min-height: 200px; 
+  min-height: 200px;
 }
 
 md-menu-content {

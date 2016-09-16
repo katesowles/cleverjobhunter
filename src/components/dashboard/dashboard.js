@@ -11,20 +11,39 @@ function controller($window, companyService, contactService, positionService, ac
   this.styles = styles;
   this.userId = $window.localStorage['id'];
 
-  actionItemService.getDueAndOverdue(this.userId)
-  .then(items => {
-    console.log('get due and overdue called');
-    console.log(items);
-    this.almostDue = items.almostDue;
-    this.overDue = items.overDue;
+  Promise.all([
+    actionItemService.getDueAndOverdue(this.userId),
+    companyService.getByUser(this.userId),
+    companyService.getCountForWeek(this.userId),
+    contactService.getByUser(this.userId),
+    contactService.getCountForWeek(this.userId),
+    positionService.getByUser(this.userId),
+    positionService.getCountForWeek(this.userId)
+  ])
+  .then(([
+    actionItems,
+    companies,
+    companiesWeek,
+    contacts,
+    contactsWeek,
+    positions,
+    positionsWeek
+  ]) => {
+    this.almostDue = actionItems.almostDue;
+    this.overDue = actionItems.overDue;
+    this.companies = companies;
+    this.numCompanies = companies.length;
+    this.companyCount = companiesWeek;
+    this.contacts = contacts;
+    this.numContacts = contacts.length;
+    this.contactCount = contactsWeek;
+    this.positions = positions;
+    this.numPositions = positions.length;
+    this.positionCount = positionsWeek;
   })
-  .catch(err => {
-    console.log(err);
-  });
+  .catch(err => console.log(err));
 
   this.complete = (id, category) => {
-    console.log(id);
-    console.log(category);
     actionItemService.remove(id)
     .then(removed => {
       if (category === 'due') {
@@ -43,57 +62,6 @@ function controller($window, companyService, contactService, positionService, ac
       console.log(removed);
     });
   };
-
-  companyService.getByUser(this.userId)
-  .then( result => {
-    this.companies = result;
-    this.numCompanies = result.length;
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
-  companyService.getCountForWeek(this.userId)
-    .then( result => {
-      this.companyCount = result;
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
-  contactService.getByUser(this.userId)
-  .then( result => {
-    this.numContacts = result.length;
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
-  contactService.getCountForWeek(this.userId)
-    .then( result => {
-      this.contactCount = result;
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
-  positionService.getByUser(this.userId)
-  .then( result => {
-    this.positions = result;
-    this.numPositions = result.length;
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
-  positionService.getCountForWeek(this.userId)
-    .then( result => {
-      this.positionCount = result;
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
 
   //adds new position
   this.addPosition = (positionToAdd, userId) => {
@@ -127,7 +95,7 @@ function controller($window, companyService, contactService, positionService, ac
       $state.go('positions');
     });
   };
-  
+
   //adds a new company
   this.addCompany = (companyToAdd, userId) => {
     companyService.add(companyToAdd, userId)
@@ -136,7 +104,7 @@ function controller($window, companyService, contactService, positionService, ac
       })
       .catch(err => console.log(err));
   };
-    
+
   //opens new Dialog/form to add a new company
   this.newCompany = ($event) => {
     var parentEl = angular.element(document.body);

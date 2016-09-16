@@ -11,7 +11,7 @@ controller.$inject = ['companyService', '$window', '$mdDialog'];
 function controller(companyService, $window, $mdDialog){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
-  
+
   //gets all of user's companies
   companyService.getByUser(this.userId)
     .then(companies => {
@@ -23,6 +23,7 @@ function controller(companyService, $window, $mdDialog){
   this.add = (companyToAdd, userId) => {
     companyService.add(companyToAdd, userId)
       .then(addedcompany => {
+        console.log(addedcompany);
         this.companies.unshift(addedcompany);
       })
       .catch(err => console.log(err));
@@ -102,7 +103,7 @@ function controller(companyService, $window, $mdDialog){
           'data:text/csv;charset=utf-8,' +
           columnHeaders.join(',') + '\n' +
           dataRows;
-              
+
       var encodedUri = encodeURI(content);
 
       // faux link is required to give the file a name

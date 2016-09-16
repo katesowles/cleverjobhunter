@@ -8,16 +8,32 @@ export default {
   controller
 };
 
-function controller() {
-  // this.styles = styles;
+controller.$inject = ['companyService', 'contactService', 'positionService', '$window', 'userService'];
 
-  this.renderViz = (element, objTracked, objVerb, completed, total) => {
+function controller(companyService, contactService, positionService, $window, userService) {
+  // this.styles = styles;
+  this.userId = $window.localStorage['id'];
+
+  Promise.all([
+    companyService.getCountForWeek(this.userId),
+    positionService.getCountForWeek(this.userId),
+    contactService.getCountForWeek(this.userId),
+    userService.getMe(this.userId)
+  ])
+  .then(([numCompanies, numPositions, numContacts, user]) => {
+    this.renderViz('application', 'Applications', 'Sent', numPositions, user.positionGoal);
+    this.renderViz('brand', 'Companies', 'Researched', numCompanies, user.companyGoal);
+    this.renderViz('contact', 'New Contacts', 'Made', numContacts, user.contactGoal);
+  })
+  .catch(err => console.log(err));
+
+  this.renderViz = (element, objTracked, objVerb, completed, goal) => {
     // this hides the legend on each chart
     Chart.defaults.global.legend.display = false;
 
     // this tells the chart where to render, ID for the canvas
     const context = document.getElementById(element);
-    const remaining = completed - total;
+    const remaining = goal - completed;
 
     // eslint-disable-next-line
     const myChart = new Chart(context, {
@@ -34,12 +50,4 @@ function controller() {
       }
     });
   };
-
-  this.renderViz('application', 'Applications', 'Sent', 5, 1);
-
-  this.renderViz('brand', 'Online Interactions', 'Complete', 10, 5);
-
-  this.renderViz('contact', 'New Contacts', 'Made', 20, 3);
-
-  // this.renderViz('event', 'Events', 'Attended', 1000, 750);
 };

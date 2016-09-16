@@ -14,10 +14,13 @@ controller.$inject = ['$scope', '$window', '$mdDialog'];
 function controller ($scope, $window, $mdDialog) {
 
   this.userId = $window.localStorage['id'];
-  console.log(this.userId);
 
   const resetCompany = () => {
-    this.company = {};
+    this.company = {
+      pros: [],
+      cons: [],
+      questions: []
+    };
   };
 
   resetCompany();
@@ -26,9 +29,20 @@ function controller ($scope, $window, $mdDialog) {
     $mdDialog.hide();
   };
 
+  this.addProsInput = () => {
+    this.company.pros.unshift({});
+  };
+
+  this.addConsInput = () => {
+    this.company.cons.unshift({});
+  };
+
+  this.addQuestionsInput = () => {
+    this.company.questions.unshift({});
+  };
+
   //gives the form info to add a new company
   this.submit = () => {
-    console.log('got here to new-company form submit');
     $mdDialog.hide(this.company);
     this.add(this.company, this.userId);
     resetCompany();
