@@ -32,6 +32,12 @@
                 <md-datepicker ng-model="$ctrl.position.dateApplied"></md-datepicker>
               </div>
             </md-input-container>
+            <md-button ng-click="$ctrl.addQuestionsInput()">Add a Question</md-button>
+            <div ng-repeat="each in $ctrl.position.questions">
+              <md-input-container>
+                   <input aria-label="Questions" ng-model="each.question" placeholder="Question:"\>
+              </md-input-container>
+            </div>
           </div>
           <div layout="column">
             <md-input-container>

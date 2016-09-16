@@ -40,7 +40,6 @@ function controller ($mdDialog, $window, $scope, actionItemService) {
   this.add = (actionItem, userId) => {
     actionItemService.addForPosOrComp(actionItem, userId)
     .then(addedItem => {
-      console.log('addedItem',addedItem);
       $mdDialog.hide(addedItem);
     })
     .catch(err => console.log(err));

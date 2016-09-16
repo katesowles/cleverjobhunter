@@ -24,6 +24,13 @@
             <p>Date Advertised: {{$ctrl.position.dateAdvertised | date: 'shortDate'}}</p>
             <p>Date Applied: {{$ctrl.position.dateApplied | date: 'shortDate'}}</p>
             <p>Application Method: {{$ctrl.position.method}}</p>
+            <md-list>
+              <md-header>Questions:</md-header>
+              <md-list-item ng-repeat="question in $ctrl.position.questions">
+                <p> {{ question.question || 'No Questions Yet'}} </p>
+              </md-list-item>
+              <md-divider></md-divider>
+            </md-list>
             <p>Position Info: {{$ctrl.position.postingInfo}}</p>
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
