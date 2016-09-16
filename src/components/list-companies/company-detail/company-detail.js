@@ -12,10 +12,8 @@ export default {
   controller
 };
 
-
-
-controller.$inject = ['$mdDialog', 'companyService', '$window', '$state', 'contactService'];
-function controller($mdDialog, companyService, $window, $state, contactService){
+controller.$inject = ['$mdDialog', 'companyService', '$window', '$state', 'contactService', 'actionItemService'];
+function controller($mdDialog, companyService, $window, $state, contactService, actionItemService){
   this.styles = styles;
   this.userId = $window.localStorage['id'];
   this.which = 'company';
@@ -71,11 +69,29 @@ function controller($mdDialog, companyService, $window, $state, contactService){
       clickOutsideToClose: true,
       escapeToClose: true
     })
-    .then( updatedCompany => {
-      if (!updatedCompany) return;
-      //pass copied and updated version to original
-      angular.copy(updatedCompany, this.company);
+    .then( newActionItem => {
+      if (!newActionItem) return;
+      this.actionItems.unshift(newActionItem);
     });
   };
 
+  actionItemService.getByPosOrComp(this.which,$state.params.companyId)
+  .then(items => {
+    this.actionItems = items;
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+  this.complete = (id) => {
+    actionItemService.remove(id)
+    .then(removed => {
+      this.actionItems.forEach((e,i) => {
+        if (id === e._id) {
+          this.actionItems.splice(i, 1);
+        }
+      });
+      console.log(removed);
+    });
+  };
 }
