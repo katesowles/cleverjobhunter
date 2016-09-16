@@ -81,7 +81,12 @@ function controller(companyService, $window, $mdDialog){
       var array = [];
 
       headerList.forEach( item => {
-        let val = company[item] || '';
+        let val;
+        if(item === 'info') {
+          val = '"' + company[item] + '"';
+        } else {
+          val = company[item] || '';
+        }
         val = val.replace(',',' ');
         array.push(val);
       });

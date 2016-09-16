@@ -92,12 +92,12 @@ function controller(positionService, $window, $mdDialog, companyService){
       var array = [];
       array.push(position._id || '' );
       array.push(position.title || '' );
-      position.company ? array.push(position.company.name || '' ) : array.push('');
+      position.company ? array.push('"' + position.company.name + '"') : array.push('');
       array.push(position.dateAdvertised || '' );
       array.push(position.dateApplied || '' );
       array.push(position.method || '' );
       position.questions ? array.push(position.questions.join('\n') || '' ) : array.push('');
-      array.push(position.postingInfo || '' );
+      array.push('"' + position.postingInfo + '"');
       return array.join(',');
     }).join('\n');
 
