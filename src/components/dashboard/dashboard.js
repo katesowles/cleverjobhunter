@@ -11,14 +11,37 @@ function controller($window, companyService, contactService, positionService, ac
   this.styles = styles;
   this.userId = $window.localStorage['id'];
 
-  actionItemService.getDueAndOverdue(this.userId)
-  .then(items => {
-    this.almostDue = items.almostDue;
-    this.overDue = items.overDue;
+  Promise.all([
+    actionItemService.getDueAndOverdue(this.userId),
+    companyService.getByUser(this.userId),
+    companyService.getCountForWeek(this.userId),
+    contactService.getByUser(this.userId),
+    contactService.getCountForWeek(this.userId),
+    positionService.getByUser(this.userId),
+    positionService.getCountForWeek(this.userId)
+  ])
+  .then(([
+    actionItems,
+    companies,
+    companiesWeek,
+    contacts,
+    contactsWeek,
+    positions,
+    positionsWeek
+  ]) => {
+    this.almostDue = actionItems.almostDue;
+    this.overDue = actionItems.overDue;
+    this.companies = companies;
+    this.numCompanies = companies.length;
+    this.companyCount = companiesWeek;
+    this.contacts = contacts;
+    this.numContacts = contacts.length;
+    this.contactCount = contactsWeek;
+    this.positions = positions;
+    this.numPositions = positions.length;
+    this.positionCount = positionsWeek;
   })
-  .catch(err => {
-    console.log(err);
-  });
+  .catch(err => console.log(err));
 
   this.complete = (id, category) => {
     actionItemService.remove(id)
@@ -39,57 +62,6 @@ function controller($window, companyService, contactService, positionService, ac
       console.log(removed);
     });
   };
-
-  companyService.getByUser(this.userId)
-  .then( result => {
-    this.companies = result;
-    this.numCompanies = result.length;
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
-  companyService.getCountForWeek(this.userId)
-    .then( result => {
-      this.companyCount = result;
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
-  contactService.getByUser(this.userId)
-  .then( result => {
-    this.numContacts = result.length;
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
-  contactService.getCountForWeek(this.userId)
-    .then( result => {
-      this.contactCount = result;
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
-  positionService.getByUser(this.userId)
-  .then( result => {
-    this.positions = result;
-    this.numPositions = result.length;
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
-  positionService.getCountForWeek(this.userId)
-    .then( result => {
-      this.positionCount = result;
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
 
   //adds new position
   this.addPosition = (positionToAdd, userId) => {
