@@ -17,10 +17,23 @@ export default function userService (token, $http, apiUrl) {
   function credential (endpoint) {
     return (credentials) => {
       return $http.post(`${apiUrl}/auth/${endpoint}`, credentials)
-        .then(result => {
-          token.set(result.data.token);
+        .then( result => {
+          if(result && result.data) {
+            if(result.data.token) {
+              token.set(result.data.token);
+              return {success: true};
+            } else
+            if(result.data.error) {
+              return {error: result.data.error};
+            } else {
+              return {error: 'Credential check failed. Unknown error in userService.'};
+            }
+          } else {
+            console.log('Error requesting credential check: No data returned.');
+          }
         })
-        .catch(err => {
+        .catch( err => {
+          console.log('Error requesting credential check:',err.data);
           throw err.data;
         });
     };

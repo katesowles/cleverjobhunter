@@ -17,13 +17,18 @@ function controller(userService){
   };
 
   this.authenticate = ()=>{
+    this.error = '';
     return userService.signin(this.credentials)
-      .then(()=>{
-        this.success();
-        return true;
+      .then( result => {
+        if(result.success) {
+          this.success();
+          return true;
+        } else {
+          this.error = result.error;
+        }
       })
-      .catch(error=>{
-        this.error = error;
+      .catch( error => {
+        console.log('signin error:',error);
         return false;
       });
   };
